@@ -228,7 +228,7 @@ window.onload = async () => {
                 view.setActiveScreen("registerPage");
             }
         } else {
-            view.setActiveScreen("homePage")
+            view.setActiveScreen("loginPage")
         }
 
     })
