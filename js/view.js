@@ -89,6 +89,10 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".signUp1").addEventListener('click', () => {
                 view.setActiveScreen("registerPage")
             })
+            break;
+
+        case "userHomePage":
+            document.getElementById("app").innerHTML = component.userHomePage;
     }
 }
 view.setErrorMessage = (elementId, content) => {

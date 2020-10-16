@@ -18,9 +18,9 @@ window.onload = async () => {
                 uid: user.uid,
             };
             if (user.emailVerified) {
-                firebase.auth().signOut()
-                console.log('verified')
-                console.log(model.currentUser)
+                // firebase.auth().signOut()
+                // console.log('verified')
+                // console.log(model.currentUser)
                 model.temp();
             } else {
                 alert("Please verify your email");
