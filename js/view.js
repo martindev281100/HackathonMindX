@@ -114,6 +114,8 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".logOut").addEventListener('click', () => {
                 firebase.auth().signOut();
             })
+            await model.getQuizzes();
+            view.showQuizzes();
             break;
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
@@ -123,8 +125,6 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
             })
-            await model.getQuizzes();
-            view.showQuizzes();
             break;
     }
 }

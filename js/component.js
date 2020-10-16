@@ -202,14 +202,14 @@ component.quizPage = `
 <button id="answer2" class="answer"></button>
 <button id="answer3" class="answer"></button>
 
-<!--<input type="radio" id="answer0" class="answer" value="">
+<input type="radio" id="answer0" class="answer" value="">
 <label for="answer0" id="label0"></label><br>
 <input type="radio" id="answer1" class="answer" value="">
 <label for="answer1" id="label1"></label><br>
 <input type="radio" id="answer2" class="answer" value="">
 <label for="answer2" id="label2"></label><br>
 <input type="radio" id="answer3" class="answer" value="">
-<label for="answer3" id="label3"></label>-->
+<label for="answer3" id="label3"></label>
 `
 
 component.blogPage = `
