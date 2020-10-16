@@ -31,19 +31,33 @@
 
 .login-container .input-wrapper,
 .register-container .input-wrapper{
-    margin: 25px 0;
+    margin: 13px;
 }
+
+.login-container .input-wrapper:first-child,
+.register-container .input-wrapper:first-child{
+    margin-top: 20px;
+}
+
+.login-container .input-wrapper .error,
+.register-container .input-wrapper .error{
+    color: #c23616;
+    font-weight: 600;
+    float: left;
+    margin-bottom: 10px;
+}
+
 
 .login-container .input-wrapper input,
 .register-container .input-wrapper input{
-    width: 85%;
+    width: 100%;
     padding: 15px;
     outline: none;
     border: none;
 }
 
 .login-container .forgetPassword{
-    width: 50%;
+    width: 42%;
     color: #dbdbdb;
     cursor: pointer;
 }
