@@ -42,7 +42,6 @@ model.logInWithFacebook = () => {
     firebase.auth().signInWithPopup(provider).then(async function (result) {
         if (firebase.auth().currentUser.emailVerified == false) {
             await firebase.auth().currentUser.sendEmailVerification();
-            model.setOffline(result.user.uid)
             firebase.auth().signOut()
         }
         firebase.firestore().collection("users").doc(result.user.uid).get().then(function (doc) {
