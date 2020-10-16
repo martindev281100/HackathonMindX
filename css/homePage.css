@@ -1,0 +1,123 @@
+
+.main{
+    width: 100vw;
+    height: calc(100vh - 100px);
+    background-color: #fff;
+    display: flex;
+}
+
+.main .text{
+    width: 45vw;
+    height: 100%;
+    background-color: #1dd1a1;
+    border-right: 1px solid #fff;
+}
+
+.main .text h1{
+    padding-top: 6rem;
+    padding-left: 4rem;
+    font-size: 3.5rem;
+    color: #fff;
+}
+
+.main .text h3{
+    color: #fff;
+    padding-top: 4rem;
+    padding-left: 4rem;
+}
+
+.main .text button{
+    margin: 2rem 4rem;
+    padding: 2rem 4rem;
+    background-color: transparent;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.main .text button:hover{
+    background-color: #fff;
+    color: #10ac84;
+    transition: 0.8s;
+}
+
+.main .text .blogBtn{
+    padding-left: 4rem;
+    cursor: pointer;
+    color: #10ac84;
+    font-size: 25px;
+    font-weight: 500;
+    display: inline;
+}
+
+.main .text .blogBtn:hover{
+    color: #fff;
+    font-weight: 700;
+    font-size: 30px;
+    transition: 0.8s;
+}
+
+.main .slides-show{
+    width: 55vw;
+    height: 100%;
+    background-color: #1dd1a1;
+}
+
+.main .slide-show .mySlides {
+    display: none;
+}
+
+.main .slide-show .mySlides img{
+    width: 100%;
+}
+
+.main .slide-show .mySlides .text {
+    color: #f2f2f2;
+    font-size: 1.25rem;
+    padding: 1.25rem;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    cursor: pointer;
+    padding: 5px 30px;
+    margin: 0.5rem 0.25rem;
+    background-color: #c8d6e5;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    border-radius: 10px;
+    transition: 1s;
+}
+  
+.dot:hover {
+    background-color: #717171;
+}
+
+.active{
+    padding: 5px 50px;
+    background-color: #10ac84;
+    transition: 1s;
+}
+
+.main .slide-show .fade{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
