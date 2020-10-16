@@ -79,8 +79,8 @@ component.loginPage = `
               <h2>Forget Password</h2>
             </div>
             <div class="modal-body">
-              <input type="text" placeholder="Enter your email">
-              <button class="submit">Submit</button>
+              <input type="text" placeholder="Enter your email" id="reset-password-email">
+              <button class="submit" type="button" id="btnResetPassword">Submit</button>
             </div>
           </div>
         </div>

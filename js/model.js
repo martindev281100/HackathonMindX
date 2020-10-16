@@ -47,10 +47,23 @@ model.logInWithFacebook = () => {
         firebase.firestore().collection("users").doc(result.user.uid).get().then(function (doc) {
             if (doc.exists) {
                 return
-            } else {
-            }
+            } else {}
         })
     }).catch(function (error) {
         alert(error.message)
     });
 }
+
+model.sendPasswordResetEmail = (email) => {
+    firebase.auth().sendPasswordResetEmail(email)
+        .catch(function (error) {
+            alert(error)
+        })
+}
+
+model.changePassword = (password) => {
+    firebase.auth().currentUser.updatePassword(password).catch(function (error) {
+        alert(error)
+    })
+}
+
