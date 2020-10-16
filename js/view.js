@@ -45,6 +45,15 @@ view.setActiveScreen = async (screenName) => {
         case "homePage":
             document.getElementById("app").innerHTML = component.homePage;
             view.showSlides(slideIndex);
+            document.querySelector(".logIn").addEventListener('click', () => {
+                view.setActiveScreen("loginPage")
+            })
+            document.querySelector(".signUp").addEventListener('click', () => {
+                view.setActiveScreen("registerPage")
+            })
+            document.querySelector(".signUp1").addEventListener('click', () => {
+                view.setActiveScreen("registerPage")
+            })
     }
 }
 view.setErrorMessage = (elementId, content) => {

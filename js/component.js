@@ -93,7 +93,7 @@ component.homePage = `
   <div class="text">
       <h1>Become your most <br> unstoppable self</h1>
       <h3>Master any subject, one success at a time.</h5>
-      <button>Get Start</button><br>
+      <button class="signUp1">Get Start</button><br>
       <div class="blogBtn">I'm a Student</div>
   </div>
   <div class="slides-show">
