@@ -1,23 +1,3 @@
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  const slides = document.getElementsByClassName("mySlides");
-  const dots = document.getElementsByClassName("dot");
-  for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (let i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace("active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
 const view = {}
 
 view.setActiveScreen = async (screenName) => {
@@ -61,8 +41,33 @@ view.setActiveScreen = async (screenName) => {
                 view.setActiveScreen("registerPage");
             });
             break;
+
+        case "homePage":
+            document.getElementById("app").innerHTML = component.homePage;
+            view.showSlides(slideIndex);
     }
 }
 view.setErrorMessage = (elementId, content) => {
     document.getElementById(elementId).innerText = content;
 };
+
+
+
+let slideIndex = 1;
+// Thumbnail image controls
+function currentSlide(n) {
+  view.showSlides(slideIndex = n);
+}
+view.showSlides = (n) => {
+    const slides = document.getElementsByClassName("mySlides");
+    const dots = document.getElementsByClassName("dot");
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace("active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+}
+
