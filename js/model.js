@@ -15,10 +15,7 @@ model.register = async (data) => {
     }
 };
 
-model.login = async ({
-    email,
-    password
-}) => {
+model.login = async ({email, password}) => {
     firebase.auth().signInWithEmailAndPassword(email, password).catch(error => {
         alert(error.message)
     });
@@ -37,6 +34,7 @@ model.logInWithGoogle = () => {
         alert(error.message)
     })
 }
+
 model.logInWithFacebook = () => {
     var provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then(async function (result) {
@@ -55,10 +53,9 @@ model.logInWithFacebook = () => {
 }
 
 model.sendPasswordResetEmail = (email) => {
-    firebase.auth().sendPasswordResetEmail(email)
-        .catch(function (error) {
-            alert(error)
-        })
+    firebase.auth().sendPasswordResetEmail(email).catch(function (error) {
+        alert(error)
+    })
 }
 
 model.changePassword = (password) => {
@@ -67,10 +64,8 @@ model.changePassword = (password) => {
     })
 }
 
-let quiz;
 model.getQuizzes = async () => {
     const response = await firebase.firestore().collection('quizzes').get();
-    console.log(response)
-    quiz = getManyDocument(response);
-    console.log(quiz);
+    controller.quizzes = getManyDocument(response);
+    for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
 }

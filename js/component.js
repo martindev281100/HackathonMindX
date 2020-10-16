@@ -183,8 +183,8 @@ component.quizPage = `
 </div>
 </div>
 <div id="question"></div>
-<button id="answer0"></button>
-<button id="answer1"></button>
-<button id="answer2"></button>
-<button id="answer3"></button>
+<button id="answer0" class="answer"></button>
+<button id="answer1" class="answer"></button>
+<button id="answer2" class="answer"></button>
+<button id="answer3" class="answer"></button>
 `

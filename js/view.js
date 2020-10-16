@@ -104,15 +104,15 @@ view.setActiveScreen = async (screenName) => {
 
         case "quizPage":
             document.getElementById("app").innerHTML = component.quizPage;
-            model.getQuizzes();
+            await model.getQuizzes();
+            view.showQuizzes();
             break;
     }
 }
+
 view.setErrorMessage = (elementId, content) => {
     document.getElementById(elementId).innerText = content;
 };
-
-
 
 let slideIndex = 1;
 // Thumbnail image controls
@@ -130,4 +130,39 @@ view.showSlides = (n) => {
     }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
+}
+
+let count = 0;
+view.showQuizzes = () => {
+    let rand;
+    do {
+        rand = Math.floor(Math.random() * controller.quizzes.length);
+    } while (controller.quizzes[rand].shown)
+    controller.quizzes[rand].shown = true;
+    document.getElementById("question").innerHTML = controller.quizzes[rand].question;
+    let answers = [
+        controller.quizzes[rand]["correct_answer"],
+        controller.quizzes[rand]["incorrect_answers"][0],
+        controller.quizzes[rand]["incorrect_answers"][1],
+        controller.quizzes[rand]["incorrect_answers"][2]
+    ];
+    for (let i = 0; i < 4; i++) {
+        let rand = Math.floor(Math.random() * answers.length);
+        document.getElementById("answer" + i).innerHTML = answers[rand];
+        answers.splice(rand, 1);
+    }
+    document.querySelectorAll(".answer").forEach(answer => {
+        answer.addEventListener("click", () => {
+            if (answer.innerHTML == controller.quizzes[rand]["correct_answer"]) alert("Correct");
+            else alert("Incorrect");
+            count++;
+            if (count == controller.quizzes.length) {
+                view.setActiveScreen(component.userHomePage);
+                for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
+                count = 0;
+            } else {
+                view.showQuizzes();
+            }
+        })
+    })
 }
