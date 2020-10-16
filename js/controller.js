@@ -1,5 +1,9 @@
 const controller = {};
 
+// controller.checkField = (data) => {
+//     if (data.match(" ")) 
+// }
+
 controller.register = (data) => {
     view.setErrorMessage("user-name-error", data.userName === "" ? "Please input your username" : "");
     view.setErrorMessage("email-error", data.email === "" ? "Please input your email" : "");
