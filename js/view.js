@@ -93,6 +93,7 @@ view.setActiveScreen = async (screenName) => {
 
         case "userHomePage":
             document.getElementById("app").innerHTML = component.userHomePage;
+            break;
     }
 }
 view.setErrorMessage = (elementId, content) => {
