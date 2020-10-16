@@ -77,6 +77,7 @@ view.setActiveScreen = async (screenName) => {
             })
 
             break;
+
         case "homePage":
             document.getElementById("app").innerHTML = component.homePage;
             view.showSlides(slideIndex);
@@ -89,6 +90,22 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".signUp1").addEventListener('click', () => {
                 view.setActiveScreen("registerPage")
             })
+            break;
+
+        case "userHomePage":
+            document.getElementById("app").innerHTML = component.userHomePage;
+            document.getElementById("sign-out-button").addEventListener("click", function () {
+                firebase.auth().signOut();
+            })
+            document.getElementById("quiz-button").addEventListener("click", function () {
+                view.setActiveScreen("quizPage")
+            })
+            break;
+
+        case "quizPage":
+            document.getElementById("app").innerHTML = component.quizPage;
+            model.getQuizzes();
+            break;
     }
 }
 view.setErrorMessage = (elementId, content) => {

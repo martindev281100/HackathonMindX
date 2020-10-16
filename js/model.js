@@ -67,3 +67,10 @@ model.changePassword = (password) => {
     })
 }
 
+let quiz;
+model.getQuizzes = async () => {
+    const response = await firebase.firestore().collection('quizzes').get();
+    console.log(response)
+    quiz = getManyDocument(response);
+    console.log(quiz);
+}
