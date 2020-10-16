@@ -100,6 +100,7 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
             })
+            model.getQuizzes();
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("blogPage")
             })
@@ -171,7 +172,8 @@ view.showQuizzes = () => {
         answers.splice(rand, 1);
     }
     document.querySelectorAll(".answer").forEach(answer => {
-        answer.addEventListener("click", () => {
+        answer.addEventListener("click", checkAnswer);
+        function checkAnswer () {
             if (answer.innerHTML == controller.quizzes[rand]["correct_answer"]) alert("Correct");
             else alert("Incorrect");
             count++;
@@ -180,8 +182,8 @@ view.showQuizzes = () => {
                 for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
                 count = 0;
             } else {
-                view.showQuizzes();
+                view.setActiveScreen("quizPage");
             }
-        })
+        }
     })
 }
