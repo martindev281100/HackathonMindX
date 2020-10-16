@@ -32,3 +32,17 @@ window.onload = async () => {
 
     })
 }
+
+const getManyDocument = (response) => {
+    const listData = []
+    for(const doc of response.docs) {
+      listData.push(getOneDocument(doc))
+    }
+    return listData
+}
+  
+const getOneDocument = (response) => {
+  const data = response.data()
+  data.id = response.id
+  return data
+}

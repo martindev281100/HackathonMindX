@@ -106,6 +106,7 @@ component.loginPage = `
 component.homePage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+  <button id="quiz-button">Quiz</button>
   <div class="search">
       <input type="text">
       <i class="fas fa-search"></i>
@@ -159,7 +160,6 @@ component.homePage = `
 component.userHomePage = `
 <div class="navbar">
 <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-<div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
 <button id="quiz-button">Quiz</button>
 <div class="search">
     <input type="text">
@@ -171,4 +171,21 @@ component.userHomePage = `
 </div>
 `;
 
-
+component.quizPage = `
+<div class="navbar">
+<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+<div class="search">
+    <input type="text">
+    <i class="fas fa-search"></i>
+</div>
+<div class="Btn-Login-SignUp">
+    <button class="logIn">Sign out</button>
+</div>
+</div>
+<div id="question"></div>
+<button id="answer0"></button>
+<button id="answer1"></button>
+<button id="answer2"></button>
+<button id="answer3"></button>
+`
