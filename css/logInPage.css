@@ -1,17 +1,20 @@
-.login-container{
+.login-container,
+.register-container{
     width: 100%;
     height: calc(100vh - 100px);
     background-color: #1dd1a1;
     margin-top: 0;
 }
 
- .login-container #login-form{
+ .login-container #login-form,
+ .register-container #register-form{
     width: 25%;
     margin: 0 auto;
     text-align: center;
 }
 
-.login-container .login-header{
+.login-container .login-header,
+.register-container .register-header{
     padding-top: 2rem;
     color: #fff;
     font-size: 2rem;
@@ -19,17 +22,20 @@
     letter-spacing: 10px;
 }
 
-.login-container .login-from{
+.login-container .login-from,
+.register-container .register-form{
     border: 3px solid #fff;
     margin-top: 1.5rem;
     border-radius: 5px;
 }
 
-.login-container .input-wrapper{
+.login-container .input-wrapper,
+.register-container .input-wrapper{
     margin: 25px 0;
 }
 
-.login-container .input-wrapper input{
+.login-container .input-wrapper input,
+.register-container .input-wrapper input{
     width: 85%;
     padding: 15px;
     outline: none;
@@ -42,7 +48,8 @@
     cursor: pointer;
 }
 
-.login-container .input-wrapper .btn{
+.login-container .input-wrapper .btn,
+.register-container .input-wrapper .btn{
     margin: 10px;
     width: 30%;
     padding: 15px;
@@ -56,7 +63,8 @@
     transition: 0.8s;
 }
 
-.login-container .input-wrapper .btn:hover{
+.login-container .input-wrapper .btn:hover,
+.register-container .input-wrapper .btn:hover{
     background-color: #fff;
     color: #10ac84;
     width: 60%;
@@ -99,6 +107,45 @@
     font-weight: 500;
 }
 
-.redirect #redirect-to-register{
+.redirect #redirect-to-register,
+.redirect #redirect-to-login{
     cursor: pointer;
 }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }

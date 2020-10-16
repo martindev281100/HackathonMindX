@@ -1,30 +1,43 @@
 const component = {};
 
 component.registerPage = `
+<div class="navbar">
+  <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+  <div class="search">
+      <input type="text">
+      <i class="fas fa-search"></i>
+  </div>
+  <div class="Btn-Login-SignUp">
+    <button class="logIn">Log in</button>
+    <button class="signUp">Sign up</button>
+  </div>
+</div>
 <div class="register-container">
 <form id="register-form">
   <div class="register-header">REGISTER</div>
-  
-  <div class="input-wrapper form-group">
+  <div class="register-form">
+    <div class="input-wrapper form-group">
     <input type="text" class="form-control" placeholder="Username" name="userName"/>
     <div class="error" id="user-name-error"></div>
-  </div>
-  <div class="input-wrapper form-group">
-    <input type="email" class="form-control" placeholder="Email" name="email"/>
-    <div class="error" id="email-error"></div>
-  </div>
-  <div class="input-wrapper form-group">
-    <input type="password" class="form-control" placeholder="Password" name="password"/>
-    <div class="error" id="password-error"></div>
-  </div>
-  <div class="input-wrapper form-group">
-    <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword"/>
-    <div class="error" id="confirm-password-error"></div>
-  </div>
-  <div class="form-action input-wrapper">
-    <button class="btn btn-primary btn-register cursor-pointer" type="submit">Register</button>
-    <div class="redirect">Already have an account?
-      <span id="redirect-to-login" class="cursor-pointer">Login</span>
+    </div>
+    <div class="input-wrapper form-group">
+      <input type="email" class="form-control" placeholder="Email" name="email"/>
+      <div class="error" id="email-error"></div>
+    </div>
+    <div class="input-wrapper form-group">
+      <input type="password" class="form-control" placeholder="Password" name="password"/>
+      <div class="error" id="password-error"></div>
+    </div>
+    <div class="input-wrapper form-group">
+      <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword"/>
+      <div class="error" id="confirm-password-error"></div>
+    </div>
+    <div class="form-action input-wrapper">
+      <button class="btn btn-primary btn-register cursor-pointer" type="submit">Register</button>
+      <div class="redirect">Already have an account?
+        <span id="redirect-to-login" class="cursor-pointer">Login</span>
+      </div>
     </div>
   </div>
 </form>
@@ -40,8 +53,8 @@ component.loginPage = `
       <i class="fas fa-search"></i>
   </div>
   <div class="Btn-Login-SignUp">
-      <button class="logIn">Log in</button>
-      <button class="signUp">Sign up</button>
+    <button class="signUp">Log in</button>
+    <button class="logIn">Sign up</button>
   </div>
 </div>
 <div class="login-container">
@@ -56,7 +69,21 @@ component.loginPage = `
           <input type="password" class="form-control" placeholder="Password" name="password"/>
           <div class="error" id="password-error"></div>
         </div>
-        <div class="forgetPassword">Forget Password ?</div>
+        <div class="forgetPassword" id="myBtn">Forget Password ?</div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+        <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2>Forget Password</h2>
+            </div>
+            <div class="modal-body">
+              <input type="text" placeholder="Enter your email">
+              <div class="submit">Submit</div>
+            </div>
+          </div>
+        </div>
       <div class="form-action input-wrapper">
         <button class="btn btn-primary btn-login cursor-pointer" type="submit">Log in</button>
         <div class="login-by-social-account">
@@ -93,7 +120,7 @@ component.homePage = `
   <div class="text">
       <h1>Become your most <br> unstoppable self</h1>
       <h3>Master any subject, one success at a time.</h5>
-      <button>Get Start</button><br>
+      <button class="signUp1">Get Start</button><br>
       <div class="blogBtn">I'm a Student</div>
   </div>
   <div class="slides-show">
