@@ -106,7 +106,6 @@ component.loginPage = `
 component.homePage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <button id="quiz-button">Quiz</button>
   <div class="search">
       <input type="text">
       <i class="fas fa-search"></i>
@@ -166,7 +165,7 @@ component.userHomePage = `
     <i class="fas fa-search"></i>
 </div>
 <div class="Btn-Login-SignUp">
-    <button class="logIn">Sign out</button>
+    <button id="sign-out-button">Sign out</button>
 </div>
 </div>
 `;

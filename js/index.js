@@ -8,7 +8,6 @@ window.onload = async () => {
         messagingSenderId: "695408446128",
         appId: "1:695408446128:web:65e29ac3249cbf57178975"
     };
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     await firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -18,18 +17,16 @@ window.onload = async () => {
                 uid: user.uid,
             };
             if (user.emailVerified) {
-                firebase.auth().signOut()
-                // console.log('verified')
-                // console.log(model.currentUser)
-                model.temp();
+                view.setActiveScreen('userHomePage');
+                //firebase.auth().signOut();
             } else {
                 alert("Please verify your email");
-                view.setActiveScreen("registerPage");
+                firebase.auth().signOut();
+                view.setActiveScreen("loginPage");
             }
         } else {
             view.setActiveScreen("homePage")
         }
-
     })
 }
 
