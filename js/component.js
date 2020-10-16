@@ -32,32 +32,47 @@ component.registerPage = `
 `;
 
 component.loginPage = `
+<div class="navbar">
+  <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+  <div class="search">
+      <input type="text">
+      <i class="fas fa-search"></i>
+  </div>
+  <div class="Btn-Login-SignUp">
+      <button class="logIn">Log in</button>
+      <button class="signUp">Sign up</button>
+  </div>
+</div>
 <div class="login-container">
-<form id="login-form">
-  <div class="login-header">LOGIN</div>
-  <div class="input-wrapper form-group">
-    <input type="email" class="form-control" placeholder="Email" name="email"/>
-    <div class="error" id="email-error"></div>
-  </div>
-  <div class="input-wrapper form-group">
-    <input type="password" class="form-control" placeholder="Password" name="password"/>
-    <div class="error" id="password-error"></div>
-  </div>
-  <div class="form-action input-wrapper">
-    <button class="btn btn-primary btn-login cursor-pointer" type="submit">Login</button>
-    <div class="login-by-social-account">
-      <div class="text"><span>Or login with</span></div>
-      <div class="btn-social-acc">
-        <button id="btn_google"><i class="fab fa-google"></i> Google </button>
-        <button id="btn_facebook"><i class="fab fa-facebook-square"></i> Facebook </button>
+  <form id="login-form">
+    <div class="login-header">LOGIN</div>
+    <div class="login-from">
+        <div class="input-wrapper form-group">
+          <input type="email" class="form-control" placeholder="Email" name="email"/>
+          <div class="error" id="email-error"></div>
+        </div>
+        <div class="input-wrapper form-group">
+          <input type="password" class="form-control" placeholder="Password" name="password"/>
+          <div class="error" id="password-error"></div>
+        </div>
+        <div class="forgetPassword">Forget Password ?</div>
+      <div class="form-action input-wrapper">
+        <button class="btn btn-primary btn-login cursor-pointer" type="submit">Log in</button>
+        <div class="login-by-social-account">
+          <div class="text"><span>Or login with</span></div>
+          <div class="btn-social-acc">
+            <button id="btn_google"><i class="fab fa-google"></i> Google </button>
+            <button id="btn_facebook"><i class="fab fa-facebook-square"></i> Facebook </button>
+          </div>
+        </div>
+        
+        <div class="redirect">Don't have an account?
+          <span id="redirect-to-register" class="cursor-pointer">Register</span>
+        </div>
       </div>
     </div>
-    
-    <div class="redirect">Don't have an account?
-      <span id="redirect-to-register" class="cursor-pointer">Register</span>
-    </div>
-  </div>
-</form>
+  </form>
 </div>
 `;
 
