@@ -159,6 +159,7 @@ component.homePage = `
 component.userHomePage = `
 <div class="navbar">
 <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="create" id="create-button"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
 <button id="quiz-button">Quiz</button>
 <div class="search">
     <input type="text">
@@ -173,7 +174,6 @@ component.userHomePage = `
 component.quizPage = `
 <div class="navbar">
 <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-<div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
 <div class="search">
     <input type="text">
     <i class="fas fa-search"></i>
@@ -188,12 +188,8 @@ component.quizPage = `
 <button id="answer2" class="answer"></button>
 <button id="answer3" class="answer"></button>
 
-<!--<input type="radio" id="answer0" class="answer" value="">
-<label for="answer0" id="label0"></label><br>
-<input type="radio" id="answer1" class="answer" value="">
-<label for="answer1" id="label1"></label><br>
-<input type="radio" id="answer2" class="answer" value="">
-<label for="answer2" id="label2"></label><br>
-<input type="radio" id="answer3" class="answer" value="">
-<label for="answer3" id="label3"></label>-->
+`
+
+component.creatPage = `
+
 `
