@@ -80,7 +80,7 @@ component.loginPage = `
             </div>
             <div class="modal-body">
               <input type="text" placeholder="Enter your email">
-              <div class="submit">Submit</div>
+              <button class="submit">Submit</button>
             </div>
           </div>
         </div>
