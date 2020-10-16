@@ -18,7 +18,6 @@ window.onload = async () => {
             };
             if (user.emailVerified) {
                 view.setActiveScreen('userHomePage');
-                //firebase.auth().signOut();
             } else {
                 alert("Please verify your email");
                 firebase.auth().signOut();
