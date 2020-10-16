@@ -100,11 +100,29 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
             })
+            document.querySelector(".blog").addEventListener('click', () => {
+                view.setActiveScreen("blogPage")
+            })
             break;
 
         case "quizPage":
             document.getElementById("app").innerHTML = component.quizPage;
             model.getQuizzes();
+            document.querySelector(".blog").addEventListener('click', () => {
+                view.setActiveScreen("blogPage")
+            })
+            document.querySelector(".logOut").addEventListener('click', () => {
+                firebase.auth().signOut();
+            })
+            break;
+        case "blogPage":
+            document.getElementById("app").innerHTML = component.blogPage;
+            document.querySelector(".logOut").addEventListener('click', () => {
+                firebase.auth().signOut();
+            })
+            document.getElementById("quiz-button").addEventListener("click", function () {
+                view.setActiveScreen("quizPage")
+            })
             break;
     }
 }

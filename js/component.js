@@ -3,7 +3,6 @@ const component = {};
 component.registerPage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="search">
       <input type="text">
       <i class="fas fa-search"></i>
@@ -47,7 +46,6 @@ component.registerPage = `
 component.loginPage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="search">
       <input type="text">
       <i class="fas fa-search"></i>
@@ -158,33 +156,121 @@ component.homePage = `
 
 component.userHomePage = `
 <div class="navbar">
-<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-<button id="quiz-button">Quiz</button>
-<div class="search">
+  <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+  <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+  <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+  <div class="search">
     <input type="text">
     <i class="fas fa-search"></i>
-</div>
-<div class="Btn-Login-SignUp">
-    <button id="sign-out-button">Sign out</button>
-</div>
+  </div>
+  <div class="account">
+    <i class="fas fa-user-astronaut"></i>
+    User 00000001
+  </div>
+  <div class="logOut" id="sign-out-button">
+    <i class="fas fa-sign-out-alt">
+    <h4> Log out</h4>
+    </i>
+  </div>
 </div>
 `;
 
 component.quizPage = `
 <div class="navbar">
-<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-<div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
-<div class="search">
+  <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+  <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+  <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+  <div class="search">
     <input type="text">
     <i class="fas fa-search"></i>
-</div>
-<div class="Btn-Login-SignUp">
-    <button class="logIn">Sign out</button>
-</div>
+  </div>
+  <div class="account">
+    <i class="fas fa-user-astronaut"></i>
+    User 00000001
+  </div>
+  <div class="logOut" id="sign-out-button">
+    <i class="fas fa-sign-out-alt">
+    <h4> Log out</h4>
+    </i>
+  </div>
 </div>
 <div id="question"></div>
 <button id="answer0"></button>
 <button id="answer1"></button>
 <button id="answer2"></button>
 <button id="answer3"></button>
+`
+
+component.blogPage = `
+    <div class="navbar">
+      <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+      <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+      <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+      <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+      <div class="search">
+        <input type="text">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="account">
+        <i class="fas fa-user-astronaut"></i>
+        User 00000001
+      </div>
+      <div class="logOut" id="sign-out-button">
+        <i class="fas fa-sign-out-alt">
+        <h4> Log out</h4>
+        </i>
+      </div>
+    </div>
+    <div class="main-blog">
+        <div class="article">
+            <div class="content">
+                <h1>Heading of Article</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
+                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
+                    corporis! Dolores.</p>
+                <div class="view">view</div>
+            </div>
+            <div class="img-article">
+                <img src="./img/maxresdefault.jpg" alt="">
+            </div>
+        </div>
+        <div class="article">
+            <div class="content">
+                <h1>Heading of Article</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
+                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
+                    corporis! Dolores.</p>
+                <div class="view">view</div>
+            </div>
+            <div class="img-article">
+                <img src="./img/maxresdefault.jpg" alt="">
+            </div>
+        </div>
+        <div class="article">
+            <div class="content">
+                <h1>Heading of Article</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
+                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
+                    corporis! Dolores.</p>
+                <div class="view">view</div>
+            </div>
+            <div class="img-article">
+                <img src="./img/maxresdefault.jpg" alt="">
+            </div>
+        </div>
+        <div class="article">
+            <div class="content">
+                <h1>Heading of Article</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
+                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
+                    corporis! Dolores.</p>
+                <div class="view">view</div>
+            </div>
+            <div class="img-article">
+                <img src="./img/maxresdefault.jpg" alt="">
+            </div>
+        </div>
+    </div>
 `
