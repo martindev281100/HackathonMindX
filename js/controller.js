@@ -1,5 +1,10 @@
 const controller = {};
 
+controller.checkError = (data, id, message) => {
+    if (data.match(/ /)) view.setErrorMessage(id, message);
+    else view.setErrorMessage(id, "");
+}
+
 controller.register = (data) => {
     view.setErrorMessage("user-name-error", data.userName === "" ? "Please input your username" : "");
     view.setErrorMessage("email-error", data.email === "" ? "Please input your email" : "");
