@@ -373,27 +373,28 @@ view.showUserQuizzes = () => {
     userQuizzesContainer.innerHTML = "";
     model.users.forEach(user => {
         if (user["study_sets"].length) {
-            user["study_sets"].forEach(studySet => {
+            for (let i = 0; i < user["study_sets"].length; i++) {
                 let quizOption = document.createElement('div');
                 quizOption.classList.add("list-option");
                 quizOption.innerHTML = `
                 <button>
-                    <h1>${studySet.title}</h2>
+                    <h1>${user["study_sets"][i].title}</h2>
                     <h2>by <span>${user.user}</span></h2>
-                    <div class="learn" id="learn-${user.id}">Learn</div>
-                    <div class="test" id="test-${user.id}">Test</div>
+                    <div class="learn" id="learn-${user.id}-${i}">Learn</div>
+                    <div class="test" id="test-${user.id}-${i}">Test</div>
                 </button>
                 `
                 userQuizzesContainer.appendChild(quizOption);
-                document.getElementById(`learn-${user.id}`).addEventListener("click", {
+                document.getElementById(`learn-${user.id}-${i}`).addEventListener("click", {
+
                 });
-                document.getElementById(`test-${user.id}`).addEventListener("click", function () {
-                    model.currentQuestionSet = studySet["question_set"]
+                document.getElementById(`test-${user.id}-${i}`).addEventListener("click", function () {
+                    model.currentQuestionSet = user["study_sets"][i]["question_set"]
                     for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
                     console.log(model.currentQuestionSet)
                     view.setActiveScreen("playQuizPage");
                 });
-            })
+            }
         }
     })
 }
