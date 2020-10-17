@@ -95,9 +95,6 @@ view.setActiveScreen = async (screenName) => {
         case "quizPage":
             document.getElementById("app").innerHTML = component.quizPage;
             displayIconName()
-            document.getElementById("sign-out-button").addEventListener("click", function () {
-                firebase.auth().signOut();
-            })
             await model.getUsers();
             await model.getQuizzes();
             view.showUserQuizzes();
@@ -142,7 +139,7 @@ view.setActiveScreen = async (screenName) => {
             })
             document.getElementById("view-study-sets-button").addEventListener("click", function () {
                 view.setActiveScreen("studySetPage")
-            })  
+            })
             console.log(document.getElementById("create-blog-button"))
             document.getElementById("create-blog-button").addEventListener('click', () => {
                 view.setActiveScreen("createBlogPage")
@@ -297,7 +294,7 @@ view.showStudySet = (studySet) => {
         `
         elements.appendChild(questionContainer)
     }
-    
+
 }
 
 view.showStudySets = () => {
@@ -307,8 +304,8 @@ view.showStudySets = () => {
                 element = document.createElement("button");
                 element.innerHTML = `${user["study_sets"][i].title}`
                 element.addEventListener("click", function () {
-                view.setActiveScreen("editStudySet")
-                view.showStudySet(user["study_sets"][i]);
+                    view.setActiveScreen("editStudySet")
+                    view.showStudySet(user["study_sets"][i]);
                 })
                 document.getElementById("study-set-container").appendChild(element);
             }

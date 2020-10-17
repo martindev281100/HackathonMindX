@@ -146,15 +146,10 @@ component.quizPage = `
 <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
 <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
 <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-<div id="create-quiz-button" class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+<div id="create-quiz-button" class="create"><a href="#">Create Quizz<i class="fas fa-folder-plus"></i></a></div>
 <div class="account">
     <img src="./img/logo-icon.png" alt="" id="display_icon">
     <h4 id="display_username"></h4>
-</div>
-<div class="logOut" id="sign-out-button">
-    <i class="fas fa-sign-out-alt">
-        <h4> Log out</h4>
-    </i>
 </div>
 </div>
 
@@ -233,11 +228,6 @@ component.playQuizPage = `
     <img src="./img/logo-icon.png" alt="" id="display_icon">
     <h4 id="display_username"></h4>
   </div>
-  <div class="logOut" id="sign-out-button">
-    <i class="fas fa-sign-out-alt">
-    <h4> Log out</h4>
-    </i>
-  </div>
 </div>
 <div class="main-quizz">
 <div id="question"></div>
@@ -277,11 +267,6 @@ component.blogPage = `
 component.profilePage = `
 <div class="navbar">
         <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-        <div class="logOut" id="sign-out-button">
-            <i class="fas fa-sign-out-alt">
-                <h4> Log out</h4>
-            </i>
-        </div>
     </div>
 
     <div class="main-info">
@@ -340,11 +325,6 @@ component.addQuizzPage = `
           <img src="./img/logo-icon.png" alt="" id="display_icon">
           <h4 id="display_username"></h4>
         </div>
-        <div class="logOut" id="sign-out-button">
-          <i class="fas fa-sign-out-alt">
-          <h4> Log out</h4>
-          </i>
-        </div>
       </div>
       <div class="main-add-quizz">
           <h1 class="add-title">Create a new study set</h1>
@@ -398,11 +378,6 @@ component.editQuizPage = `
         <div class="account">
           <img src="./img/logo-icon.png" alt="" id="display_icon">
           <h4 id="display_username"></h4>
-        </div>
-        <div class="logOut" id="sign-out-button">
-          <i class="fas fa-sign-out-alt">
-          <h4> Log out</h4>
-          </i>
         </div>
       </div>
       <div class="main-add-quizz">
@@ -491,11 +466,6 @@ component.detailBlogPage = `
   <img src="./img/logo-icon.png" alt="" id="display_icon">
   <h4 id="display_username"></h4>
 </div>
-<div class="logOut" id="sign-out-button">
-  <i class="fas fa-sign-out-alt">
-  <h4> Log out</h4>
-  </i>
-</div>
 </div>
 <div class="main-blog-detail">
   <h1 class="title-blog-detail"></h1>
@@ -514,11 +484,6 @@ component.learnPage = `
         <div class="account">
             <img src="./img/logo-icon.png" alt="" id="display_icon">
             <h4 id="display_username"></h4>
-        </div>
-        <div class="logOut" id="sign-out-button">
-            <i class="fas fa-sign-out-alt">
-                <h4> Log out</h4>
-            </i>
         </div>
     </div>
     <label>
