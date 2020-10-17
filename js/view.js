@@ -213,6 +213,10 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".addBtn").addEventListener('click', () => {
                 view.addNewQuizz();
             })
+            document.getElementById("create-button").addEventListener("click", function () {
+                model.addNewStudySet();
+                view.setActiveScreen("blogPage");
+            });
             break;
         case "detailBlogPage":
             document.getElementById("app").innerHTML = component.detailBlogPage;
@@ -226,28 +230,29 @@ view.addNewQuizz = () => {
     const questionContainer = document.createElement('div')
     questionContainer.classList.add("question")
     questionContainer.innerHTML = `
-        <div class="title-question">
-                  <input type="text" placeholder="Enter question">
-                  <h5>question</h5>
-                </div>
-                <div class="answer">
-                  <div class="correct-answer">
-                      <input type="text" placeholder="Enter correct answer">
-                      <h5>correct answer</h5>
-                  </div>
-                  <div class="other">
-                      <input type="text" placeholder="Enter answer">
-                      <h5>incorrect answer</h5>
-                  </div>
-                  <div class="other">
-                      <input type="text" placeholder="Enter answer">
-                      <h5>incorrect answer</h5>
-                  </div>
-                  <div class="other">
-                      <input type="text" placeholder="Enter answer">
-                      <h5>incorrect answer</h5>
-                    </div>
-                    `
+    <div class="title-question">
+        <input class="input-question" type="text" placeholder="Enter question">
+        <h5>question</h5>
+    </div>
+    <div class="answer">
+        <div class="correct-answer">
+            <input class="input-correct-answer" type="text" placeholder="Enter correct answer">
+            <h5>correct answer</h5>
+        </div>
+        <div class="other">
+            <input class="input-incorrect-answer-0" type="text" placeholder="Enter answer">
+            <h5>incorrect answer</h5>
+        </div>
+        <div class="other">
+            <input class="input-incorrect-answer-1" type="text" placeholder="Enter answer">
+            <h5>incorrect answer</h5>
+        </div>
+        <div class="other">
+            <input class="input-incorrect-answer-2" type="text" placeholder="Enter answer">
+            <h5>incorrect answer</h5>
+        </div>
+    </div>
+    `
     elements.appendChild(questionContainer)
 }
 

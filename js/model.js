@@ -164,3 +164,43 @@ model.uploadImage = async (file, id) => {
         console.log('Uploaded a blob or file!');
     })
 }
+
+model.addNewStudySet = () => {
+    const title = document.getElementById("study-set-title").value;
+    const description = document.getElementById("study-set-description").value;
+    const questions = Array.from(document.querySelectorAll(".input-question"));
+    const correctAnswers = Array.from(
+        document.querySelectorAll(".input-correct-answer")
+    );
+    const incorrectAnswers0 = Array.from(
+        document.querySelectorAll(".input-incorrect-answer-0")
+    );
+    const incorrectAnswers1 = Array.from(
+        document.querySelectorAll(".input-incorrect-answer-1")
+    );
+    const incorrectAnswers2 = Array.from(
+        document.querySelectorAll(".input-incorrect-answer-2")
+    );
+    let study_set = {
+        title: title,
+        description: description,
+        question_set: [],
+    };
+    for (let i = 0; i < questions.length; i++) {
+        study_set["question_set"].push({
+            question: questions[i].value,
+            correct_answer: correctAnswers[i].value,
+            incorrect_answers: [
+                incorrectAnswers0[i].value,
+                incorrectAnswers1[i].value,
+                incorrectAnswers2[i].value
+            ]
+        })
+    }
+    dataToUpdate = {
+        study_sets: firebase.firestore.FieldValue.arrayUnion(study_set)
+    }
+    firebase.firestore().collection('users').doc(model.currentUser.uid).update(dataToUpdate)
+  };
+  
+  
