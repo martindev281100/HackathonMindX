@@ -147,6 +147,7 @@ view.setActiveScreen = async (screenName) => {
                     view.setActiveScreen('detailBlogPage')
                 })
             })
+            logOut()
             document.querySelector(".dropbtn").innerText = model.currentUser.displayName
             break;
         case "createBlogPage":
@@ -486,5 +487,11 @@ view.showUserQuizzes = () => {
                 });
             }
         }
+    })
+}
+
+let logOut = () => {
+    document.getElementById('btnLogOut').addEventListener('click', function () {
+        firebase.auth().signOut()
     })
 }
