@@ -170,8 +170,9 @@ view.setActiveScreen = async (screenName) => {
             break;
         case "addQuizzPage":
             document.getElementById("app").innerHTML = component.addQuizzPage;
+            displayIconName()
             document.querySelector(".addBtn").addEventListener('click', () => {
-
+                view.addNewQuizz();
             })
             break;
     }
@@ -179,7 +180,33 @@ view.setActiveScreen = async (screenName) => {
 
 
 view.addNewQuizz = () => {
-
+    const elements = document.querySelector('.main-add-quizz .list-question')
+    const questionContainer = document.createElement('div')
+    questionContainer.classList.add("question")
+    questionContainer.innerHTML = `
+        <div class="title-question">
+                  <input type="text" placeholder="Enter question">
+                  <h5>question</h5>
+                </div>
+                <div class="answer">
+                  <div class="correct-answer">
+                      <input type="text" placeholder="Enter correct answer">
+                      <h5>correct answer</h5>
+                  </div>
+                  <div class="other">
+                      <input type="text" placeholder="Enter answer">
+                      <h5>incorrect answer</h5>
+                  </div>
+                  <div class="other">
+                      <input type="text" placeholder="Enter answer">
+                      <h5>incorrect answer</h5>
+                  </div>
+                  <div class="other">
+                      <input type="text" placeholder="Enter answer">
+                      <h5>incorrect answer</h5>
+                    </div>
+                    `
+    elements.appendChild(questionContainer)
 }
 
 view.setErrorMessage = (elementId, content) => {
