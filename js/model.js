@@ -9,6 +9,20 @@ model.register = async (data) => {
             displayName: data.userName,
         });
         firebase.auth().currentUser.sendEmailVerification();
+        const dataToAdd = {
+            user: data.userName,
+            email: data.email,
+            study_set: [
+                {
+                    category: "",
+                    question_set: []
+                }
+            ]
+        }
+        console.log(dataToAdd)
+        await firebase.firestore().collection("users").doc(response.user.uid).set(dataToAdd).then(function(){
+            console.log('ran')
+        }).catch(function(error){console.error(error)})
         firebase.auth().signOut()
     } catch (err) {
         alert(err.message);

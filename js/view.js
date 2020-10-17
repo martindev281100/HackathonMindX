@@ -118,14 +118,12 @@ view.setActiveScreen = async (screenName) => {
         case "playQuizPage":
             document.getElementById("app").innerHTML = component.playQuizPage;
             displayIconName()
-            model.getQuizzes();
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("blogPage")
             })
             document.querySelector(".logOut").addEventListener('click', () => {
                 firebase.auth().signOut();
             })
-            await model.getQuizzes();
             view.showQuizzes();
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
@@ -296,9 +294,7 @@ view.showQuizzes = () => {
         answers.splice(rand, 1);
     }
     document.querySelectorAll(".answer").forEach(answer => {
-        answer.addEventListener("click", checkAnswer);
-
-        function checkAnswer() {
+        answer.addEventListener("click", function () {
             if (answer.innerHTML == controller.quizzes[rand]["correct_answer"]) alert("Correct");
             else alert("Incorrect");
             count++;
@@ -309,6 +305,6 @@ view.showQuizzes = () => {
             } else {
                 view.setActiveScreen("playQuizPage");
             }
-        }
+        });
     })
 }
