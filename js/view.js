@@ -1,4 +1,5 @@
 const view = {}
+
 view.setActiveScreen = async (screenName) => {
     switch (screenName) {
         case "registerPage":
@@ -127,10 +128,10 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".logOut").addEventListener('click', () => {
                 firebase.auth().signOut();
             })
-            view.showQuizzes();
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
+            view.showQuizzes();
             break;
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
@@ -141,10 +142,7 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
             })
-            document.querySelector(".create").addEventListener("click", () => {
-                view.setActiveScreen("addQuizzPage")
-            })
-            document.querySelector(".blog").addEventListener('click', () => {
+            document.getElementById("create-blog-button").addEventListener('click', () => {
                 view.setActiveScreen("createBlogPage")
             })
             await model.getBlogs();
@@ -182,11 +180,15 @@ view.setActiveScreen = async (screenName) => {
             break;
         case "profilePage":
             document.getElementById("app").innerHTML = component.profilePage;
+            console.log(model.currentUser)
+            console.log(model.detailUserProfile)
             if (model.detailUserProfile.providerId !== "password") {
                 document.getElementById("profile-current-password").hidden = true;
                 document.getElementById("profile-email").readOnly = true;
                 document.getElementById("btn_changePassword").hidden = true;
             }
+            document.querySelector('.header-info .userName').innerText = model.currentUser.displayName
+            document.querySelector('.main-info .header .avatar').src = model.detailUserProfile.photoURL
             let email = document.getElementById("profile-email")
             let userName = document.getElementById("profile-username")
             email.value = model.detailUserProfile.email
@@ -221,6 +223,14 @@ view.setActiveScreen = async (screenName) => {
             })
             document.querySelector(".logOut").addEventListener('click', () => {
                 firebase.auth().signOut();
+            })
+            await model.getBlogsTitle();
+            document.querySelectorAll(".article .deleteBtn").forEach(btn => {
+                btn.addEventListener('click', async function (e) {
+                    console.log(e.target.parentNode)
+                    await model.deleteBlog(e.target.id)
+                    e.target.parentNode.remove();
+                })
             })
             break;
         case "addQuizzPage":
@@ -302,7 +312,6 @@ let displayIconName = () => {
     }
 }
 let slideIndex = 1;
-// Thumbnail image controls
 function currentSlide(n) {
     view.showSlides(slideIndex = n);
 }
@@ -323,15 +332,15 @@ let count = 0;
 view.showQuizzes = () => {
     let rand;
     do {
-        rand = Math.floor(Math.random() * controller.quizzes.length);
-    } while (controller.quizzes[rand].shown)
-    controller.quizzes[rand].shown = true;
-    document.getElementById("question").innerHTML = controller.quizzes[rand].question;
+        rand = Math.floor(Math.random() * model.currentQuestionSet.length);
+    } while (model.currentQuestionSet[rand].shown)
+    model.currentQuestionSet[rand].shown = true;
+    document.getElementById("question").innerHTML = model.currentQuestionSet[rand].question;
     let answers = [
-        controller.quizzes[rand]["correct_answer"].toString(),
-        controller.quizzes[rand]["incorrect_answers"][0],
-        controller.quizzes[rand]["incorrect_answers"][1],
-        controller.quizzes[rand]["incorrect_answers"][2]
+        model.currentQuestionSet[rand]["correct_answer"],
+        model.currentQuestionSet[rand]["incorrect_answers"][0],
+        model.currentQuestionSet[rand]["incorrect_answers"][1],
+        model.currentQuestionSet[rand]["incorrect_answers"][2]
     ];
     for (let i = 0; i < 4; i++) {
         let rand = Math.floor(Math.random() * answers.length);
@@ -340,12 +349,12 @@ view.showQuizzes = () => {
     }
     document.querySelectorAll(".answer").forEach(answer => {
         answer.addEventListener("click", function () {
-            if (answer.innerHTML == controller.quizzes[rand]["correct_answer"]) alert("Correct");
+            if (answer.innerHTML == model.currentQuestionSet[rand]["correct_answer"]) alert("Correct");
             else alert("Incorrect");
             count++;
-            if (count == controller.quizzes.length) {
-                view.setActiveScreen(component.quizPage);
-                for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
+            if (count == model.currentQuestionSet.length) {
+                view.setActiveScreen("quizPage");
+                for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
                 count = 0;
             } else {
                 view.setActiveScreen("playQuizPage");
@@ -368,25 +377,41 @@ view.addBlog = (data, id, imgURL) => {
             </div>`
     document.getElementById('blogList').appendChild(article)
 }
-
+view.addToList = (data, id) => {
+    const article = document.createElement('div')
+    article.classList.add("article")
+    article.innerHTML = `
+            <h1 class="title-blog">${data.title}</h1>
+            <button class="deleteBtn" id="${id}">Delete</button>`
+    document.querySelector('.list-blog-form').appendChild(article)
+}
 view.showUserQuizzes = () => {
     const userQuizzesContainer = document.getElementById("user-quizzes-container")
     userQuizzesContainer.innerHTML = "";
     model.users.forEach(user => {
         if (user["study_sets"].length) {
-            user["study_sets"].forEach(studySet => {
+            for (let i = 0; i < user["study_sets"].length; i++) {
                 let quizOption = document.createElement('div');
                 quizOption.classList.add("list-option");
                 quizOption.innerHTML = `
                 <button>
-                    <h1>${studySet.title}</h2>
+                    <h1>${user["study_sets"][i].title}</h2>
                     <h2>by <span>${user.user}</span></h2>
-                    <div class="learn">Learn</div>
-                    <div class="test">Test</div>
+                    <div class="learn" id="learn-${user.id}-${i}">Learn</div>
+                    <div class="test" id="test-${user.id}-${i}">Test</div>
                 </button>
                 `
                 userQuizzesContainer.appendChild(quizOption);
-            })
+                document.getElementById(`learn-${user.id}-${i}`).addEventListener("click", {
+
+                });
+                document.getElementById(`test-${user.id}-${i}`).addEventListener("click", function () {
+                    model.currentQuestionSet = user["study_sets"][i]["question_set"]
+                    for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
+                    console.log(model.currentQuestionSet)
+                    view.setActiveScreen("playQuizPage");
+                });
+            }
         }
     })
 }

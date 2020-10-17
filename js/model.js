@@ -5,6 +5,7 @@ model.detailUserProfile = undefined;
 model.imageURL = undefined;
 model.currentBlog = undefined;
 model.users = undefined;
+model.currentQuestionSet = undefined;
 
 model.register = async (data) => {
     try {
@@ -104,6 +105,8 @@ model.changeProfile = async (userName, email, currentPassword) => {
             displayName: userName
         }).then(function () {
             alert('Profile has been changed!')
+            model.currentUser.displayName = userName
+            view.setActiveScreen('profilePage')
         }).catch(function (error) {
             alert(error)
         });
@@ -164,7 +167,14 @@ model.getBlogs = async () => {
         view.addBlog(item.blogText, item.id, model.imageURL)
     }
 }
-
+model.getBlogsTitle = async () => {
+    const response = await firebase.firestore().collection('blogs').where('owner', '==', model.currentUser.email).get();
+    const data = await getManyDocument(response)
+    for (item of data) {
+        await model.getImage(item.id)
+        view.addToList(item.blogText, item.id)
+    }
+}
 model.getCurrentBlog = async (id) => {
     const response = await firebase.firestore().collection('blogs').doc(id).get()
     const result = await getOneDocument(response)
@@ -228,16 +238,24 @@ model.addNewStudySet = () => {
         study_sets: firebase.firestore.FieldValue.arrayUnion(study_set)
     }
     firebase.firestore().collection('users').doc(model.currentUser.uid).update(dataToUpdate)
-  };
-  
-  model.getUsers = async () => {
+};
+
+model.getUsers = async () => {
     const response = await firebase.firestore().collection('users').get()
     model.users = getManyDocument(response)
-  }
-
-
-
-
+}
+model.deleteBlog = async (id) => {
+    await firebase.firestore().collection('blogs').doc(id).delete().then(function () {}).catch(function (error) {
+        console.log(error.message)
+    })
+    const storage = firebase.storage();
+    const storageRef = storage.ref();
+    await storageRef.child(id).delete().then(function () {
+        alert('successful')
+    }).catch(function (error) {
+        alert(error.message)
+    })
+}
 model.getQuizzes = async () => {
     const response = await firebase.firestore().collection('quizzes').get();
     controller.quizzes = getManyDocument(response);

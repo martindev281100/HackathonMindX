@@ -241,27 +241,25 @@ component.playQuizPage = `
 
 component.blogPage = `
 <div class="navbar">
-  <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
-  <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
-  <div class="search">
-      <input type="text">
-      <i class="fas fa-search"></i>
-  </div>
-  <div class="account">
+<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+<div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+<button id="create-blog-button">Create Blog</button>
+<div class="search">
+    <input type="text">
+    <i class="fas fa-search"></i>
+</div>
+<div class="account">
     <img src="./img/logo-icon.png" alt="" id="display_icon">
     <h4 id="display_username" title=""></h4>
-  </div>
-  <div class="logOut" id="sign-out-button">
-    <i class="fas fa-sign-out-alt">
-    <h4> Log out</h4>
-    </i>
-  </div>
 </div>
-    <div class="main-blog" id="blogList">
-        
-    </div>
+<div class="logOut" id="sign-out-button">
+    <i class="fas fa-sign-out-alt">
+        <h4> Log out</h4>
+    </i>
+</div>
+</div>
+<div class="main-blog" id="blogList"></div>
 `
 component.profilePage = `
 <div class="navbar">
@@ -277,11 +275,11 @@ component.profilePage = `
         <div class="header">
             <img src="./img/logo-icon.png" alt="" class="avatar">
             <div class="header-info">
-                <h1 class="userName">Luu The Manh (FGW-HN)</h1>
+                <h1 class="userName"></h1>
                 <button class="editAccountBtn">Edit profile <i class="fas fa-user-edit"></i></button>
                 <button class="listBlogBtn">Edit list blog <i class="fas fa-clipboard-list"></i></button>
             </div>
-        </div>
+        </div> 
         <div class="edit-form">
             <div id="profile-current-password">
                 <input type="text" value="" id="current-password">
@@ -314,14 +312,7 @@ component.profilePage = `
         </div>
 
         <div class="list-blog-form">
-          <div class="article">
-            <h1 class="title-blog">Hello 1</h1>
-            <button class="deleteBtn">Delete</button>
-          </div>
-          <div class="article">
-          <h1 class="title-blog">Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1</h1>
-          <button class="deleteBtn">Delete</button>
-        </div>
+          
         </div>
     </div> 
 `
@@ -389,15 +380,6 @@ component.addQuizzPage = `
           <button id="create-button" class="createBtn">Create</button>
       </div>
 `
-component.newsfeedsPage = `
-    <div>
-        <h2 id="newsfeeds-title">
-        </h2>
-        <div id="newsfeeds-description">
-        </div>
-        <p id="newsfeeds-content">
-        </p>
-    </div>`
 
 component.createBlogPage = `
 <div class="navbar">
