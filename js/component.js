@@ -409,20 +409,20 @@ component.createBlogPage = `
                 <label for="">Description: </label>
                 <input type="text" value="" id="blogDescription" placeholder="Enter Description" required>
             </div>
+            <div class="image-blog">
+              <label for="">File: </label>
+              <input type="file" id="inputImage">
+            </div>
         </div>
         <div class="content-blog">
             <label for="">Content: </label>
             <textarea id="blogContent" name="blogContent" rows="15" cols="50"></textarea>
         </div>
-        <div class="image-blog">
-            <label for="">File: </label>
-            <input type="file" id="inputImage">
-        </div>
     </form>
     <button id="btnCreateBlog">Publish</button>
 `
 
-component.detailBlogPage =`
+component.detailBlogPage = `
 <div class="navbar">
 <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
 <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
