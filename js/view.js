@@ -148,10 +148,15 @@ view.setActiveScreen = async (screenName) => {
             break;
         case "profilePage":
             document.getElementById("app").innerHTML = component.profilePage;
+            if (model.detailUserProfile.providerId !== "password") {
+                document.getElementById("profile-current-password").hidden = true;
+                document.getElementById("profile-email").readOnly = true;
+                document.getElementById("btn_changePassword").hidden = true;
+            }
             let email = document.getElementById("profile-email")
             let userName = document.getElementById("profile-username")
             email.value = model.detailUserProfile.email
-            userName.value = model.detailUserProfile.displayName
+            userName.value = model.currentUser.displayName
             console.log(model.detailUserProfile)
             document.getElementById('btn-update-profile').addEventListener('click', () => {
                 const currentPassword = document.getElementById('current-password')

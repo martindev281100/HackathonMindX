@@ -64,9 +64,18 @@ model.sendPasswordResetEmail = (email) => {
 }
 model.changeProfile = async (userName, email, currentPassword) => {
     let user = firebase.auth().currentUser
+    if (model.detailUserProfile.providerId !== "password") {
+        await user.updateProfile({
+            displayName: userName
+        }).then(function () {
+            alert('Profile has been changed!')
+        }).catch(function (error) {
+            alert(error)
+        });
+        return
+    }
     await model.reauthenticate(currentPassword)
-    await user.updateEmail(email).then(function () {
-    }).catch(function (error) {
+    await user.updateEmail(email).then(function () {}).catch(function (error) {
         alert(error)
     });
     await user.updateProfile({
