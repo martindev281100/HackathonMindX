@@ -8,7 +8,22 @@ model.register = async (data) => {
         firebase.auth().currentUser.updateProfile({
             displayName: data.userName,
         });
-        firebase.auth().currentUser.sendEmailVerification();
+        await firebase.auth().currentUser.sendEmailVerification();
+        const dataToAdd = {
+            user: data.userName,
+            email: data.email,
+            study_set: [
+                {
+                category: "",
+                question_set: []
+                }
+            ]
+        }
+        await firebase.firestore().collection("users").doc(response.user.uid).set(dataToAdd).then(function () {
+            console.log('ran')
+        }).catch(function (error) {
+            console.log(error.message)
+        })
         firebase.auth().signOut()
     } catch (err) {
         alert(err.message);
@@ -120,4 +135,18 @@ model.getQuizzes = async () => {
 
 model.addNewBlog = async (data) => {
     await firebase.firestore().collection('blogs').add(data)
+}
+
+model.getBlogs = async () => {
+    const response = await firebase.firestore().collection('blogs').get();
+    const data = getManyDocument(response)
+    for (item of data) {
+        view.addBlog(item.blogText)
+    }
+}
+
+model.getImage = async () => {
+    await firebase.storage().storage.ref().child('pexels-pixabay-164186.jpg').getDownloadURL().then(function (url) {
+
+    })
 }

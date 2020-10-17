@@ -117,7 +117,7 @@ component.homePage = `
   <div class="text">
       <h1>Become your most <br> unstoppable self</h1>
       <h3>Master any subject, one success at a time.</h5>
-      <button class="signUp1">Get Start</button><br>
+      <button class="signUp1">Get Started</button><br>
   </div>
   <div class="slides-show">
       <div class="slide-show" id="slide-form">
@@ -153,12 +153,12 @@ component.homePage = `
 </div>
 `
 
-component.userHomePage = `
+component.quizPage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
   <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="search">
       <input type="text">
       <i class="fas fa-search"></i>
@@ -200,7 +200,7 @@ component.userHomePage = `
 </div>
 `;
 
-component.quizPage = `
+component.playQuizPage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
   <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
@@ -234,9 +234,9 @@ component.quizPage = `
 component.blogPage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
   <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="search">
       <input type="text">
       <i class="fas fa-search"></i>
@@ -251,55 +251,8 @@ component.blogPage = `
     </i>
   </div>
 </div>
-    <div class="main-blog">
-        <div class="article">
-            <div class="content">
-                <h1>Heading of Article</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
-                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
-                    corporis! Dolores.</p>
-                <div class="view">view</div>
-            </div>
-            <div class="img-article">
-                <img src="./img/maxresdefault.jpg" alt="">
-            </div>
-        </div>
-        <div class="article">
-            <div class="content">
-                <h1>Heading of Article</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
-                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
-                    corporis! Dolores.</p>
-                <div class="view">view</div>
-            </div>
-            <div class="img-article">
-                <img src="./img/maxresdefault.jpg" alt="">
-            </div>
-        </div>
-        <div class="article">
-            <div class="content">
-                <h1>Heading of Article</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
-                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
-                    corporis! Dolores.</p>
-                <div class="view">view</div>
-            </div>
-            <div class="img-article">
-                <img src="./img/maxresdefault.jpg" alt="">
-            </div>
-        </div>
-        <div class="article">
-            <div class="content">
-                <h1>Heading of Article</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
-                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
-                    corporis! Dolores.</p>
-                <div class="view">view</div>
-            </div>
-            <div class="img-article">
-                <img src="./img/maxresdefault.jpg" alt="">
-            </div>
-        </div>
+    <div class="main-blog" id="blogList">
+        
     </div>
 `
 component.profilePage = `

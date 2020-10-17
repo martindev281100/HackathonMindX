@@ -91,14 +91,14 @@ view.setActiveScreen = async (screenName) => {
             })
             break;
 
-        case "userHomePage":
-            document.getElementById("app").innerHTML = component.userHomePage;
+        case "quizPage":
+            document.getElementById("app").innerHTML = component.quizPage;
             displayIconName()
             document.getElementById("sign-out-button").addEventListener("click", function () {
                 firebase.auth().signOut();
             })
             document.getElementById("quiz-button").addEventListener("click", function () {
-                view.setActiveScreen("userHomePage")
+                view.setActiveScreen("quizPage")
             })
             model.getQuizzes();
 
@@ -108,24 +108,22 @@ view.setActiveScreen = async (screenName) => {
             })
 
             document.getElementById("testJs").addEventListener("click", () => {
-                view.setActiveScreen("quizPage")
+                view.setActiveScreen("playQuizPage")
             })
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
             break;
 
-        case "quizPage":
-            document.getElementById("app").innerHTML = component.quizPage;
+        case "playQuizPage":
+            document.getElementById("app").innerHTML = component.playQuizPage;
             displayIconName()
-            model.getQuizzes();
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("blogPage")
             })
             document.querySelector(".logOut").addEventListener('click', () => {
                 firebase.auth().signOut();
             })
-            await model.getQuizzes();
             view.showQuizzes();
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
@@ -138,7 +136,7 @@ view.setActiveScreen = async (screenName) => {
                 firebase.auth().signOut();
             })
             document.getElementById("quiz-button").addEventListener("click", function () {
-                view.setActiveScreen("userHomePage")
+                view.setActiveScreen("quizPage")
             })
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
@@ -146,10 +144,11 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("createBlogPage")
             })
+            model.getBlogs();
             break;
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
-            document.getElementById('btnCreateBlog').addEventListener('click', () => {
+            document.getElementById('btnCreateBlog').addEventListener('click', async () => {
                 const title = document.getElementById("blogTitle").value
                 const description = document.getElementById("blogDescription").value
                 const content = document.getElementById("blogContent").value
@@ -163,7 +162,9 @@ view.setActiveScreen = async (screenName) => {
                     createdAt: createdAt,
                     owner: model.currentUser.email,
                 }
-                model.addNewBlog(data)
+                await model.addNewBlog(data)
+                view.setActiveScreen('blogPage')
+                view.addBlog(data.blogText)
             })
             break;
         case "profilePage":
@@ -296,19 +297,33 @@ view.showQuizzes = () => {
         answers.splice(rand, 1);
     }
     document.querySelectorAll(".answer").forEach(answer => {
-        answer.addEventListener("click", checkAnswer);
-
-        function checkAnswer() {
+        answer.addEventListener("click", function () {
             if (answer.innerHTML == controller.quizzes[rand]["correct_answer"]) alert("Correct");
             else alert("Incorrect");
             count++;
             if (count == controller.quizzes.length) {
-                view.setActiveScreen(component.userHomePage);
+                view.setActiveScreen(component.quizPage);
                 for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
                 count = 0;
             } else {
-                view.setActiveScreen("quizPage");
+                view.setActiveScreen("playQuizPage");
             }
-        }
+        });
     })
+}
+
+view.addBlog = (data) => {
+    let blogList = document.querySelector('.main-blog')
+    const article = document.createElement('div')
+    article.classList.add("article")
+    article.innerHTML = `
+            <div class="content">
+                <h1 id="blogTitle">${data.title}</h1>
+                <p id="blogDescription">${data.description}</p>
+                <div class="view">view</div>
+            </div>
+            <div class="img-article">
+                <img src="./img/maxresdefault.jpg" alt="">
+            </div>`
+    document.getElementById('blogList').appendChild(article)
 }
