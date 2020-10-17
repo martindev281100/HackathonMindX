@@ -139,6 +139,7 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
             })
+            console.log(document.getElementById("create-blog-button"))
             document.getElementById("create-blog-button").addEventListener('click', () => {
                 view.setActiveScreen("createBlogPage")
             })

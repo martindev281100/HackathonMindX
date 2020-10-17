@@ -256,18 +256,19 @@ component.blogPage = `
 <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
 <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
 <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-<div class="createBlog" id="create-blog-button"><a href=""#>Create Blog <i class="far fa-plus-square"></i></a></div>
-    <div class="account">
-        <img src="./img/logo-icon.png" alt="" id="display_icon">
-        <h4 id="display_username" title=""></h4>
-    <div class="dropdown">
+<div class="createBlog" id="create-blog-button"><a href="" #>Create Blog <i class="far fa-plus-square"></i></a>
+</div>
+<div class="account">
+    <img src="./img/logo-icon.png" alt="" id="display_icon">
+    <h4 id="display_username" title=""></h4>
+</div>
+<div class="dropdown">
     <button onclick="myFunction()" class="dropbtn">Dropdown</button>
     <div id="myDropdown" class="dropdown-content">
-      <a href="#">Edit Profile</a>
-      <a href="#">Edit List Blog</a>
-      <a href="#">Log out</a>
+        <a href="#">Edit Profile</a>
+        <a href="#">Edit List Blog</a>
+        <a href="#">Log out</a>
     </div>
-  </div>
 </div>
 </div>
 <div class="main-blog" id="blogList"></div>
