@@ -443,8 +443,8 @@ component.detailBlogPage =`
 </div>
 </div>
 <div class="main-blog-detail">
-  <h1 class="title-blog-detail">hhhhhhh</h1>
-  <div class="description-blog-detail">sdnsadjkasdkjsabdk</div>
+  <h1 class="title-blog-detail"></h1>
+  <div class="description-blog-detail"></div>
   <div class="time-to-create">10:00:00 am 26/09/2020</div>
   <br><hr>
   <div class="content-blog-detail">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe at dolorum, debitis velit, officia beatae delectus soluta dignissimos temporibus sunt id. Ad, quae aut debitis assumenda dolorum officiis nulla. Sint. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, sequi. Quam, voluptatibus ipsam. Dolores, praesentium corrupti exercitationem aspernatur est alias, explicabo velit veniam impedit necessitatibus, ratione excepturi distinctio cumque deserunt.</div>
