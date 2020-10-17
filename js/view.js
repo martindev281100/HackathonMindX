@@ -152,6 +152,7 @@ view.setActiveScreen = async (screenName) => {
             let userName = document.getElementById("profile-username")
             email.value = model.detailUserProfile.email
             userName.value = model.detailUserProfile.displayName
+            console.log(model.detailUserProfile)
             document.getElementById('btn-update-profile').addEventListener('click', () => {
                 const currentPassword = document.getElementById('current-password')
                 if (currentPassword === '' || currentPassword === null) {

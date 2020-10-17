@@ -397,3 +397,12 @@ component.addQuizzPage = `
           <button>Create</button>
       </div>
 `
+component.newsfeedsPage = `
+    <div>
+        <h2 id="newsfeeds-title">
+        </h2>
+        <div id="newsfeeds-description">
+        </div>
+        <p id="newsfeeds-content">
+        </p>
+    </div>`
