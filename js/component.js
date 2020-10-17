@@ -291,9 +291,13 @@ component.profilePage = `
         <label for="">Email: </label>
         <input type="text" value="" id="profile-email" readonly>
     </div>
-    <div id="change-password-container" hidden>
-        <label for="">New password: </label>
-        <input type="text" value="" id="change-password" readonly>
-    </div>
-    <button>Change Password</button>
+    
+    <button id="btn_changePassword">Change Password</button>
     <button>Update profile</button>`
+
+component.changePassword = `
+<div id="change-password-container">
+        <label for="">New password: </label>
+        <input type="text" value="" id="change-password">
+        <button type="submit" id="btn_submitChangePass">Submit</button>
+    </div>`
