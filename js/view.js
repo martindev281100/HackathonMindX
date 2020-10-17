@@ -130,7 +130,6 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("userHomePage")
             })
-
             break;
         case "profilePage":
             document.getElementById("app").innerHTML = component.profilePage;
@@ -198,7 +197,7 @@ view.showQuizzes = () => {
     controller.quizzes[rand].shown = true;
     document.getElementById("question").innerHTML = controller.quizzes[rand].question;
     let answers = [
-        controller.quizzes[rand]["correct_answer"],
+        controller.quizzes[rand]["correct_answer"].toString(),
         controller.quizzes[rand]["incorrect_answers"][0],
         controller.quizzes[rand]["incorrect_answers"][1],
         controller.quizzes[rand]["incorrect_answers"][2]
