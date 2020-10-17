@@ -57,8 +57,9 @@
 }
 
 .login-container .forgetPassword{
-    width: 25%;
-    color: #dbdbdb;
+    color: #fff;
+    margin-left: 13px;
+    text-align: left;
     cursor: pointer;
 }
 
