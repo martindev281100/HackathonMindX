@@ -9,14 +9,15 @@ window.onload = async () => {
         appId: "1:695408446128:web:65e29ac3249cbf57178975"
     };
     firebase.initializeApp(firebaseConfig);
-    await firebase.auth().onAuthStateChanged((user) => {
+    await firebase.auth().onAuthStateChanged(async (user) => {
         if (user) {
-            model.currentUser = {
-                displayName: user.displayName,
-                email: user.email,
-                uid: user.uid,
-            };
+            await model.getDetailProfile();
             if (user.emailVerified) {
+                model.currentUser = {
+                    displayName: user.displayName,
+                    email: user.email,
+                    uid: user.uid,
+                };
                 view.setActiveScreen('userHomePage');
                 document.querySelector(".create a").style = "display:block"
                 document.querySelector(".blog a").style = "display:block"
@@ -36,14 +37,14 @@ window.onload = async () => {
 
 const getManyDocument = (response) => {
     const listData = []
-    for(const doc of response.docs) {
-      listData.push(getOneDocument(doc))
+    for (const doc of response.docs) {
+        listData.push(getOneDocument(doc))
     }
     return listData
 }
-  
+
 const getOneDocument = (response) => {
-  const data = response.data()
-  data.id = response.id
-  return data
+    const data = response.data()
+    data.id = response.id
+    return data
 }

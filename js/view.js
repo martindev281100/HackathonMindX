@@ -1,6 +1,7 @@
 const view = {}
-
 view.setActiveScreen = async (screenName) => {
+    console.log(screenName)
+
     switch (screenName) {
         case "registerPage":
             document.getElementById('app').innerHTML = component.registerPage;
@@ -94,6 +95,12 @@ view.setActiveScreen = async (screenName) => {
 
         case "userHomePage":
             document.getElementById("app").innerHTML = component.userHomePage;
+            document.getElementById("display_username").innerText = model.currentUser.displayName
+            if (model.detailUserProfile.photoURL === null) {
+                document.getElementById("display_icon").src = "./img/logo-icon.png"
+            } else {
+                document.getElementById("display_icon").src = model.detailUserProfile.photoURL
+            }
             document.getElementById("sign-out-button").addEventListener("click", function () {
                 firebase.auth().signOut();
             })
@@ -108,7 +115,6 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(' .navbar .account').addEventListener('click', () => {
                 view.setActiveScreen("profilePage")
             })
-            model.getDetailProfile();
             break;
 
         case "quizPage":
@@ -134,7 +140,7 @@ view.setActiveScreen = async (screenName) => {
 
             break;
         case "profilePage":
-            document.getElementById("app").innerHTML = component.profilePage ;
+            document.getElementById("app").innerHTML = component.profilePage;
             let email = document.getElementById("profile-email")
             let userName = document.getElementById("profile-username")
             email.value = model.detailUserProfile.email

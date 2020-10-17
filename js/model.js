@@ -67,8 +67,8 @@ model.changePassword = (password) => {
     })
 }
 
-model.getDetailProfile = () => {
-    let user = firebase.auth().currentUser;
+model.getDetailProfile = async () => {
+    let user = await firebase.auth().currentUser;
     if (user !== null) {
         user.providerData.forEach(function (profile) {
             model.detailUserProfile = profile
