@@ -136,8 +136,12 @@ view.setActiveScreen = async (screenName) => {
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
             displayIconName()
+            await model.getUsers();
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
+            })
+            document.getElementById("view-study-sets-button").addEventListener("click", function () {
+                view.setActiveScreen("studySetPage")
             })
             console.log(document.getElementById("create-blog-button"))
             document.getElementById("create-blog-button").addEventListener('click', () => {
@@ -248,6 +252,27 @@ view.setActiveScreen = async (screenName) => {
         case "learnPage":
             document.getElementById("app").innerHTML = component.learnPage;
             break;
+
+        case "studySetPage":
+            document.getElementById("app").innerHTML = component.studySetPage;
+            view.showStudySets();
+            break;
+    }
+}
+
+view.showStudySets = () => {
+    for (user of model.users) {
+        if (user.email == model.currentUser.email) {
+            console.log(user["study_sets"])
+            for (let i = 0; i < user["study_sets"].length; i++) {
+                element = document.createElement("button");
+                element.innerHTML = `${user["study_sets"][i].title}`
+                element.addEventListener("click", function () {
+                    view.setActiveScreen("addQuizzPage")
+                })
+                document.getElementById("study-set-container").appendChild(element);
+            }
+        }
     }
 }
 
