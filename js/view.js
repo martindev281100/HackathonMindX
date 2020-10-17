@@ -145,6 +145,12 @@ view.setActiveScreen = async (screenName) => {
                 view.setActiveScreen("createBlogPage")
             })
             await model.getBlogs();
+            const btnView = document.querySelectorAll('.article .content .view')
+            btnView.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    view.setActiveScreen('detailBlogPage')
+                })
+            })
             break;
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
@@ -168,7 +174,6 @@ view.setActiveScreen = async (screenName) => {
                 console.log(file)
                 await model.addNewBlog(data, file)
                 view.setActiveScreen('blogPage')
-                view.addBlog(data.blogText)
             })
             break;
         case "profilePage":
@@ -332,7 +337,7 @@ view.addBlog = (data, id, imgURL) => {
             <div class="content">
                 <h1 id="blogTitle">${data.title}</h1>
                 <p id="blogDescription">${data.description}</p>
-                <div class="view" id="${id}">view</div>
+                <div class="view" id="${id}">View</div>
             </div>
             <div class="img-article">
                 <img src="${imgURL}" alt=""/>

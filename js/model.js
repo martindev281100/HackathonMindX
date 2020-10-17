@@ -1,5 +1,5 @@
 const model = {}
-
+debugger;
 model.currentUser = undefined;
 model.detailUserProfile = undefined;
 model.imageURL = undefined
@@ -141,7 +141,7 @@ model.addNewBlog = async (data, file) => {
 
 model.getBlogs = async () => {
     const response = await firebase.firestore().collection('blogs').get();
-    const data = getManyDocument(response)
+    const data = await getManyDocument(response)
     for (item of data) {
         await model.getImage(item.id)
         view.addBlog(item.blogText, item.id, model.imageURL)
