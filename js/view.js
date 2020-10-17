@@ -297,7 +297,10 @@ view.showStudySet = (studySet) => {
         `
         elements.appendChild(questionContainer)
     }
-    
+    document.getElementById("edit-button").addEventListener("click", async function () {
+        await model.updateStudySet(studySet)
+        view.setActiveScreen("studySetPage")
+    })
 }
 
 view.showStudySets = () => {

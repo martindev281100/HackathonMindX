@@ -445,7 +445,7 @@ component.editQuizPage = `
           <div class="addBtn">
             <i class="fas fa-plus-circle"></i>
           </div>
-          <button id="create-button" class="createBtn">Create</button>
+          <button id="edit-button" class="createBtn">Edit</button>
       </div>`
 component.createBlogPage = `
 <div class="navbar">

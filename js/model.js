@@ -202,7 +202,7 @@ model.uploadImage = async (file, id) => {
 
 
 
-model.addNewStudySet = () => {
+model.addNewStudySet = async() => {
     const title = document.getElementById("study-set-title").value;
     const description = document.getElementById("study-set-description").value;
     const questions = Array.from(document.querySelectorAll(".input-question"));
@@ -237,7 +237,7 @@ model.addNewStudySet = () => {
     dataToUpdate = {
         study_sets: firebase.firestore.FieldValue.arrayUnion(study_set)
     }
-    firebase.firestore().collection('users').doc(model.currentUser.uid).update(dataToUpdate)
+    await firebase.firestore().collection('users').doc(model.currentUser.uid).update(dataToUpdate)
 };
 
 model.getUsers = async () => {
@@ -261,4 +261,10 @@ model.getQuizzes = async () => {
     model.currentQuestionSet = getManyDocument(response);
     for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
 }
-model.get
+model.updateStudySet = async (studySet) => {
+    console.log(studySet)
+    await firebase.firestore().collection('users').doc(model.currentUser.uid).update({
+        study_sets: firebase.firestore.FieldValue.arrayRemove(studySet)
+    });
+    model.addNewStudySet();
+}
