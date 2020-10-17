@@ -39,3 +39,12 @@ controller.login = ({
         });
     }
 };
+
+controller.selectQuestion = (category) => {
+    for (let i = 0; i < model.currentQuestionSet.length; i++) {
+        if (model.currentQuestionSet[i].category != category) {
+            model.currentQuestionSet.splice(i, 1);
+            i--;
+        }
+    }
+}
