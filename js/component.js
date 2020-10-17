@@ -241,27 +241,25 @@ component.playQuizPage = `
 
 component.blogPage = `
 <div class="navbar">
-  <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
-  <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
-  <div class="search">
-      <input type="text">
-      <i class="fas fa-search"></i>
-  </div>
-  <div class="account">
+<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+<div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+<button id="create-blog-button">Create Blog</button>
+<div class="search">
+    <input type="text">
+    <i class="fas fa-search"></i>
+</div>
+<div class="account">
     <img src="./img/logo-icon.png" alt="" id="display_icon">
     <h4 id="display_username" title=""></h4>
-  </div>
-  <div class="logOut" id="sign-out-button">
-    <i class="fas fa-sign-out-alt">
-    <h4> Log out</h4>
-    </i>
-  </div>
 </div>
-    <div class="main-blog" id="blogList">
-        
-    </div>
+<div class="logOut" id="sign-out-button">
+    <i class="fas fa-sign-out-alt">
+        <h4> Log out</h4>
+    </i>
+</div>
+</div>
+<div class="main-blog" id="blogList"></div>
 `
 component.profilePage = `
 <div class="navbar">

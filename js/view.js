@@ -142,10 +142,7 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
             })
-            document.querySelector(".create").addEventListener("click", () => {
-                view.setActiveScreen("addQuizzPage")
-            })
-            document.querySelector(".blog").addEventListener('click', () => {
+            document.getElementById("create-blog-button").addEventListener('click', () => {
                 view.setActiveScreen("createBlogPage")
             })
             await model.getBlogs();
@@ -242,8 +239,10 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector('.main-blog-detail .description-blog-detail').innerText = model.currentBlog.blogText.description
             document.querySelector('.main-blog-detail .content-blog-detail').innerText = model.currentBlog.blogText.content
             convertISOString(model.currentBlog.createdAt)
+            break;
         case "learnPage":
             document.getElementById("app").innerHTML = component.learnPage;
+            break;
     }
 }
 
@@ -301,7 +300,6 @@ let displayIconName = () => {
     }
 }
 let slideIndex = 1;
-// Thumbnail image controls
 function currentSlide(n) {
     view.showSlides(slideIndex = n);
 }
