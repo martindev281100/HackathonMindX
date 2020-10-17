@@ -101,9 +101,7 @@ view.setActiveScreen = async (screenName) => {
                 view.setActiveScreen("userHomePage")
             })
             model.getQuizzes();
-            document.querySelector(".blog").addEventListener('click', () => {
-                view.setActiveScreen("blogPage")
-            })
+
             model.getDetailProfile();
             document.querySelector(' .navbar .account').addEventListener('click', () => {
                 view.setActiveScreen("profilePage")
@@ -145,13 +143,40 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
+            document.querySelector(".blog").addEventListener('click', () => {
+                view.setActiveScreen("createBlogPage")
+            })
+            break;
+        case "createBlogPage":
+            document.getElementById("app").innerHTML = component.createBlogPage;
+            document.getElementById('btnCreateBlog').addEventListener('click', () => {
+                const title = document.getElementById("blogTitle").value
+                const description = document.getElementById("blogDescription").value
+                const content = document.getElementById("blogContent").value
+                const createdAt = new Date().toISOString()
+                const data = {
+                    blogText: {
+                        title: title,
+                        description: description,
+                        content: content,
+                    },
+                    createdAt: createdAt,
+                    owner: model.currentUser.email,
+                }
+                model.addNewBlog(data)
+            })
             break;
         case "profilePage":
             document.getElementById("app").innerHTML = component.profilePage;
+            if (model.detailUserProfile.providerId !== "password") {
+                document.getElementById("profile-current-password").hidden = true;
+                document.getElementById("profile-email").readOnly = true;
+                document.getElementById("btn_changePassword").hidden = true;
+            }
             let email = document.getElementById("profile-email")
             let userName = document.getElementById("profile-username")
             email.value = model.detailUserProfile.email
-            userName.value = model.detailUserProfile.displayName
+            userName.value = model.currentUser.displayName
             document.getElementById('btn-update-profile').addEventListener('click', () => {
                 const currentPassword = document.getElementById('current-password')
                 if (currentPassword === '' || currentPassword === null) {

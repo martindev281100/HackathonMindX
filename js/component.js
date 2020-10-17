@@ -430,3 +430,30 @@ component.addQuizzPage = `
           <button class="createBtn">Create</button>
       </div>
 `
+component.newsfeedsPage = `
+    <div>
+        <h2 id="newsfeeds-title">
+        </h2>
+        <div id="newsfeeds-description">
+        </div>
+        <p id="newsfeeds-content">
+        </p>
+    </div>`
+
+component.createBlogPage = `
+    <form id="createBlogForm">
+        <div>
+            <label for="">Title: </label>
+            <input type="text" value="" id="blogTitle" placeholder="Enter Title" required>
+        </div>
+        <div>
+            <label for="">Description: </label>
+            <input type="text" value="" id="blogDescription" placeholder="Enter Description" required>
+        </div>
+        <div>
+            <label for="">Content: </label>
+            <input type="text" value="" id="blogContent" placeholder="Enter Content" required>
+        </div>
+    </form>
+            <button id="btnCreateBlog">Publish</button>
+`
