@@ -144,10 +144,11 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("createBlogPage")
             })
+            model.getBlogs();
             break;
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
-            document.getElementById('btnCreateBlog').addEventListener('click', () => {
+            document.getElementById('btnCreateBlog').addEventListener('click', async () => {
                 const title = document.getElementById("blogTitle").value
                 const description = document.getElementById("blogDescription").value
                 const content = document.getElementById("blogContent").value
@@ -161,7 +162,9 @@ view.setActiveScreen = async (screenName) => {
                     createdAt: createdAt,
                     owner: model.currentUser.email,
                 }
-                model.addNewBlog(data)
+                await model.addNewBlog(data)
+                view.setActiveScreen('blogPage')
+                view.addBlog(data.blogText)
             })
             break;
         case "profilePage":
@@ -307,4 +310,20 @@ view.showQuizzes = () => {
             }
         });
     })
+}
+
+view.addBlog = (data) => {
+    let blogList = document.querySelector('.main-blog')
+    const article = document.createElement('div')
+    article.classList.add("article")
+    article.innerHTML = `
+            <div class="content">
+                <h1 id="blogTitle">${data.title}</h1>
+                <p id="blogDescription">${data.description}</p>
+                <div class="view">view</div>
+            </div>
+            <div class="img-article">
+                <img src="./img/maxresdefault.jpg" alt="">
+            </div>`
+    document.getElementById('blogList').appendChild(article)
 }

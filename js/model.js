@@ -133,5 +133,13 @@ model.getQuizzes = async () => {
 }
 
 model.addNewBlog = async (data) => {
-    await firebase.firestore().collection('blogs').add(data)
+    await firebase.firestore().collection('blogs').add(data)   
+}
+
+model.getBlogs = async () => {
+    const response = await firebase.firestore().collection('blogs').get();
+    const data = getManyDocument(response)
+    for (item of data) {
+        view.addBlog(item.blogText)
+    }
 }
