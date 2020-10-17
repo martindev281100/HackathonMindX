@@ -19,10 +19,7 @@ model.register = async (data) => {
                 }
             ]
         }
-        console.log(dataToAdd)
-        await firebase.firestore().collection("users").doc(response.user.uid).set(dataToAdd).then(function(){
-            console.log('ran')
-        }).catch(function(error){console.error(error)})
+        await firebase.firestore().collection("users").doc(response.user.uid).set(dataToAdd)
         firebase.auth().signOut()
     } catch (err) {
         alert(err.message);
