@@ -164,8 +164,8 @@ component.userHomePage = `
       <i class="fas fa-search"></i>
   </div>
   <div class="account">
-    <i class="fas fa-user-astronaut"></i>
-    User 00000001
+    <img src="./img/logo-icon.png" alt="">
+    <h4>User 00000001</h4>
   </div>
   <div class="logOut" id="sign-out-button">
     <i class="fas fa-sign-out-alt">
@@ -195,20 +195,15 @@ component.quizPage = `
     </i>
   </div>
 </div>
+<div class="main-quizz">
 <div id="question"></div>
-<button id="answer0" class="answer"></button>
-<button id="answer1" class="answer"></button>
-<button id="answer2" class="answer"></button>
-<button id="answer3" class="answer"></button>
-
-<input type="radio" id="answer0" class="answer" value="">
-<label for="answer0" id="label0"></label><br>
-<input type="radio" id="answer1" class="answer" value="">
-<label for="answer1" id="label1"></label><br>
-<input type="radio" id="answer2" class="answer" value="">
-<label for="answer2" id="label2"></label><br>
-<input type="radio" id="answer3" class="answer" value="">
-<label for="answer3" id="label3"></label>
+<div class="answer-list">
+    <button id="answer0" class="answer"></button>
+    <button id="answer1" class="answer"></button>
+    <button id="answer2" class="answer"></button>
+    <button id="answer3" class="answer"></button>
+</div>
+</div>
 `
 
 component.blogPage = `
