@@ -257,18 +257,58 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("app").innerHTML = component.studySetPage;
             view.showStudySets();
             break;
+        case "editStudySet":
+            document.getElementById("app").innerHTML = component.editQuizPage;
+            break;
     }
+}
+
+view.showStudySet = (studySet) => {
+    document.getElementById("study-set-title").value = studySet.title
+    document.getElementById("study-set-description").value = studySet.description
+    const elements = document.querySelector('.list-question')
+    elements.innerHTML = ""
+    for (let question of studySet["question_set"]) {
+        const questionContainer = document.createElement('div')
+        questionContainer.classList.add("question")
+        questionContainer.innerHTML = `
+        <div class="title-question">
+            <input class="input-question" type="text" value="${question.question}">
+            <h5>question</h5>
+        </div>
+        <div class="answer">
+            <div class="correct-answer">
+                <input class="input-correct-answer" type="text" value="${question["correct_answer"]}">
+                <h5>correct answer</h5>
+            </div>
+            <div class="other">
+                <input class="input-incorrect-answer-0" type="text" value="${question["incorrect_answers"][0]}">
+                <h5>incorrect answer</h5>
+            </div>
+            <div class="other">
+                <input class="input-incorrect-answer-1" type="text" value="${question["incorrect_answers"][1]}">
+                <h5>incorrect answer</h5>
+            </div>
+            <div class="other">
+                <input class="input-incorrect-answer-2" type="text" value="${question["incorrect_answers"][2]}">
+                <h5>incorrect answer</h5>
+            </div>
+        </div>
+        `
+        elements.appendChild(questionContainer)
+    }
+    
 }
 
 view.showStudySets = () => {
     for (user of model.users) {
         if (user.email == model.currentUser.email) {
-            console.log(user["study_sets"])
             for (let i = 0; i < user["study_sets"].length; i++) {
                 element = document.createElement("button");
                 element.innerHTML = `${user["study_sets"][i].title}`
                 element.addEventListener("click", function () {
-                    view.setActiveScreen("addQuizzPage")
+                view.setActiveScreen("editStudySet")
+                view.showStudySet(user["study_sets"][i]);
                 })
                 document.getElementById("study-set-container").appendChild(element);
             }
