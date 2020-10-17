@@ -120,4 +120,5 @@ model.getQuizzes = async () => {
 
 model.addNewBlog = async (data) => {
     await firebase.firestore().collection('blogs').add(data)
+    
 }

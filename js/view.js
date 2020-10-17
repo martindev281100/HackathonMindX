@@ -163,7 +163,9 @@ view.setActiveScreen = async (screenName) => {
                     createdAt: createdAt,
                     owner: model.currentUser.email,
                 }
-                model.addNewBlog(data)
+                await model.addNewBlog(data)
+                view.setActiveScreen('blogPage')
+                view.addBlog(data.blogText)
             })
             break;
         case "profilePage":
@@ -302,4 +304,23 @@ view.showQuizzes = () => {
             }
         }
     })
+}
+
+view.addBlog = (data) => {
+    let blogList = document.querySelector('.main-blog')
+    const article = document.createElementI('div')
+    article.classList.add("article")
+    article.innerHTML = `
+            <div class="content">
+                <h1 id="blogTitle">Heading of Article</h1>
+                <p id="blogDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
+                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
+                    corporis! Dolores.</p>
+                <div class="view">view</div>
+            </div>
+            <div class="img-article">
+                <img src="./img/maxresdefault.jpg" alt="">
+            </div>`
+    
+    console.log(data)
 }

@@ -254,8 +254,8 @@ component.blogPage = `
     <div class="main-blog">
         <div class="article">
             <div class="content">
-                <h1>Heading of Article</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
+                <h1 id="blogTitle">Heading of Article</h1>
+                <p id="blogDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
                     praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
                     corporis! Dolores.</p>
                 <div class="view">view</div>
