@@ -147,7 +147,8 @@ view.setActiveScreen = async (screenName) => {
             await model.getBlogs();
             const btnView = document.querySelectorAll('.article .content .view')
             btnView.forEach(btn => {
-                btn.addEventListener('click', function () {
+                btn.addEventListener('click', async function (e) {
+                    await model.getCurrentBlog(e.target.id)
                     view.setActiveScreen('detailBlogPage')
                 })
             })
@@ -226,10 +227,21 @@ view.setActiveScreen = async (screenName) => {
         case "detailBlogPage":
             document.getElementById("app").innerHTML = component.detailBlogPage;
             displayIconName()
+            console.log(model.currentBlog)
+            document.querySelector('.main-blog-detail .title-blog-detail').innerText = model.currentBlog.blogText.title
+            document.querySelector('.main-blog-detail .description-blog-detail').innerText = model.currentBlog.blogText.description
+            document.querySelector('.main-blog-detail .content-blog-detail').innerText = model.currentBlog.blogText.content
+            convertISOString(model.currentBlog.createdAt)
     }
 }
 
-
+let convertISOString = (string) => {
+    const date = new Date(string)
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
+    const dt = date.getDate()
+    document.querySelector('.main-blog-detail .time-to-create').innerText = "Created at: " + year + '-' + month + '-' + dt
+}
 view.addNewQuizz = () => {
     const elements = document.querySelector('.main-add-quizz .list-question')
     const questionContainer = document.createElement('div')
