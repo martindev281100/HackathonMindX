@@ -114,7 +114,7 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
-            
+
             break;
 
         case "playQuizPage":
@@ -206,8 +206,15 @@ view.setActiveScreen = async (screenName) => {
 
             document.querySelector(".editAccountBtn").addEventListener('click', () => {
                 document.querySelector(".edit-form").style.display = "block"
+                document.querySelector(".list-blog-form").style.display = "none"
             })
             document.getElementById("btn-close").addEventListener('click', () => {
+                document.querySelector(".edit-form").style.display = "none"
+                document.querySelector("#change-password-container").style.display = "none"
+            })
+
+            document.querySelector(".listBlogBtn").addEventListener('click', () => {
+                document.querySelector(".list-blog-form").style.display = "block"
                 document.querySelector(".edit-form").style.display = "none"
                 document.querySelector("#change-password-container").style.display = "none"
             })

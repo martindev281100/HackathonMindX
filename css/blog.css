@@ -87,6 +87,7 @@
     border: 5px solid #1dd1a1;
     border-radius: 6px;  
     font-size: 1rem;   
+    outline: none;
 }
 
 #btnCreateBlog{

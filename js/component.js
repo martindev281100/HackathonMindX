@@ -282,6 +282,7 @@ component.profilePage = `
             <div class="header-info">
                 <h1 class="userName">Luu The Manh (FGW-HN)</h1>
                 <button class="editAccountBtn">Edit profile <i class="fas fa-user-edit"></i></button>
+                <button class="listBlogBtn">Edit list blog <i class="fas fa-clipboard-list"></i></button>
             </div>
         </div>
         <div class="edit-form">
@@ -313,6 +314,17 @@ component.profilePage = `
             </div>
 
             <button type="submit" id="btn_submitChangePass">Submit</button>
+        </div>
+
+        <div class="list-blog-form">
+          <div class="article">
+            <h1 class="title-blog">Hello 1</h1>
+            <button class="deleteBtn">Delete</button>
+          </div>
+          <div class="article">
+          <h1 class="title-blog">Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1Hello 1</h1>
+          <button class="deleteBtn">Delete</button>
+        </div>
         </div>
     </div> 
 `
