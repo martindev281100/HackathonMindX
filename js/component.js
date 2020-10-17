@@ -8,8 +8,8 @@ component.registerPage = `
       <i class="fas fa-search"></i>
   </div>
   <div class="Btn-Login-SignUp">
-    <button class="logIn">Log in</button>
-    <button class="signUp">Sign up</button>
+      <button class="logIn">Log in</button>
+      <button class="signUp">Sign up</button>
   </div>
 </div>
 <div class="register-container">
@@ -51,8 +51,8 @@ component.loginPage = `
       <i class="fas fa-search"></i>
   </div>
   <div class="Btn-Login-SignUp">
-    <button class="signUp">Log in</button>
-    <button class="logIn">Sign up</button>
+      <button class="logIn">Log in</button>
+      <button class="signUp">Sign up</button>
   </div>
 </div>
 <div class="login-container">
@@ -118,7 +118,6 @@ component.homePage = `
       <h1>Become your most <br> unstoppable self</h1>
       <h3>Master any subject, one success at a time.</h5>
       <button class="signUp1">Get Start</button><br>
-      <div class="blogBtn">I'm a Student</div>
   </div>
   <div class="slides-show">
       <div class="slide-show" id="slide-form">
@@ -161,8 +160,8 @@ component.userHomePage = `
   <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
   <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
   <div class="search">
-    <input type="text">
-    <i class="fas fa-search"></i>
+      <input type="text">
+      <i class="fas fa-search"></i>
   </div>
   <div class="account">
     <i class="fas fa-user-astronaut"></i>
@@ -183,8 +182,8 @@ component.quizPage = `
   <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
   <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
   <div class="search">
-    <input type="text">
-    <i class="fas fa-search"></i>
+      <input type="text">
+      <i class="fas fa-search"></i>
   </div>
   <div class="account">
     <i class="fas fa-user-astronaut"></i>
@@ -213,25 +212,25 @@ component.quizPage = `
 `
 
 component.blogPage = `
-    <div class="navbar">
-      <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-      <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
-      <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
-      <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-      <div class="search">
-        <input type="text">
-        <i class="fas fa-search"></i>
-      </div>
-      <div class="account">
-        <i class="fas fa-user-astronaut"></i>
-        User 00000001
-      </div>
-      <div class="logOut" id="sign-out-button">
-        <i class="fas fa-sign-out-alt">
-        <h4> Log out</h4>
-        </i>
-      </div>
-    </div>
+<div class="navbar">
+  <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+  <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+  <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+  <div class="search">
+      <input type="text">
+      <i class="fas fa-search"></i>
+  </div>
+  <div class="account">
+    <i class="fas fa-user-astronaut"></i>
+    User 00000001
+  </div>
+  <div class="logOut" id="sign-out-button">
+    <i class="fas fa-sign-out-alt">
+    <h4> Log out</h4>
+    </i>
+  </div>
+</div>
     <div class="main-blog">
         <div class="article">
             <div class="content">

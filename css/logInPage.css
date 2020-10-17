@@ -8,7 +8,7 @@
 
  .login-container #login-form,
  .register-container #register-form{
-    width: 25%;
+    width: 40%;
     margin: 0 auto;
     text-align: center;
 }
@@ -57,7 +57,7 @@
 }
 
 .login-container .forgetPassword{
-    width: 42%;
+    width: 25%;
     color: #dbdbdb;
     cursor: pointer;
 }
@@ -91,7 +91,8 @@
 }
 
 .login-container .input-wrapper .btn-social-acc button{
-    padding: 15px 32px;
+    padding: 15px 0px;
+    width: 200px;
     outline: none;
     border: 2px solid #fff;
     background-color: transparent;
@@ -124,6 +125,13 @@
 .redirect #redirect-to-register,
 .redirect #redirect-to-login{
     cursor: pointer;
+}
+
+.redirect #redirect-to-register:hover,
+.redirect #redirect-to-login:hover{
+    color: #c23616;
+    text-decoration: underline;
+    transition: 0.5s;
 }
 
 /* The Modal (background) */

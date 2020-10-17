@@ -26,7 +26,7 @@
 }
 
 .main .text button{
-    margin: 2rem 4rem;
+    margin: 5rem 4rem;
     padding: 2rem 4rem;
     background-color: transparent;
     border: 3px solid #fff;
@@ -42,22 +42,6 @@
 .main .text button:hover{
     background-color: #fff;
     color: #10ac84;
-    transition: 0.8s;
-}
-
-.main .text .blogBtn{
-    padding-left: 4rem;
-    cursor: pointer;
-    color: #079992;
-    font-size: 25px;
-    font-weight: 500;
-    display: inline;
-}
-
-.main .text .blogBtn:hover{
-    color: #fff;
-    font-weight: 700;
-    font-size: 30px;
     transition: 0.8s;
 }
 
