@@ -5,6 +5,7 @@ model.detailUserProfile = undefined;
 model.imageURL = undefined;
 model.currentBlog = undefined;
 model.users = undefined;
+model.currentQuestionSet = undefined;
 
 model.register = async (data) => {
     try {

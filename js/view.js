@@ -1,4 +1,5 @@
 const view = {}
+
 view.setActiveScreen = async (screenName) => {
     switch (screenName) {
         case "registerPage":
@@ -127,10 +128,10 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".logOut").addEventListener('click', () => {
                 firebase.auth().signOut();
             })
-            view.showQuizzes();
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
+            view.showQuizzes();
             break;
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
@@ -319,15 +320,15 @@ let count = 0;
 view.showQuizzes = () => {
     let rand;
     do {
-        rand = Math.floor(Math.random() * controller.quizzes.length);
-    } while (controller.quizzes[rand].shown)
-    controller.quizzes[rand].shown = true;
-    document.getElementById("question").innerHTML = controller.quizzes[rand].question;
+        rand = Math.floor(Math.random() * model.currentQuestionSet.length);
+    } while (model.currentQuestionSet[rand].shown)
+    model.currentQuestionSet[rand].shown = true;
+    document.getElementById("question").innerHTML = model.currentQuestionSet[rand].question;
     let answers = [
-        controller.quizzes[rand]["correct_answer"].toString(),
-        controller.quizzes[rand]["incorrect_answers"][0],
-        controller.quizzes[rand]["incorrect_answers"][1],
-        controller.quizzes[rand]["incorrect_answers"][2]
+        model.currentQuestionSet[rand]["correct_answer"],
+        model.currentQuestionSet[rand]["incorrect_answers"][0],
+        model.currentQuestionSet[rand]["incorrect_answers"][1],
+        model.currentQuestionSet[rand]["incorrect_answers"][2]
     ];
     for (let i = 0; i < 4; i++) {
         let rand = Math.floor(Math.random() * answers.length);
@@ -336,12 +337,12 @@ view.showQuizzes = () => {
     }
     document.querySelectorAll(".answer").forEach(answer => {
         answer.addEventListener("click", function () {
-            if (answer.innerHTML == controller.quizzes[rand]["correct_answer"]) alert("Correct");
+            if (answer.innerHTML == model.currentQuestionSet[rand]["correct_answer"]) alert("Correct");
             else alert("Incorrect");
             count++;
-            if (count == controller.quizzes.length) {
-                view.setActiveScreen(component.quizPage);
-                for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
+            if (count == model.currentQuestionSet.length) {
+                view.setActiveScreen("quizPage");
+                for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
                 count = 0;
             } else {
                 view.setActiveScreen("playQuizPage");
@@ -377,11 +378,19 @@ view.showUserQuizzes = () => {
                 <button>
                     <h1>${studySet.title}</h2>
                     <h2>by <span>${user.user}</span></h2>
-                    <div class="learn">Learn</div>
-                    <div class="test">Test</div>
+                    <div class="learn" id="learn-${user.id}">Learn</div>
+                    <div class="test" id="test-${user.id}">Test</div>
                 </button>
                 `
                 userQuizzesContainer.appendChild(quizOption);
+                document.getElementById(`learn-${user.id}`).addEventListener("click", {
+                });
+                document.getElementById(`test-${user.id}`).addEventListener("click", function () {
+                    model.currentQuestionSet = studySet["question_set"]
+                    for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
+                    console.log(model.currentQuestionSet)
+                    view.setActiveScreen("playQuizPage");
+                });
             })
         }
     })
