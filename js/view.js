@@ -106,13 +106,15 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(' .navbar .account').addEventListener('click', () => {
                 view.setActiveScreen("profilePage")
             })
-
-            document.getElementById("testJs").addEventListener("click", () => {
-                view.setActiveScreen("playQuizPage")
+            document.querySelectorAll(".fixed-test").forEach(test => {
+                test.addEventListener("click", function () {
+                    view.setActiveScreen("playQuizPage")
+                })
             })
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
+            
             break;
 
         case "playQuizPage":
