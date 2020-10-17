@@ -162,10 +162,19 @@ view.setActiveScreen = async (screenName) => {
                 }
             })
             document.getElementById('btn_changePassword').addEventListener('click', () => {
-                document.getElementById("app").innerHTML = component.changePassword;
-                document.getElementById("btn_submitChangePass").addEventListener('click', async () => {
-                    await model.changePassword(document.getElementById("change-password").value, document.getElementById("current-password").value)
-                })
+                document.querySelector(".edit-form").style.display = "none"
+                document.querySelector("#change-password-container").style.display = "block"
+            })
+
+            document.querySelector(".editAccountBtn").addEventListener('click', () => {
+                document.querySelector(".edit-form").style.display = "block"
+            })
+            document.getElementById("btn-close").addEventListener('click', () => {
+                document.querySelector(".edit-form").style.display = "none"
+                document.querySelector("#change-password-container").style.display = "none"
+            })
+            document.querySelector(".logOut").addEventListener('click', () => {
+                firebase.auth().signOut();
             })
             break;
         case "addQuizzPage":
