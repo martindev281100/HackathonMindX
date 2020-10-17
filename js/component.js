@@ -51,8 +51,8 @@ component.loginPage = `
       <i class="fas fa-search"></i>
   </div>
   <div class="Btn-Login-SignUp">
-      <button class="logIn">Log in</button>
-      <button class="signUp">Sign up</button>
+    <button class="signUp">Log in</button>
+      <button class="logIn">Sign up</button>
   </div>
 </div>
 <div class="login-container">
@@ -173,6 +173,15 @@ component.userHomePage = `
     </i>
   </div>
 </div>
+<div class="main-quizz-option">
+  <h1 class="title-option">Type Of Programming Language</h1>
+  <div class="list-option">
+      <div class="option js"><i class="fab fa-js-square"></i></div>
+      <div class="option java"><i class="fab fa-java"></i></div>
+      <div class="option python"><i class="fab fa-python"></i></div>
+      <div class="option csharp"><i class="fas fa-copyright"></i></div>
+  </div>
+</div>
 `;
 
 component.quizPage = `
@@ -186,7 +195,8 @@ component.quizPage = `
       <i class="fas fa-search"></i>
   </div>
   <div class="account">
-    <i class="fas fa-user-astronaut"></i>
+    <img src="./img/logo-icon.png" alt="">
+    <h4>User 00000001</h4>
   </div>
   <div class="logOut" id="sign-out-button">
     <i class="fas fa-sign-out-alt">
@@ -216,7 +226,8 @@ component.blogPage = `
       <i class="fas fa-search"></i>
   </div>
   <div class="account">
-    <i class="fas fa-user-astronaut"></i>
+    <img src="./img/logo-icon.png" alt="">
+    <h4>User 00000001</h4>
   </div>
   <div class="logOut" id="sign-out-button">
     <i class="fas fa-sign-out-alt">

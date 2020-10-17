@@ -8,6 +8,7 @@
 
 .main-quizz #question{
     text-align: center;
+    height: 150px;
     font-size: 2rem;
     margin-top: 3.5rem;
     margin-bottom: 1rem;
@@ -15,15 +16,15 @@
 }
 
 .main-quizz .answer-list{
-    width: 90%;
-    margin: 3rem auto;
+    width: 100%;
+    margin: 10px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 .main-quizz .answer-list button{
-    padding: 3rem 0;
-    width: 35%;
+    width: 45%;
+    height: 110px;
     text-align: center;
     margin: 15px 10px;
     font-weight: 600;
@@ -33,8 +34,73 @@
     border: 4px solid #10ac84;
     color: #00d2d3;
     background-color: #fff;
+    word-wrap: break-word;
 }
 
 .main-quizz .answer-list button:hover{
     border: 4px solid #fff200;
+}
+
+
+.main-quizz-option{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.main-quizz-option .list-option{
+    display: flex;
+    margin-top: 3rem;
+    justify-content: space-around;
+}
+
+.main-quizz-option .list-option .option{
+    cursor: pointer;
+}
+
+.main-quizz-option .list-option .option.js{
+    background-color: #f6b93b;
+    padding: 10rem 4.5rem;
+}
+.main-quizz-option .list-option .option.js i:hover{
+    font-size: 10rem;
+    transition: 0.8s;
+    color: #e58e26;
+}
+
+.main-quizz-option .list-option .option.java{
+    background-color: #b71540;
+    padding: 10rem 4.5rem;
+}
+.main-quizz-option .list-option .option.java i:hover{
+    font-size: 10rem;
+    transition: 0.8s;
+    color: #eb2f06;
+}
+
+.main-quizz-option .list-option .option.python{
+    background-color: #079992;
+    padding: 10rem 4.5rem;
+}
+.main-quizz-option .list-option .option.python i:hover{
+    font-size: 10rem;
+    transition: 0.8s;
+    color: #38ada9;
+}
+
+.main-quizz-option .list-option .option.csharp{
+    background-color: #0c2461;
+    padding: 10rem 4.5rem;
+}
+.main-quizz-option .list-option .option.csharp i:hover{
+    font-size: 10rem;
+    transition: 0.8s;
+    color: #1e3799;
+}
+
+.main-quizz-option .list-option .option i{
+    color: #fff;
+    font-size: 7rem;
+    transition: 0.8s;
 }

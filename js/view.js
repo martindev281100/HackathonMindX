@@ -105,7 +105,7 @@ view.setActiveScreen = async (screenName) => {
                 firebase.auth().signOut();
             })
             document.getElementById("quiz-button").addEventListener("click", function () {
-                view.setActiveScreen("quizPage")
+                view.setActiveScreen("userHomePage")
             })
             model.getQuizzes();
             document.querySelector(".blog").addEventListener('click', () => {
@@ -135,7 +135,7 @@ view.setActiveScreen = async (screenName) => {
                 firebase.auth().signOut();
             })
             document.getElementById("quiz-button").addEventListener("click", function () {
-                view.setActiveScreen("quizPage")
+                view.setActiveScreen("userHomePage")
             })
 
             break;

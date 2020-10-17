@@ -18,12 +18,7 @@ window.onload = async () => {
                     email: user.email,
                     uid: user.uid,
                 };
-                view.setActiveScreen('userHomePage');
-                document.querySelector(".create a").style = "display:block"
-                document.querySelector(".blog a").style = "display:block"
-                document.querySelector(".quizz a").style = "display:block"
-                document.querySelector(".account").style = "display:block"
-                document.querySelector(".logOut i").style = "display:inline-block"
+                view.setActiveScreen('blogPage');
             } else {
                 alert("Please verify your email");
                 firebase.auth().signOut();
