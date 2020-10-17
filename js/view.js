@@ -175,8 +175,6 @@ view.setActiveScreen = async (screenName) => {
             break;
         case "profilePage":
             document.getElementById("app").innerHTML = component.profilePage;
-            console.log(model.currentUser)
-            console.log(model.detailUserProfile)
             if (model.detailUserProfile.providerId !== "password") {
                 document.getElementById("profile-current-password").hidden = true;
                 document.getElementById("profile-email").readOnly = true;
@@ -383,27 +381,24 @@ view.showUserQuizzes = () => {
     const userQuizzesContainer = document.getElementById("user-quizzes-container")
     userQuizzesContainer.innerHTML = "";
     model.users.forEach(user => {
-        console.log(user["study_sets"])
         if (user["study_sets"].length) {
             for (let i = 0; i < user["study_sets"].length; i++) {
-                let quizOption = document.createElement('div');
-                quizOption.classList.add("list-option");
-                quizOption.innerHTML = `
-                <button>
-                    <h1>${user["study_sets"][i].title}</h2>
-                    <h2>by <span>${user.user}</span></h2>       
-                    <div class="learn" id="learn-${user.id}-${i}">Learn</div>
-                    <div class="test" id="test-${user.id}-${i}">Test</div>
-                </button>
+                let element = document.createElement('button');
+                element.innerHTML = `
+                <h1>${user["study_sets"][i].title}</h1>
+                <h2>Created by <span>${user.user}</span></h2>
+                <div class="btn">
+                    <div class="learn user-learn" id="learn-${user.id}-${i}">Learn</div>
+                    <div class="test user-test" id="test-${user.id}-${i}">Test</div>
+                </div>
                 `
-                userQuizzesContainer.appendChild(quizOption);
+                userQuizzesContainer.appendChild(element);
                 document.getElementById(`learn-${user.id}-${i}`).addEventListener("click", function () {
                     view.setActiveScreen("learnPage");
                 });
                 document.getElementById(`test-${user.id}-${i}`).addEventListener("click", function () {
                     model.currentQuestionSet = user["study_sets"][i]["question_set"]
                     for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
-                    console.log(model.currentQuestionSet)
                     view.setActiveScreen("playQuizPage");
                 });
             }
