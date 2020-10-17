@@ -490,18 +490,17 @@ component.learnPage = `
             </i>
         </div>
     </div>
-    <div class="flashCard">
-        <h1 class="title">Title</h1>
-        <div class="theCard">
+    <label>
+        <input type="checkbox" />
+        <div class="flip-card">
             <div class="front">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, et sunt totam quisquam maxime
-                    ipsum mollitia deleniti ipsam voluptas esse impedit suscipit voluptatum est sapiente. Ea modi ab
-                    vero molestias.</p>
+                <p>Front</p>
             </div>
             <div class="back">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis nulla sunt, provident
-                    consequuntur sit atque perspiciatis, animi aspernatur quaerat fugiat facilis a quia adipisci esse,
-                    inventore commodi repellat nam sed.</p>
+                <p>Back</p>
+                <hr />
+                <p class="click">Click to flip</p>
             </div>
         </div>
-    </div>`
+    </label>
+`
