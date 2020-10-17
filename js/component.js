@@ -146,7 +146,7 @@ component.quizPage = `
         <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
         <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
         <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-        <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+        <div id="create-quiz-button" class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
         <div class="account">
             <img src="./img/logo-icon.png" alt="" id="display_icon">
             <h4 id="display_username"></h4>
