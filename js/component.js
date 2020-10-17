@@ -280,10 +280,10 @@ component.profilePage = `
         <div class="header">
             <img src="./img/logo-icon.png" alt="" class="avatar">
             <div class="header-info">
-                <h1 class="userName">Luu The Manh (FGW-HN)</h1>
+                <h1 class="userName"></h1>
                 <button class="editAccountBtn">Edit profile <i class="fas fa-user-edit"></i></button>
             </div>
-        </div>
+        </div> 
         <div class="edit-form">
             <div id="profile-current-password">
                 <input type="text" value="" id="current-password">
@@ -380,15 +380,6 @@ component.addQuizzPage = `
           <button id="create-button" class="createBtn">Create</button>
       </div>
 `
-component.newsfeedsPage = `
-    <div>
-        <h2 id="newsfeeds-title">
-        </h2>
-        <div id="newsfeeds-description">
-        </div>
-        <p id="newsfeeds-content">
-        </p>
-    </div>`
 
 component.createBlogPage = `
 <div class="navbar">

@@ -181,11 +181,15 @@ view.setActiveScreen = async (screenName) => {
             break;
         case "profilePage":
             document.getElementById("app").innerHTML = component.profilePage;
+            console.log(model.currentUser)
+            console.log(model.detailUserProfile)
             if (model.detailUserProfile.providerId !== "password") {
                 document.getElementById("profile-current-password").hidden = true;
                 document.getElementById("profile-email").readOnly = true;
                 document.getElementById("btn_changePassword").hidden = true;
             }
+            document.querySelector('.header-info .userName').innerText = model.currentUser.displayName
+            document.querySelector('.main-info .header .avatar').src = model.detailUserProfile.photoURL
             let email = document.getElementById("profile-email")
             let userName = document.getElementById("profile-username")
             email.value = model.detailUserProfile.email

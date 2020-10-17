@@ -86,6 +86,8 @@ model.changeProfile = async (userName, email, currentPassword) => {
             displayName: userName
         }).then(function () {
             alert('Profile has been changed!')
+            model.currentUser.displayName = userName
+            view.setActiveScreen('profilePage')
         }).catch(function (error) {
             alert(error)
         });
