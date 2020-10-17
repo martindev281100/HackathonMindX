@@ -195,8 +195,8 @@ component.quizPage = `
       <i class="fas fa-search"></i>
   </div>
   <div class="account">
-    <img src="./img/logo-icon.png" alt="">
-    <h4>User 00000001</h4>
+    <img src="./img/logo-icon.png" alt="" id="display_icon">
+    <h4 id="display_username"></h4>
   </div>
   <div class="logOut" id="sign-out-button">
     <i class="fas fa-sign-out-alt">
@@ -226,8 +226,8 @@ component.blogPage = `
       <i class="fas fa-search"></i>
   </div>
   <div class="account">
-    <img src="./img/logo-icon.png" alt="">
-    <h4>User 00000001</h4>
+    <img src="./img/logo-icon.png" alt="" id="display_icon">
+    <h4 id="display_username"></h4>
   </div>
   <div class="logOut" id="sign-out-button">
     <i class="fas fa-sign-out-alt">

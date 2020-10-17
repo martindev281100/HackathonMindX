@@ -95,12 +95,7 @@ view.setActiveScreen = async (screenName) => {
 
         case "userHomePage":
             document.getElementById("app").innerHTML = component.userHomePage;
-            document.getElementById("display_username").innerText = model.currentUser.displayName
-            if (model.detailUserProfile.photoURL === null) {
-                document.getElementById("display_icon").src = "./img/logo-icon.png"
-            } else {
-                document.getElementById("display_icon").src = model.detailUserProfile.photoURL
-            }
+            displayIconName()
             document.getElementById("sign-out-button").addEventListener("click", function () {
                 firebase.auth().signOut();
             })
@@ -119,6 +114,7 @@ view.setActiveScreen = async (screenName) => {
 
         case "quizPage":
             document.getElementById("app").innerHTML = component.quizPage;
+            displayIconName()
             model.getQuizzes();
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("blogPage")
@@ -131,6 +127,8 @@ view.setActiveScreen = async (screenName) => {
             break;
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
+            console.log(model.currentUser)
+            displayIconName()
             document.querySelector(".logOut").addEventListener('click', () => {
                 firebase.auth().signOut();
             })
@@ -159,7 +157,14 @@ view.setActiveScreen = async (screenName) => {
 view.setErrorMessage = (elementId, content) => {
     document.getElementById(elementId).innerText = content;
 };
-
+let displayIconName = () => {
+    document.getElementById("display_username").innerText = model.currentUser.displayName
+    if (model.detailUserProfile.photoURL === null) {
+        document.getElementById("display_icon").src = "./img/logo-icon.png"
+    } else {
+        document.getElementById("display_icon").src = model.detailUserProfile.photoURL
+    }
+}
 let slideIndex = 1;
 // Thumbnail image controls
 function currentSlide(n) {
