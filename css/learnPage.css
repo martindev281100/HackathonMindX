@@ -1,0 +1,36 @@
+.maincontainer{
+    position: relative;
+    width: 250px;
+    height: 320px;
+}
+
+.theCard{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.theCard:hover{
+    transform: rotateX(180deg);
+}
+
+.theFront{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffc728;
+    color: #333;
+}
+
+.theBack{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #fafafa;
+    color: #333;
+    transform: rotateX(180deg);
+}
