@@ -294,9 +294,9 @@ view.setErrorMessage = (elementId, content) => {
     document.getElementById(elementId).innerText = content;
 };
 let displayIconName = () => {
-    document.querySelector(' .navbar .account').addEventListener('click', () => {
-        view.setActiveScreen("profilePage")
-    })
+    // document.querySelector(' .navbar .account').addEventListener('click', () => {
+    //     view.setActiveScreen("profilePage")
+    // })
     document.getElementById("display_username").title = model.currentUser.displayName
     document.getElementById("display_username").innerText = model.currentUser.displayName
     if (model.detailUserProfile.photoURL === null) {
