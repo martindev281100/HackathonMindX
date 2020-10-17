@@ -2,7 +2,8 @@ const model = {}
 
 model.currentUser = undefined;
 model.detailUserProfile = undefined;
-model.imageURL = undefined
+model.imageURL = undefined;
+model.currentBlog = undefined;
 model.users = undefined;
 model.register = async (data) => {
     try {
@@ -147,6 +148,12 @@ model.getBlogs = async () => {
         await model.getImage(item.id)
         view.addBlog(item.blogText, item.id, model.imageURL)
     }
+}
+
+model.getCurrentBlog = async (id) => {
+    const response = await firebase.firestore().collection('blogs').doc(id).get()
+    const result = await getOneDocument(response)
+    model.currentBlog = result;
 }
 
 model.getImage = async (id) => {
