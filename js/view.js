@@ -146,10 +146,11 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("createBlogPage")
             })
+            model.getBlogs();
             break;
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
-            document.getElementById('btnCreateBlog').addEventListener('click', () => {
+            document.getElementById('btnCreateBlog').addEventListener('click', async () => {
                 const title = document.getElementById("blogTitle").value
                 const description = document.getElementById("blogDescription").value
                 const content = document.getElementById("blogContent").value
@@ -317,19 +318,16 @@ view.showQuizzes = () => {
 
 view.addBlog = (data) => {
     let blogList = document.querySelector('.main-blog')
-    const article = document.createElementI('div')
+    const article = document.createElement('div')
     article.classList.add("article")
     article.innerHTML = `
             <div class="content">
-                <h1 id="blogTitle">Heading of Article</h1>
-                <p id="blogDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
-                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
-                    corporis! Dolores.</p>
+                <h1 id="blogTitle">${data.title}</h1>
+                <p id="blogDescription">${data.description}</p>
                 <div class="view">view</div>
             </div>
             <div class="img-article">
                 <img src="./img/maxresdefault.jpg" alt="">
             </div>`
-    
-    console.log(data)
+    document.getElementById('blogList').appendChild(article)
 }

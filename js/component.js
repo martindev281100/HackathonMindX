@@ -251,55 +251,8 @@ component.blogPage = `
     </i>
   </div>
 </div>
-    <div class="main-blog">
-        <div class="article">
-            <div class="content">
-                <h1 id="blogTitle">Heading of Article</h1>
-                <p id="blogDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
-                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
-                    corporis! Dolores.</p>
-                <div class="view">view</div>
-            </div>
-            <div class="img-article">
-                <img src="./img/maxresdefault.jpg" alt="">
-            </div>
-        </div>
-        <div class="article">
-            <div class="content">
-                <h1>Heading of Article</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
-                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
-                    corporis! Dolores.</p>
-                <div class="view">view</div>
-            </div>
-            <div class="img-article">
-                <img src="./img/maxresdefault.jpg" alt="">
-            </div>
-        </div>
-        <div class="article">
-            <div class="content">
-                <h1>Heading of Article</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
-                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
-                    corporis! Dolores.</p>
-                <div class="view">view</div>
-            </div>
-            <div class="img-article">
-                <img src="./img/maxresdefault.jpg" alt="">
-            </div>
-        </div>
-        <div class="article">
-            <div class="content">
-                <h1>Heading of Article</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, fugit ut enim saepe, dicta quis
-                    praesentium dolor qui neque fuga sit non recusandae, temporibus perferendis eos dolorem quidem
-                    corporis! Dolores.</p>
-                <div class="view">view</div>
-            </div>
-            <div class="img-article">
-                <img src="./img/maxresdefault.jpg" alt="">
-            </div>
-        </div>
+    <div class="main-blog" id="blogList">
+        
     </div>
 `
 component.profilePage = `
