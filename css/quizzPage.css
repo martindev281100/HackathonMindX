@@ -225,13 +225,15 @@
     font-size: 2rem;
     color: #079992;
     cursor: pointer;
+    display: inline-block;
+    margin-right: 2rem;
 }
 
 .main-add-quizz .createBtn{
     padding: 15px 50px;
     outline: none;
     border: none;
-    font-size: 20px;
+    font-size: 14px;
     text-transform: uppercase;
     color: #fff;
     font-weight: 700;
