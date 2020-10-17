@@ -321,6 +321,7 @@ view.showSlides = (n) => {
 }
 
 let count = 0;
+let points = 0;
 view.showQuizzes = () => {
     let rand;
     do {
@@ -341,15 +342,28 @@ view.showQuizzes = () => {
     }
     document.querySelectorAll(".answer").forEach(answer => {
         answer.addEventListener("click", function () {
-            if (answer.innerHTML == model.currentQuestionSet[rand]["correct_answer"]) alert("Correct");
-            else alert("Incorrect");
+            let check = document.getElementById("check-answer");
+            check.style.display = "block";
+            if (answer.innerHTML == model.currentQuestionSet[rand]["correct_answer"]) {
+                check.innerHTML = "Correct";
+                points++;
+            } else {
+                check.innerHTML = "Incorrect";
+            }
             count++;
             if (count == model.currentQuestionSet.length) {
-                view.setActiveScreen("quizPage");
-                for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
-                count = 0;
+                setTimeout(function () {
+                    alert("You get " + points + " out of " + model.currentQuestionSet.length);
+                    view.setActiveScreen("quizPage");
+                    for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
+                    count = 0;
+                    points = 0;
+                }, 1000)
             } else {
-                view.setActiveScreen("playQuizPage");
+                setTimeout(function () {
+                    check.style.display = "none";
+                    view.setActiveScreen("playQuizPage");
+                }, 1000)
             }
         });
     })

@@ -247,6 +247,7 @@ component.playQuizPage = `
     <button id="answer2" class="answer"></button>
     <button id="answer3" class="answer"></button>
 </div>
+<div id="check-answer" style="display: none">hdfug</div>
 </div>
 `
 
