@@ -258,6 +258,6 @@ model.deleteBlog = async (id) => {
 }
 model.getQuizzes = async () => {
     const response = await firebase.firestore().collection('quizzes').get();
-    controller.quizzes = getManyDocument(response);
-    for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
+    model.currentQuestionSet = getManyDocument(response);
+    for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
 }

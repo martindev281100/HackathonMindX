@@ -227,7 +227,6 @@ view.setActiveScreen = async (screenName) => {
             await model.getBlogsTitle();
             document.querySelectorAll(".article .deleteBtn").forEach(btn => {
                 btn.addEventListener('click', async function (e) {
-                    console.log(e.target.parentNode)
                     await model.deleteBlog(e.target.id)
                     e.target.parentNode.remove();
                 })
@@ -389,6 +388,7 @@ view.showUserQuizzes = () => {
     const userQuizzesContainer = document.getElementById("user-quizzes-container")
     userQuizzesContainer.innerHTML = "";
     model.users.forEach(user => {
+        console.log(user["study_sets"])
         if (user["study_sets"].length) {
             for (let i = 0; i < user["study_sets"].length; i++) {
                 let quizOption = document.createElement('div');
@@ -402,8 +402,8 @@ view.showUserQuizzes = () => {
                 </button>
                 `
                 userQuizzesContainer.appendChild(quizOption);
-                document.getElementById(`learn-${user.id}-${i}`).addEventListener("click", {
-
+                document.getElementById(`learn-${user.id}-${i}`).addEventListener("click", function () {
+                    view.setActiveScreen("learnPage");
                 });
                 document.getElementById(`test-${user.id}-${i}`).addEventListener("click", function () {
                     model.currentQuestionSet = user["study_sets"][i]["question_set"]
