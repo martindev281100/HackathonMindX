@@ -243,7 +243,7 @@ component.blogPage = `
   </div>
   <div class="account">
     <img src="./img/logo-icon.png" alt="" id="display_icon">
-    <h4 id="display_username"></h4>
+    <h4 id="display_username" title=""></h4>
   </div>
   <div class="logOut" id="sign-out-button">
     <i class="fas fa-sign-out-alt">

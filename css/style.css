@@ -110,10 +110,6 @@
     text-overflow: ellipsis;
 }
 
-.navbar .account h4:hover{
-    overflow: visible;
-}
-
 .navbar .account img{
     position: absolute;
     top: 30px;
