@@ -1,7 +1,5 @@
 const view = {}
 view.setActiveScreen = async (screenName) => {
-    console.log(screenName)
-
     switch (screenName) {
         case "registerPage":
             document.getElementById('app').innerHTML = component.registerPage;
@@ -107,9 +105,7 @@ view.setActiveScreen = async (screenName) => {
                 view.setActiveScreen("blogPage")
             })
             model.getDetailProfile();
-            document.querySelector(' .navbar .account').addEventListener('click', () => {
-                view.setActiveScreen("profilePage")
-            })
+
             break;
 
         case "quizPage":
@@ -127,7 +123,6 @@ view.setActiveScreen = async (screenName) => {
             break;
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
-            console.log(model.currentUser)
             displayIconName()
             document.querySelector(".logOut").addEventListener('click', () => {
                 firebase.auth().signOut();
@@ -143,13 +138,21 @@ view.setActiveScreen = async (screenName) => {
             let userName = document.getElementById("profile-username")
             email.value = model.detailUserProfile.email
             userName.value = model.detailUserProfile.displayName
+            document.getElementById('btn-update-profile').addEventListener('click', () => {
+                const currentPassword = document.getElementById('current-password')
+                if (currentPassword === '' || currentPassword === null) {
+                    alert('Enter current password');
+                    return
+                } else {
+                    model.changeProfile(document.getElementById('profile-username').value, document.getElementById('profile-email').value, document.getElementById('current-password').value)
+                }
+            })
             document.getElementById('btn_changePassword').addEventListener('click', () => {
                 document.getElementById("app").innerHTML = component.changePassword;
-                document.getElementById("btn_submitChangePass").addEventListener('click', () => {
-                    model.changePassword(document.getElementById("change-password").value)
+                document.getElementById("btn_submitChangePass").addEventListener('click', async () => {
+                    await model.changePassword(document.getElementById("change-password").value, document.getElementById("current-password").value)
                 })
             })
-            console.log(model.detailUserProfile)
             break;
     }
 }
@@ -158,6 +161,9 @@ view.setErrorMessage = (elementId, content) => {
     document.getElementById(elementId).innerText = content;
 };
 let displayIconName = () => {
+    document.querySelector(' .navbar .account').addEventListener('click', () => {
+        view.setActiveScreen("profilePage")
+    })
     document.getElementById("display_username").innerText = model.currentUser.displayName
     if (model.detailUserProfile.photoURL === null) {
         document.getElementById("display_icon").src = "./img/logo-icon.png"
