@@ -91,14 +91,14 @@ view.setActiveScreen = async (screenName) => {
             })
             break;
 
-        case "userHomePage":
-            document.getElementById("app").innerHTML = component.userHomePage;
+        case "quizPage":
+            document.getElementById("app").innerHTML = component.quizPage;
             displayIconName()
             document.getElementById("sign-out-button").addEventListener("click", function () {
                 firebase.auth().signOut();
             })
             document.getElementById("quiz-button").addEventListener("click", function () {
-                view.setActiveScreen("userHomePage")
+                view.setActiveScreen("quizPage")
             })
             model.getQuizzes();
 
@@ -108,15 +108,15 @@ view.setActiveScreen = async (screenName) => {
             })
 
             document.getElementById("testJs").addEventListener("click", () => {
-                view.setActiveScreen("quizPage")
+                view.setActiveScreen("playQuizPage")
             })
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
             break;
 
-        case "quizPage":
-            document.getElementById("app").innerHTML = component.quizPage;
+        case "playQuizPage":
+            document.getElementById("app").innerHTML = component.playQuizPage;
             displayIconName()
             model.getQuizzes();
             document.querySelector(".blog").addEventListener('click', () => {
@@ -138,7 +138,7 @@ view.setActiveScreen = async (screenName) => {
                 firebase.auth().signOut();
             })
             document.getElementById("quiz-button").addEventListener("click", function () {
-                view.setActiveScreen("userHomePage")
+                view.setActiveScreen("quizPage")
             })
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
@@ -189,10 +189,19 @@ view.setActiveScreen = async (screenName) => {
                 }
             })
             document.getElementById('btn_changePassword').addEventListener('click', () => {
-                document.getElementById("app").innerHTML = component.changePassword;
-                document.getElementById("btn_submitChangePass").addEventListener('click', async () => {
-                    await model.changePassword(document.getElementById("change-password").value, document.getElementById("current-password").value)
-                })
+                document.querySelector(".edit-form").style.display = "none"
+                document.querySelector("#change-password-container").style.display = "block"
+            })
+
+            document.querySelector(".editAccountBtn").addEventListener('click', () => {
+                document.querySelector(".edit-form").style.display = "block"
+            })
+            document.getElementById("btn-close").addEventListener('click', () => {
+                document.querySelector(".edit-form").style.display = "none"
+                document.querySelector("#change-password-container").style.display = "none"
+            })
+            document.querySelector(".logOut").addEventListener('click', () => {
+                firebase.auth().signOut();
             })
             break;
         case "addQuizzPage":
@@ -296,11 +305,11 @@ view.showQuizzes = () => {
             else alert("Incorrect");
             count++;
             if (count == controller.quizzes.length) {
-                view.setActiveScreen(component.userHomePage);
+                view.setActiveScreen(component.quizPage);
                 for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
                 count = 0;
             } else {
-                view.setActiveScreen("quizPage");
+                view.setActiveScreen("playQuizPage");
             }
         }
     })

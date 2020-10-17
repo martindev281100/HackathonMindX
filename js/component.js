@@ -117,7 +117,7 @@ component.homePage = `
   <div class="text">
       <h1>Become your most <br> unstoppable self</h1>
       <h3>Master any subject, one success at a time.</h5>
-      <button class="signUp1">Get Start</button><br>
+      <button class="signUp1">Get Started</button><br>
   </div>
   <div class="slides-show">
       <div class="slide-show" id="slide-form">
@@ -153,12 +153,12 @@ component.homePage = `
 </div>
 `
 
-component.userHomePage = `
+component.quizPage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
   <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="search">
       <input type="text">
       <i class="fas fa-search"></i>
@@ -200,7 +200,7 @@ component.userHomePage = `
 </div>
 `;
 
-component.quizPage = `
+component.playQuizPage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
   <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
@@ -234,9 +234,9 @@ component.quizPage = `
 component.blogPage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
   <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="search">
       <input type="text">
       <i class="fas fa-search"></i>
@@ -303,21 +303,55 @@ component.blogPage = `
     </div>
 `
 component.profilePage = `
-        <div id="profile-current-password">
-            <label for="">Current password: </label>
-            <input type="text" value="" id="current-password">
+<div class="navbar">
+        <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+        <div class="logOut" id="sign-out-button">
+            <i class="fas fa-sign-out-alt">
+                <h4> Log out</h4>
+            </i>
         </div>
-    <div>
-        <label for="">Username: </label>
-        <input type="text" value="" id="profile-username">
     </div>
-    <div>
-        <label for="">Email: </label>
-        <input type="text" value="" id="profile-email">
-    </div>
-    
-    <button id="btn_changePassword">Change Password</button>
-    <button id="btn-update-profile">Update profile</button>`
+
+    <div class="main-info">
+        <div class="header">
+            <img src="./img/logo-icon.png" alt="" class="avatar">
+            <div class="header-info">
+                <h1 class="userName">Luu The Manh (FGW-HN)</h1>
+                <button class="editAccountBtn">Edit profile <i class="fas fa-user-edit"></i></button>
+            </div>
+        </div>
+        <div class="edit-form">
+            <div id="profile-current-password">
+                <input type="text" value="" id="current-password">
+                <label for="">Current password</label>
+            </div>
+            <div class="username">
+                <input type="text" value="" id="profile-username">
+                <label for="">Username</label>
+            </div>
+            <div class="email">
+                <input type="text" value="" id="profile-email">
+                <label for="">Email</label>
+            </div>
+
+            <button id="btn_changePassword">Change Password</button>
+            <button id="btn-update-profile">Update profile</button>
+            <button id="btn-close"><i class="fas fa-window-close"></i></button>
+        </div>
+        <div id="change-password-container">
+            <div class="current-password">
+                <input type="text" value="" id="current-password">
+                <label for="">Current password: </label>
+            </div>
+            <div class="new-password">
+                <input type="text" value="" id="change-password">
+                <label for="">New password: </label>
+            </div>
+
+            <button type="submit" id="btn_submitChangePass">Submit</button>
+        </div>
+    </div> 
+`
 
 component.changePassword = `
 <div id="change-password-container">
@@ -389,12 +423,11 @@ component.addQuizzPage = `
                   </div>
                 </div>
             </div>
-            <hr>
           </div>
           <div class="addBtn">
             <i class="fas fa-plus-circle"></i>
           </div>
-          <button>Create</button>
+          <button class="createBtn">Create</button>
       </div>
 `
 component.newsfeedsPage = `

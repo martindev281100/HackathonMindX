@@ -216,8 +216,21 @@
 }
 
 .main-add-quizz .addBtn{
-    padding: 10px;
     font-size: 2rem;
     color: #079992;
+    cursor: pointer;
+}
+
+.main-add-quizz .createBtn{
+    padding: 15px 50px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 5px;
+    background-color: #079992;
+    margin: 2rem 0;
     cursor: pointer;
 }
