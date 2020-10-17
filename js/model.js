@@ -1,7 +1,7 @@
 const model = {}
 
 model.currentUser = undefined;
-
+model.detailUserProfile = undefined;
 model.register = async (data) => {
     try {
         const response = await firebase.auth().createUserWithEmailAndPassword(data.email, data.password);
@@ -66,11 +66,12 @@ model.changePassword = (password) => {
         alert(error)
     })
 }
+
 model.getDetailProfile = () => {
     let user = firebase.auth().currentUser;
     if (user !== null) {
         user.providerData.forEach(function (profile) {
-            console.log(profile)
+            model.detailUserProfile = profile
         })
     }
 }
