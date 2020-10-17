@@ -2,6 +2,7 @@ const model = {}
 
 model.currentUser = undefined;
 model.detailUserProfile = undefined;
+model.imageURL = undefined
 model.register = async (data) => {
     try {
         const response = await firebase.auth().createUserWithEmailAndPassword(data.email, data.password);
@@ -12,12 +13,10 @@ model.register = async (data) => {
         const dataToAdd = {
             user: data.userName,
             email: data.email,
-            study_set: [
-                {
+            study_set: [{
                 category: "",
                 question_set: []
-                }
-            ]
+            }]
         }
         await firebase.firestore().collection("users").doc(response.user.uid).set(dataToAdd).then(function () {
             console.log('ran')
@@ -41,6 +40,7 @@ model.login = async ({
 
 model.logInWithGoogle = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
+
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     const response = firebase.auth().signInWithPopup(provider).then(function (result) {
         firebase.firestore().collection("users").doc(result.user.uid).get().then(function (doc) {
@@ -133,20 +133,34 @@ model.getQuizzes = async () => {
     for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
 }
 
-model.addNewBlog = async (data) => {
-    await firebase.firestore().collection('blogs').add(data)
+model.addNewBlog = async (data, file) => {
+    await firebase.firestore().collection('blogs').add(data).then(async function (docRef) {
+        await model.uploadImage(file, docRef.id)
+    })
 }
 
 model.getBlogs = async () => {
     const response = await firebase.firestore().collection('blogs').get();
     const data = getManyDocument(response)
     for (item of data) {
-        view.addBlog(item.blogText)
+        await model.getImage(item.id)
+        view.addBlog(item.blogText, item.id, model.imageURL)
     }
 }
 
-model.getImage = async () => {
-    await firebase.storage().storage.ref().child('pexels-pixabay-164186.jpg').getDownloadURL().then(function (url) {
+model.getImage = async (id) => {
+    const storage = firebase.storage();
+    const storageRef = storage.ref();
+    await storageRef.child(id).getDownloadURL().then(function (url) {
+        model.imageURL = url
+    })
+}
 
+model.uploadImage = async (file, id) => {
+    const storage = firebase.storage();
+    const storageRef = storage.ref();
+    const imagesRef = storageRef.child(id)
+    await imagesRef.put(file).then(function (snapshot) {
+        console.log('Uploaded a blob or file!');
     })
 }

@@ -144,10 +144,12 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("createBlogPage")
             })
-            model.getBlogs();
+            await model.getBlogs();
             break;
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
+            displayIconName()
+
             document.getElementById('btnCreateBlog').addEventListener('click', async () => {
                 const title = document.getElementById("blogTitle").value
                 const description = document.getElementById("blogDescription").value
@@ -162,7 +164,9 @@ view.setActiveScreen = async (screenName) => {
                     createdAt: createdAt,
                     owner: model.currentUser.email,
                 }
-                await model.addNewBlog(data)
+                const file = document.getElementById("inputImage").files[0]
+                console.log(file)
+                await model.addNewBlog(data, file)
                 view.setActiveScreen('blogPage')
                 view.addBlog(data.blogText)
             })
@@ -315,7 +319,7 @@ view.showQuizzes = () => {
     })
 }
 
-view.addBlog = (data) => {
+view.addBlog = (data, id, imgURL) => {
     let blogList = document.querySelector('.main-blog')
     const article = document.createElement('div')
     article.classList.add("article")
@@ -323,10 +327,10 @@ view.addBlog = (data) => {
             <div class="content">
                 <h1 id="blogTitle">${data.title}</h1>
                 <p id="blogDescription">${data.description}</p>
-                <div class="view">view</div>
+                <div class="view" id="${id}">view</div>
             </div>
             <div class="img-article">
-                <img src="./img/maxresdefault.jpg" alt="">
+                <img src="${imgURL}" alt=""/>
             </div>`
     document.getElementById('blogList').appendChild(article)
 }
