@@ -100,8 +100,9 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
             })
+            await model.getUsers();
             model.getQuizzes();
-
+            view.showUserQuizzes();
             model.getDetailProfile();
             document.querySelector(' .navbar .account').addEventListener('click', () => {
                 view.setActiveScreen("profilePage")
@@ -350,7 +351,6 @@ view.showQuizzes = () => {
 }
 
 view.addBlog = (data, id, imgURL) => {
-    let blogList = document.querySelector('.main-blog')
     const article = document.createElement('div')
     article.classList.add("article")
     article.innerHTML = `
@@ -363,4 +363,26 @@ view.addBlog = (data, id, imgURL) => {
                 <img src="${imgURL}" alt=""/>
             </div>`
     document.getElementById('blogList').appendChild(article)
+}
+
+view.showUserQuizzes = () => {
+    const userQuizzesContainer = document.getElementById("user-quizzes-container")
+    userQuizzesContainer.innerHTML = "";
+    model.users.forEach(user => {
+        if (user["study_sets"].length) {
+            user["study_sets"].forEach(studySet => {
+                let quizOption = document.createElement('div');
+                quizOption.classList.add("list-option");
+                quizOption.innerHTML = `
+                <button>
+                    <h1>${studySet.title}</h2>
+                    <h2>by <span>${user.user}</span></h2>
+                    <div class="learn">Learn</div>
+                    <div class="test">Test</div>
+                </button>
+                `
+                userQuizzesContainer.appendChild(quizOption);
+            })
+        }
+    })
 }

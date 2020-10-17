@@ -209,4 +209,9 @@ model.addNewStudySet = () => {
         study_sets: firebase.firestore.FieldValue.arrayUnion(study_set)
     }
     firebase.firestore().collection('users').doc(model.currentUser.uid).update(dataToUpdate)
-};
+  };
+  
+  model.getUsers = async () => {
+    const response = await firebase.firestore().collection('users').get()
+    model.users = getManyDocument(response)
+  }
