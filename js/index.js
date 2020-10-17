@@ -18,11 +18,7 @@ window.onload = async () => {
                     email: user.email,
                     uid: user.uid,
                 };
-<<<<<<< HEAD
-                view.setActiveScreen('blogPage');
-=======
                 view.setActiveScreen("blogPage");
->>>>>>> 7a913da465f413e74716997f205ec7e0dbfff721
             } else {
                 alert("Please verify your email");
                 firebase.auth().signOut();
