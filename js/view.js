@@ -101,9 +101,7 @@ view.setActiveScreen = async (screenName) => {
                 view.setActiveScreen("userHomePage")
             })
             model.getQuizzes();
-            document.querySelector(".blog").addEventListener('click', () => {
-                view.setActiveScreen("blogPage")
-            })
+
             model.getDetailProfile();
             document.querySelector(' .navbar .account').addEventListener('click', () => {
                 view.setActiveScreen("profilePage")
@@ -144,6 +142,28 @@ view.setActiveScreen = async (screenName) => {
             })
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
+            })
+            document.querySelector(".blog").addEventListener('click', () => {
+                view.setActiveScreen("createBlogPage")
+            })
+            break;
+        case "createBlogPage":
+            document.getElementById("app").innerHTML = component.createBlogPage;
+            document.getElementById('btnCreateBlog').addEventListener('click', () => {
+                const title = document.getElementById("blogTitle").value
+                const description = document.getElementById("blogDescription").value
+                const content = document.getElementById("blogContent").value
+                const createdAt = new Date().toISOString()
+                const data = {
+                    blogText: {
+                        title: title,
+                        description: description,
+                        content: content,
+                    },
+                    createdAt: createdAt,
+                    owner: model.currentUser.email,
+                }
+                model.addNewBlog(data)
             })
             break;
         case "profilePage":

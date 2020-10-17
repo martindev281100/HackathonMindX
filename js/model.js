@@ -117,3 +117,7 @@ model.getQuizzes = async () => {
     controller.quizzes = getManyDocument(response);
     for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
 }
+
+model.addNewBlog = async (data) => {
+    await firebase.firestore().collection('blogs').add(data)
+}
