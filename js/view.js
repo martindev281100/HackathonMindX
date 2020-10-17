@@ -147,6 +147,9 @@ view.setActiveScreen = async (screenName) => {
                 view.setActiveScreen("createBlogPage")
             })
             await model.getBlogs();
+            document.getElementById("editProfile").addEventListener('click', function () {
+                view.setActiveScreen("profilePage")
+            })
             const btnView = document.querySelectorAll('.article .content .view')
             btnView.forEach(btn => {
                 btn.addEventListener('click', async function (e) {

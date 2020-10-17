@@ -266,9 +266,9 @@ component.blogPage = `
             <button onclick="" class="dropbtn">Dropdown</button>
             <div id="myDropdown" class="dropdown-content">
                 <button id="view-study-sets-button">View study sets</button>
-                <a href="#">Edit Profile</a>
-                <a href="#">Edit List Blog</a>
-                <a href="#">Log out</a>
+                <a href="#" id="editProfile">Edit Profile</a>
+                <a href="#" id="editList">Edit List Blog</a>
+                <a href="#" id="btnLogOut">Log out</a>
             </div>
         </div>
     </div>
