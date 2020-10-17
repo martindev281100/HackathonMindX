@@ -98,9 +98,6 @@ view.setActiveScreen = async (screenName) => {
             await model.getQuizzes();
             view.showUserQuizzes();
             model.getDetailProfile();
-            document.querySelector(' .navbar .account').addEventListener('click', () => {
-                view.setActiveScreen("profilePage")
-            })
             document.querySelectorAll(".fixed-test").forEach(test => {
                 test.addEventListener("click", function () {
                     if (test.id == "testJs") controller.selectQuestion("JavaScript")
@@ -113,6 +110,7 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("create-quiz-button").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName
             break;
 
         case "playQuizPage":
@@ -121,13 +119,8 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("blogPage")
             })
-            document.querySelector(".logOut").addEventListener('click', () => {
-                firebase.auth().signOut();
-            })
-            document.querySelector(".create").addEventListener("click", () => {
-                view.setActiveScreen("addQuizzPage")
-            })
             view.showQuizzes();
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName
             break;
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
@@ -154,7 +147,7 @@ view.setActiveScreen = async (screenName) => {
                     view.setActiveScreen('detailBlogPage')
                 })
             })
-
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName
             break;
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
@@ -177,8 +170,10 @@ view.setActiveScreen = async (screenName) => {
                 await model.addNewBlog(data, file)
                 view.setActiveScreen('blogPage')
             })
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName
             break;
         case "profilePage":
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName
             document.getElementById("app").innerHTML = component.profilePage;
             if (model.detailUserProfile.providerId !== "password") {
                 document.getElementById("profile-current-password").hidden = true;
@@ -222,9 +217,6 @@ view.setActiveScreen = async (screenName) => {
                 document.querySelector(".edit-form").style.display = "none"
                 document.querySelector("#change-password-container").style.display = "none"
             })
-            document.querySelector(".logOut").addEventListener('click', () => {
-                firebase.auth().signOut();
-            })
             await model.getBlogsTitle();
             document.querySelectorAll(".article .deleteBtn").forEach(btn => {
                 btn.addEventListener('click', async function (e) {
@@ -232,6 +224,7 @@ view.setActiveScreen = async (screenName) => {
                     e.target.parentNode.remove();
                 })
             })
+
             break;
         case "addQuizzPage":
             document.getElementById("app").innerHTML = component.addQuizzPage;
@@ -243,6 +236,7 @@ view.setActiveScreen = async (screenName) => {
                 model.addNewStudySet();
                 view.setActiveScreen("blogPage");
             });
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName
             break;
         case "detailBlogPage":
             document.getElementById("app").innerHTML = component.detailBlogPage;
@@ -259,9 +253,11 @@ view.setActiveScreen = async (screenName) => {
         case "studySetPage":
             document.getElementById("app").innerHTML = component.studySetPage;
             view.showStudySets();
+
             break;
         case "editStudySet":
             document.getElementById("app").innerHTML = component.editQuizPage;
+            c
             break;
     }
 }
