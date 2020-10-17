@@ -1,18 +1,13 @@
 const controller = {};
 
-controller.checkError = (data, id, message) => {
-    if (data.match(/ /)) view.setErrorMessage(id, message);
-    else view.setErrorMessage(id, "");
-}
-
 controller.register = (data) => {
-    view.setErrorMessage("user-name-error", data.userName === "" ? "Please input your username" : "");
-    view.setErrorMessage("email-error", data.email === "" ? "Please input your email" : "");
-    view.setErrorMessage("password-error", data.password === "" ? "Please input your password" : "");
-    if (data.confirmPassword === "") {
-        view.setErrorMessage("confirm-password-error", "Please input your confirm password");
+    view.setErrorMessage("user-name-error", data.userName.trim() === "" ? "Please input your username" : "");
+    view.setErrorMessage("email-error", data.email.trim() === "" ? "Please input your email" : "");
+    view.setErrorMessage("password-error", data.password.trim() === "" ? "Please input your password" : "");
+    if (data.confirmPassword.trim() === "") {
+        view.setErrorMessage("confirm-password-error", "Please confirm your password");
     } else if (data.confirmPassword !== data.password) {
-        view.setErrorMessage("confirm-password-error", "Password did not match");
+        view.setErrorMessage("confirm-password-error", "Password does not match");
     } else {
         view.setErrorMessage("confirm-password-error", "");
     }
@@ -21,9 +16,9 @@ controller.register = (data) => {
             if (response.status !== "Valid") {
                 view.setErrorMessage("email-error", "Please input your email correctly");
             } else if (
-                data.userName !== "" &&
-                data.email !== "" &&
-                data.password !== "" &&
+                data.userName.trim() !== "" &&
+                data.email.trim() !== "" &&
+                data.password.trim() !== "" &&
                 data.password === data.confirmPassword
             ) {
                 model.register(data);
@@ -35,9 +30,9 @@ controller.login = ({
     email,
     password
 }) => {
-    view.setErrorMessage("email-error", email === "" ? "Please enter your email" : "");
-    view.setErrorMessage("password-error", password === "" ? "Please enter your password" : "");
-    if (email != "" && password != "") {
+    view.setErrorMessage("email-error", email.trim() === "" ? "Please enter your email" : "");
+    view.setErrorMessage("password-error", password.trim() === "" ? "Please enter your password" : "");
+    if (email.trim() != "" && password.trim() != "") {
         model.login({
             email,
             password,

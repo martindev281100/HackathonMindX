@@ -2,212 +2,209 @@ const component = {};
 
 component.registerPage = `
 <div class="navbar">
-  <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="search">
-      <input type="text">
-      <i class="fas fa-search"></i>
-  </div>
-  <div class="Btn-Login-SignUp">
-      <button class="logIn">Log in</button>
-      <button class="signUp">Sign up</button>
-  </div>
+<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="search">
+    <input type="text">
+    <i class="fas fa-search"></i>
+</div>
+<div class="Btn-Login-SignUp">
+    <button class="logIn">Log in</button>
+    <button class="signUp">Sign up</button>
+</div>
 </div>
 <div class="register-container">
 <form id="register-form">
-  <div class="register-header">REGISTER</div>
-  <div class="register-form">
-    <div class="input-wrapper form-group">
-    <input type="text" class="form-control" placeholder="Username" name="userName"/>
-    <div class="error" id="user-name-error"></div>
+    <div class="register-header">REGISTER</div>
+    <div class="register-form">
+        <div class="input-wrapper form-group">
+            <input type="text" class="form-control" placeholder="Username" name="userName" />
+            <div class="error" id="user-name-error"></div>
+        </div>
+        <div class="input-wrapper form-group">
+            <input type="email" class="form-control" placeholder="Email" name="email" />
+            <div class="error" id="email-error"></div>
+        </div>
+        <div class="input-wrapper form-group">
+            <input type="password" class="form-control" placeholder="Password" name="password" />
+            <div class="error" id="password-error"></div>
+        </div>
+        <div class="input-wrapper form-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword" />
+            <div class="error" id="confirm-password-error"></div>
+        </div>
+        <div class="form-action input-wrapper">
+            <button class="btn btn-primary btn-register cursor-pointer" type="submit">Register</button>
+            <div class="redirect">Already have an account?
+                <span id="redirect-to-login" class="cursor-pointer">Login</span>
+            </div>
+        </div>
     </div>
-    <div class="input-wrapper form-group">
-      <input type="email" class="form-control" placeholder="Email" name="email"/>
-      <div class="error" id="email-error"></div>
-    </div>
-    <div class="input-wrapper form-group">
-      <input type="password" class="form-control" placeholder="Password" name="password"/>
-      <div class="error" id="password-error"></div>
-    </div>
-    <div class="input-wrapper form-group">
-      <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword"/>
-      <div class="error" id="confirm-password-error"></div>
-    </div>
-    <div class="form-action input-wrapper">
-      <button class="btn btn-primary btn-register cursor-pointer" type="submit">Register</button>
-      <div class="redirect">Already have an account?
-        <span id="redirect-to-login" class="cursor-pointer">Login</span>
-      </div>
-    </div>
-  </div>
 </form>
 </div>
 `;
 
 component.loginPage = `
 <div class="navbar">
-  <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="search">
-      <input type="text">
-      <i class="fas fa-search"></i>
-  </div>
-  <div class="Btn-Login-SignUp">
+<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="search">
+    <input type="text">
+    <i class="fas fa-search"></i>
+</div>
+<div class="Btn-Login-SignUp">
     <button class="signUp">Log in</button>
-      <button class="logIn">Sign up</button>
-  </div>
+    <button class="logIn">Sign up</button>
+</div>
 </div>
 <div class="login-container">
-  <form id="login-form">
+<form id="login-form">
     <div class="login-header">LOGIN</div>
     <div class="login-from">
         <div class="input-wrapper form-group">
-          <input type="email" class="form-control" placeholder="Email" name="email"/>
-          <div class="error" id="email-error"></div>
+            <input type="email" class="form-control" placeholder="Email" name="email" />
+            <div class="error" id="email-error"></div>
         </div>
         <div class="input-wrapper form-group">
-          <input type="password" class="form-control" placeholder="Password" name="password"/>
-          <div class="error" id="password-error"></div>
+            <input type="password" class="form-control" placeholder="Password" name="password" />
+            <div class="error" id="password-error"></div>
         </div>
         <div class="forgetPassword" id="myBtn">Forget Password ?</div>
-        <!-- The Modal -->
         <div id="myModal" class="modal">
-        <!-- Modal content -->
-          <div class="modal-content">
-            <div class="modal-header">
-              <span class="close">&times;</span>
-              <h2>Forget Password</h2>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Forget Password</h2>
+                </div>
+                <div class="modal-body">
+                    <input type="text" placeholder="Enter your email" id="reset-password-email">
+                    <button class="submit" type="button" id="btnResetPassword">Submit</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <input type="text" placeholder="Enter your email" id="reset-password-email">
-              <button class="submit" type="button" id="btnResetPassword">Submit</button>
+        </div>
+        <div class="form-action input-wrapper">
+            <button class="btn btn-primary btn-login cursor-pointer" type="submit">Log in</button>
+            <div class="login-by-social-account">
+                <div class="text"><span>Or login with</span></div>
+                <div class="btn-social-acc">
+                    <button id="btn_google"><i class="fab fa-google"></i> Google </button>
+                    <button id="btn_facebook"><i class="fab fa-facebook-square"></i> Facebook </button>
+                </div>
             </div>
-          </div>
+            <div class="redirect">Don't have an account?
+                <span id="redirect-to-register" class="cursor-pointer">Register</span>
+            </div>
         </div>
-      <div class="form-action input-wrapper">
-        <button class="btn btn-primary btn-login cursor-pointer" type="submit">Log in</button>
-        <div class="login-by-social-account">
-          <div class="text"><span>Or login with</span></div>
-          <div class="btn-social-acc">
-            <button id="btn_google"><i class="fab fa-google"></i> Google </button>
-            <button id="btn_facebook"><i class="fab fa-facebook-square"></i> Facebook </button>
-          </div>
-        </div>
-        
-        <div class="redirect">Don't have an account?
-          <span id="redirect-to-register" class="cursor-pointer">Register</span>
-        </div>
-      </div>
     </div>
-  </form>
+</form>
 </div>
 `;
 
 component.homePage = `
 <div class="navbar">
-  <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="search">
-      <input type="text">
-      <i class="fas fa-search"></i>
-  </div>
-  <div class="Btn-Login-SignUp">
-      <button class="logIn">Log in</button>
-      <button class="signUp">Sign up</button>
-  </div>
+<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="search">
+    <input type="text">
+    <i class="fas fa-search"></i>
+</div>
+<div class="Btn-Login-SignUp">
+    <button class="logIn">Log in</button>
+    <button class="signUp">Sign up</button>
+</div>
 </div>
 <div class="main">
-  <div class="text">
-      <h1>Become your most <br> unstoppable self</h1>
-      <h3>Master any subject, one success at a time.</h5>
-      <button class="signUp1">Get Started</button><br>
-  </div>
-  <div class="slides-show">
-      <div class="slide-show" id="slide-form">
-          <div class="mySlides fade">
-              <img src="./img/Slide1.PNG">
-              <div class="text">"High-level programming language."</div>
-          </div>
-          <div class="mySlides fade">
-              <img src="./img/Slide2.PNG">
-              <div class="text">"JavaScript is high-level, often just-in-time compiled, and multi-paradigm."</div>
-          </div>
-          <div class="mySlides fade">
-              <img src="./img/Slide3.PNG">
-              <div class="text">"Multi-paradigm programming language encompassing strong typing."</div>
-          </div>
-          <div class="mySlides fade">
-              <img src="./img/Slide4.PNG">
-              <div class="text">"C++ is a general-purpose programming language created by Bjarne Stroustrup"</div>
-          </div>
-          <div class="mySlides fade">
-              <img src="./img/Slide5.PNG">
-              <div class="text">"Java is a class-based, object-oriented programming language"</div>
-          </div>
-      </div>
-      <div style="text-align:center">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-          <span class="dot" onclick="currentSlide(4)"></span>
-          <span class="dot" onclick="currentSlide(5)"></span>
-      </div>
-  </div>
+<div class="text">
+    <h1>Become your most <br> unstoppable self</h1>
+    <h3>Master any subject, one success at a time.</h5>
+    <button class="signUp1">Get Started</button><br>
+</div>
+<div class="slides-show">
+    <div class="slide-show" id="slide-form">
+        <div class="mySlides fade">
+            <img src="./img/Slide1.PNG">
+            <div class="text">"High-level programming language."</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="./img/Slide2.PNG">
+            <div class="text">"JavaScript is high-level, often just-in-time compiled, and multi-paradigm."</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="./img/Slide3.PNG">
+            <div class="text">"Multi-paradigm programming language encompassing strong typing."</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="./img/Slide4.PNG">
+            <div class="text">"C++ is a general-purpose programming language created by Bjarne Stroustrup"</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="./img/Slide5.PNG">
+            <div class="text">"Java is a class-based, object-oriented programming language"</div>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+</div>
 </div>
 `
 
 component.quizPage = `
 <div class="navbar">
-  <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
-  <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
-  <div class="search">
-      <input type="text">
-      <i class="fas fa-search"></i>
-  </div>
-  <div class="account">
+<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+<div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+<div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+<div class="search">
+    <input type="text">
+    <i class="fas fa-search"></i>
+</div>
+<div class="account">
     <img src="./img/logo-icon.png" alt="" id="display_icon">
     <h4 id="display_username"></h4>
-  </div>
-  <div class="logOut" id="sign-out-button">
+</div>
+<div class="logOut" id="sign-out-button">
     <i class="fas fa-sign-out-alt">
-    <h4> Log out</h4>
+        <h4> Log out</h4>
     </i>
-  </div>
+</div>
 </div>
 <div class="main-quizz-option">
-  <h1 class="title-option">Type Of Programming Language</h1>
-  <div class="list-option">
-      <button class="optionJs">
+<h1 class="title-option">Type Of Programming Language</h1>
+<div class="list-option">
+    <button class="optionJs">
         <i class="fab fa-js-square"></i>
         <div class="learn" id="learnJS">Learn</div>
         <div class="test fixed-test" id="testJs">Test</div>
-      </button>
-      <button class="optionJava">
+    </button>
+    <button class="optionJava">
         <i class="fab fa-java"></i>
         <div class="learn" id="learnJava">Learn</div>
         <div class="test fixed-test" id="testJava">Test</div>
-      </button>
-      <button class="optionPython">
+    </button>
+    <button class="optionPython">
         <i class="fab fa-python"></i>
         <div class="learn" id="learnPython">Learn</div>
         <div class="test fixed-test" id="testPython">Test</div>
-      </button>
-      <button class="optionCsharp">
+    </button>
+    <button class="optionCsharp">
         <i class="fas fa-copyright"></i>
         <div class="learn" id="learnCsharp">Learn</div>
         <div class="test fixed-test" id="testCsharp">Test</div>
-      </button>
-  </div>
+    </button>
+</div>
 </div>
 <h1 class="title-option">Quizzes From Our Users</h1>
 <div id="user-quizzes-container" class="main-quizz-option">
-  <div class="list-option">
-      <button>
-        <h1 id="quiz-title">hfdjs</h2>
+<div class="list-option">
+    <button>
+        <h1 id="quiz-title">hfdjs</h1>
         <h2>by <span id="user">HSdi</span></h2>
         <div class="learn user-learn">Learn</div>
         <div class="test user-test">Test</div>
-      </button>
-  </div>
+    </button>
+</div>
 </div>
 `;
 
@@ -457,3 +454,38 @@ component.detailBlogPage = `
   <div class="content-blog-detail"></div>
 </div>
 `
+component.learnPage = `
+<div class="navbar">
+        <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+        <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+        <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+        <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+        <div class="search">
+            <input type="text">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="account">
+            <img src="./img/logo-icon.png" alt="" id="display_icon">
+            <h4 id="display_username"></h4>
+        </div>
+        <div class="logOut" id="sign-out-button">
+            <i class="fas fa-sign-out-alt">
+                <h4> Log out</h4>
+            </i>
+        </div>
+    </div>
+    <div class="flashCard">
+        <h1 class="title">Title</h1>
+        <div class="theCard">
+            <div class="front">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, et sunt totam quisquam maxime
+                    ipsum mollitia deleniti ipsam voluptas esse impedit suscipit voluptatum est sapiente. Ea modi ab
+                    vero molestias.</p>
+            </div>
+            <div class="back">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis nulla sunt, provident
+                    consequuntur sit atque perspiciatis, animi aspernatur quaerat fugiat facilis a quia adipisci esse,
+                    inventore commodi repellat nam sed.</p>
+            </div>
+        </div>
+    </div>`
