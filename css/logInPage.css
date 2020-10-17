@@ -8,7 +8,7 @@
 
  .login-container #login-form,
  .register-container #register-form{
-    width: 40%;
+    width: 30%;
     margin: 0 auto;
     text-align: center;
 }
@@ -93,7 +93,7 @@
 
 .login-container .input-wrapper .btn-social-acc button{
     padding: 15px 0px;
-    width: 200px;
+    width: 45%;
     outline: none;
     border: 2px solid #fff;
     background-color: transparent;

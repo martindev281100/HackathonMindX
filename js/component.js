@@ -117,7 +117,7 @@ component.homePage = `
   <div class="text">
       <h1>Become your most <br> unstoppable self</h1>
       <h3>Master any subject, one success at a time.</h5>
-      <button class="signUp1">Get Start</button><br>
+      <button class="signUp1">Get Started</button><br>
   </div>
   <div class="slides-show">
       <div class="slide-show" id="slide-form">
@@ -153,12 +153,12 @@ component.homePage = `
 </div>
 `
 
-component.userHomePage = `
+component.quizPage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
   <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="search">
       <input type="text">
       <i class="fas fa-search"></i>
@@ -200,7 +200,7 @@ component.userHomePage = `
 </div>
 `;
 
-component.quizPage = `
+component.playQuizPage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
   <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
@@ -234,9 +234,9 @@ component.quizPage = `
 component.blogPage = `
 <div class="navbar">
   <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
   <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+  <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
   <div class="search">
       <input type="text">
       <i class="fas fa-search"></i>
