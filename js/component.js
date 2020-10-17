@@ -146,15 +146,10 @@ component.quizPage = `
 <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
 <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
 <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-<div id="create-quiz-button" class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+<div id="create-quiz-button" class="create"><a href="#">Create Quizz<i class="fas fa-folder-plus"></i></a></div>
 <div class="account">
     <img src="./img/logo-icon.png" alt="" id="display_icon">
     <h4 id="display_username"></h4>
-</div>
-<div class="logOut" id="sign-out-button">
-    <i class="fas fa-sign-out-alt">
-        <h4> Log out</h4>
-    </i>
 </div>
 </div>
 
@@ -233,11 +228,6 @@ component.playQuizPage = `
     <img src="./img/logo-icon.png" alt="" id="display_icon">
     <h4 id="display_username"></h4>
   </div>
-  <div class="logOut" id="sign-out-button">
-    <i class="fas fa-sign-out-alt">
-    <h4> Log out</h4>
-    </i>
-  </div>
 </div>
 <div class="main-quizz">
 <div id="question"></div>
@@ -253,35 +243,30 @@ component.playQuizPage = `
 
 component.blogPage = `
 <div class="navbar">
-<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-<div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
-<div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-<div class="createBlog" id="create-blog-button"><a href="" #>Create Blog <i class="far fa-plus-square"></i></a>
-</div>
-<div class="account">
-    <img src="./img/logo-icon.png" alt="" id="display_icon">
-    <h4 id="display_username" title=""></h4>
-</div>
-<div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-    <div id="myDropdown" class="dropdown-content">
-    <button id="view-study-sets-button">View study sets</button>
-        <a href="#">Edit Profile</a>
-        <a href="#">Edit List Blog</a>
-        <a href="#">Log out</a>
+        <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+        <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+        <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+        <div class="createBlog" id="create-blog-button"><a href="#">Create Blog <i class="far fa-plus-square"></i></a>
+        </div>
+        <div class="account">
+            <img src="./img/logo-icon.png" alt="" id="display_icon">
+            <h4 id="display_username" title=""></h4>
+        </div>
+        <div class="dropdown">
+            <button onclick="" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+                <button id="view-study-sets-button">View study sets</button>
+                <a href="#" id="editProfile">Edit Profile</a>
+                <a href="#" id="editList">Edit List Blog</a>
+                <a href="#" id="btnLogOut">Log out</a>
+            </div>
+        </div>
     </div>
-</div>
-</div>
-<div class="main-blog" id="blogList"></div>
+    <div class="main-blog" id="blogList"></div>
 `
 component.profilePage = `
 <div class="navbar">
         <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-        <div class="logOut" id="sign-out-button">
-            <i class="fas fa-sign-out-alt">
-                <h4> Log out</h4>
-            </i>
-        </div>
     </div>
 
     <div class="main-info">
@@ -340,11 +325,6 @@ component.addQuizzPage = `
           <img src="./img/logo-icon.png" alt="" id="display_icon">
           <h4 id="display_username"></h4>
         </div>
-        <div class="logOut" id="sign-out-button">
-          <i class="fas fa-sign-out-alt">
-          <h4> Log out</h4>
-          </i>
-        </div>
       </div>
       <div class="main-add-quizz">
           <h1 class="add-title">Create a new study set</h1>
@@ -399,11 +379,6 @@ component.editQuizPage = `
           <img src="./img/logo-icon.png" alt="" id="display_icon">
           <h4 id="display_username"></h4>
         </div>
-        <div class="logOut" id="sign-out-button">
-          <i class="fas fa-sign-out-alt">
-          <h4> Log out</h4>
-          </i>
-        </div>
       </div>
       <div class="main-add-quizz">
           <h1 class="add-title">Edit study set</h1>
@@ -449,7 +424,7 @@ component.editQuizPage = `
       </div>`
 component.createBlogPage = `
 <div class="navbar">
-<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+        <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
         <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
         <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
         <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
@@ -457,32 +432,28 @@ component.createBlogPage = `
             <img src="./img/logo-icon.png" alt="" id="display_icon">
             <h4 id="display_username" title=""></h4>
         </div>
-        <div class="logOut" id="sign-out-button">
-            <i class="fas fa-sign-out-alt">
-                <h4> Log out</h4>
-            </i>
+    </div>
+    <form id="createBlogForm">
+        <div class="info-blog">
+            <div class="title-blog">
+                <label for="">Title: </label>
+                <input type="text" value="" id="blogTitle" placeholder="Enter Title" required>
+            </div>
+            <div class="description-blog">
+                <label for="">Description: </label>
+                <input type="text" value="" id="blogDescription" placeholder="Enter Description" required>
+            </div>
+            <div class="image-blog">
+                <label for="">File: </label>
+                <input type="file" id="inputImage">
+            </div>
         </div>
-<form id="createBlogForm">
-<div class="info-blog">
-    <div class="title-blog">
-        <label for="">Title: </label>
-        <input type="text" value="" id="blogTitle" placeholder="Enter Title" required>
-    </div>
-    <div class="description-blog">
-        <label for="">Description: </label>
-        <input type="text" value="" id="blogDescription" placeholder="Enter Description" required>
-    </div>
-    <div class="image-blog">
-      <label for="">File: </label>
-      <input type="file" id="inputImage">
-    </div>
-</div>
-<div class="content-blog">
-    <label for="">Content: </label>
-    <textarea id="blogContent" name="blogContent" rows="15" cols="50"></textarea>
-</div>
-</form>
-<button id="btnCreateBlog">Publish</button>
+        <div class="content-blog">
+            <label for="">Content: </label>
+            <textarea id="blogContent" name="blogContent" rows="15" cols="50"></textarea>
+        </div>
+    </form>
+    <button id="btnCreateBlog">Publish</button>
 `
 
 component.detailBlogPage = `
@@ -494,11 +465,6 @@ component.detailBlogPage = `
 <div class="account">
   <img src="./img/logo-icon.png" alt="" id="display_icon">
   <h4 id="display_username"></h4>
-</div>
-<div class="logOut" id="sign-out-button">
-  <i class="fas fa-sign-out-alt">
-  <h4> Log out</h4>
-  </i>
 </div>
 </div>
 <div class="main-blog-detail">
@@ -519,25 +485,10 @@ component.learnPage = `
             <img src="./img/logo-icon.png" alt="" id="display_icon">
             <h4 id="display_username"></h4>
         </div>
-        <div class="logOut" id="sign-out-button">
-            <i class="fas fa-sign-out-alt">
-                <h4> Log out</h4>
-            </i>
-        </div>
     </div>
-    <label>
-        <input type="checkbox" />
-        <div class="flip-card">
-            <div class="front">
-                <p>Front</p>
-            </div>
-            <div class="back">
-                <p>Back</p>
-                <hr />
-                <p class="click">Click to flip</p>
-            </div>
-        </div>
-    </label>
+    <div id="listStudySet">
+        <div><div id="question"></div><div id="answer"></div></div>
+    </div>
 `
 component.studySetPage = `
 <div id="study-set-container"></div>
