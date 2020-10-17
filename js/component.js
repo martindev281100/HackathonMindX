@@ -303,22 +303,33 @@ component.blogPage = `
     </div>
 `
 component.profilePage = `
+        <div id="profile-current-password">
+            <label for="">Current password: </label>
+            <input type="text" value="" id="current-password">
+        </div>
     <div>
         <label for="">Username: </label>
-        <input type="text" value="" id="profile-username" readonly>
+        <input type="text" value="" id="profile-username">
     </div>
     <div>
         <label for="">Email: </label>
-        <input type="text" value="" id="profile-email" readonly>
+        <input type="text" value="" id="profile-email">
     </div>
     
     <button id="btn_changePassword">Change Password</button>
-    <button>Update profile</button>`
+    <button id="btn-update-profile">Update profile</button>`
 
 component.changePassword = `
 <div id="change-password-container">
-        <label for="">New password: </label>
-        <input type="text" value="" id="change-password">
+        <div>
+            <label for="">Current password: </label>
+            <input type="text" value="" id="current-password">
+        </div>
+        <div>
+            <label for="">New password: </label>
+            <input type="text" value="" id="change-password">
+        </div>
+        
         <button type="submit" id="btn_submitChangePass">Submit</button>
     </div>`
 

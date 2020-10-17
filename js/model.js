@@ -56,17 +56,44 @@ model.logInWithFacebook = () => {
 }
 
 model.sendPasswordResetEmail = (email) => {
-    firebase.auth().sendPasswordResetEmail(email).catch(function (error) {
+    firebase.auth().sendPasswordResetEmail(email).then(function () {
+        alert('Please check your email!')
+    }).catch(function (error) {
         alert(error)
     })
 }
-
-model.changePassword = (password) => {
-    firebase.auth().currentUser.updatePassword(password).catch(function (error) {
+model.changeProfile = async (userName, email, currentPassword) => {
+    let user = firebase.auth().currentUser
+    await model.reauthenticate(currentPassword)
+    await user.updateEmail(email).then(function () {
+    }).catch(function (error) {
+        alert(error)
+    });
+    await user.updateProfile({
+        displayName: userName
+    }).then(function () {
+        alert('Profile has been changed!')
+    }).catch(function (error) {
+        alert(error)
+    });
+}
+model.changePassword = async (newPassword, currentPassword) => {
+    let user = firebase.auth().currentUser
+    await model.reauthenticate(currentPassword);
+    await user.updatePassword(newPassword).then(function () {
+        alert('Password has been changed!')
+    }).catch(function (error) {
         alert(error)
     })
 }
-
+model.reauthenticate = async (currentPassword) => {
+    let user = firebase.auth().currentUser
+    const credential = firebase.auth.EmailAuthProvider.credential(
+        user.email,
+        currentPassword
+    );
+    await user.reauthenticateWithCredential(credential);
+}
 model.getDetailProfile = async () => {
     let user = await firebase.auth().currentUser;
     if (user !== null) {
@@ -75,6 +102,7 @@ model.getDetailProfile = async () => {
         })
     }
 }
+
 model.getQuizzes = async () => {
     const response = await firebase.firestore().collection('quizzes').get();
     controller.quizzes = getManyDocument(response);
