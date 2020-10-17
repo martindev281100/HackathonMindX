@@ -257,9 +257,17 @@ component.blogPage = `
 <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
 <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
 <div class="createBlog" id="create-blog-button"><a href=""#>Create Blog <i class="far fa-plus-square"></i></a></div>
-<div class="account">
-    <img src="./img/logo-icon.png" alt="" id="display_icon">
-    <h4 id="display_username" title=""></h4>
+    <div class="account">
+        <img src="./img/logo-icon.png" alt="" id="display_icon">
+        <h4 id="display_username" title=""></h4>
+    <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#">Edit Profile</a>
+      <a href="#">Edit List Blog</a>
+      <a href="#">Log out</a>
+    </div>
+  </div>
 </div>
 </div>
 <div class="main-blog" id="blogList"></div>
@@ -383,22 +391,18 @@ component.addQuizzPage = `
 component.createBlogPage = `
 <div class="navbar">
 <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-<div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
-<div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-<div class="search">
-    <input type="text">
-    <i class="fas fa-search"></i>
-</div>
-<div class="account">
-    <img src="./img/logo-icon.png" alt="" id="display_icon">
-    <h4 id="display_username" title=""></h4>
-</div>
-<div class="logOut" id="sign-out-button">
-    <i class="fas fa-sign-out-alt">
-        <h4> Log out</h4>
-    </i>
-</div>
-</div>
+        <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+        <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+        <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+        <div class="account">
+            <img src="./img/logo-icon.png" alt="" id="display_icon">
+            <h4 id="display_username" title=""></h4>
+        </div>
+        <div class="logOut" id="sign-out-button">
+            <i class="fas fa-sign-out-alt">
+                <h4> Log out</h4>
+            </i>
+        </div>
 <form id="createBlogForm">
 <div class="info-blog">
     <div class="title-blog">
