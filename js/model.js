@@ -1,8 +1,10 @@
 const model = {}
-debugger;
+
 model.currentUser = undefined;
 model.detailUserProfile = undefined;
-model.imageURL = undefined
+model.imageURL = undefined;
+model.currentBlog = undefined;
+model.users = undefined;
 model.register = async (data) => {
     try {
         const response = await firebase.auth().createUserWithEmailAndPassword(data.email, data.password);
@@ -148,6 +150,12 @@ model.getBlogs = async () => {
     }
 }
 
+model.getCurrentBlog = async (id) => {
+    const response = await firebase.firestore().collection('blogs').doc(id).get()
+    const result = await getOneDocument(response)
+    model.currentBlog = result;
+}
+
 model.getImage = async (id) => {
     const storage = firebase.storage();
     const storageRef = storage.ref();
@@ -201,6 +209,4 @@ model.addNewStudySet = () => {
         study_sets: firebase.firestore.FieldValue.arrayUnion(study_set)
     }
     firebase.firestore().collection('users').doc(model.currentUser.uid).update(dataToUpdate)
-  };
-  
-  
+};
