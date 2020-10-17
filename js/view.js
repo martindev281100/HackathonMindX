@@ -98,11 +98,8 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("sign-out-button").addEventListener("click", function () {
                 firebase.auth().signOut();
             })
-            document.getElementById("quiz-button").addEventListener("click", function () {
-                view.setActiveScreen("quizPage")
-            })
             await model.getUsers();
-            model.getQuizzes();
+            await model.getQuizzes();
             view.showUserQuizzes();
             model.getDetailProfile();
             document.querySelector(' .navbar .account').addEventListener('click', () => {
@@ -110,13 +107,16 @@ view.setActiveScreen = async (screenName) => {
             })
             document.querySelectorAll(".fixed-test").forEach(test => {
                 test.addEventListener("click", function () {
+                    if (test.id == "testJs") controller.selectQuestion("JavaScript")
+                    else if (test.id == "testJava") controller.selectQuestion("Java")
+                    else if (test.id == "testPython") controller.selectQuestion("Python")
+                    else if (test.id == "testCsharp") controller.selectQuestion("C++")
                     view.setActiveScreen("playQuizPage")
                 })
             })
-            document.querySelector(".create").addEventListener("click", () => {
+            document.getElementById("create-quiz-button").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
-
             break;
 
         case "playQuizPage":
@@ -154,7 +154,6 @@ view.setActiveScreen = async (screenName) => {
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
             displayIconName()
-
             document.getElementById('btnCreateBlog').addEventListener('click', async () => {
                 const title = document.getElementById("blogTitle").value
                 const description = document.getElementById("blogDescription").value
@@ -170,7 +169,6 @@ view.setActiveScreen = async (screenName) => {
                     owner: model.currentUser.email,
                 }
                 const file = document.getElementById("inputImage").files[0]
-                console.log(file)
                 await model.addNewBlog(data, file)
                 view.setActiveScreen('blogPage')
             })
@@ -224,7 +222,6 @@ view.setActiveScreen = async (screenName) => {
             await model.getBlogsTitle();
             document.querySelectorAll(".article .deleteBtn").forEach(btn => {
                 btn.addEventListener('click', async function (e) {
-                    console.log(e.target.parentNode)
                     await model.deleteBlog(e.target.id)
                     e.target.parentNode.remove();
                 })
@@ -386,6 +383,7 @@ view.showUserQuizzes = () => {
     const userQuizzesContainer = document.getElementById("user-quizzes-container")
     userQuizzesContainer.innerHTML = "";
     model.users.forEach(user => {
+        console.log(user["study_sets"])
         if (user["study_sets"].length) {
             for (let i = 0; i < user["study_sets"].length; i++) {
                 let quizOption = document.createElement('div');
@@ -399,8 +397,8 @@ view.showUserQuizzes = () => {
                 </button>
                 `
                 userQuizzesContainer.appendChild(quizOption);
-                document.getElementById(`learn-${user.id}-${i}`).addEventListener("click", {
-
+                document.getElementById(`learn-${user.id}-${i}`).addEventListener("click", function () {
+                    view.setActiveScreen("learnPage");
                 });
                 document.getElementById(`test-${user.id}-${i}`).addEventListener("click", function () {
                     model.currentQuestionSet = user["study_sets"][i]["question_set"]
