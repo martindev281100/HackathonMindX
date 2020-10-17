@@ -106,13 +106,15 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(' .navbar .account').addEventListener('click', () => {
                 view.setActiveScreen("profilePage")
             })
-
-            document.getElementById("testJs").addEventListener("click", () => {
-                view.setActiveScreen("playQuizPage")
+            document.querySelectorAll(".fixed-test").forEach(test => {
+                test.addEventListener("click", function () {
+                    view.setActiveScreen("playQuizPage")
+                })
             })
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
+            
             break;
 
         case "playQuizPage":
@@ -227,7 +229,6 @@ view.setActiveScreen = async (screenName) => {
         case "detailBlogPage":
             document.getElementById("app").innerHTML = component.detailBlogPage;
             displayIconName()
-            console.log(model.currentBlog)
             document.querySelector('.main-blog-detail .title-blog-detail').innerText = model.currentBlog.blogText.title
             document.querySelector('.main-blog-detail .description-blog-detail').innerText = model.currentBlog.blogText.description
             document.querySelector('.main-blog-detail .content-blog-detail').innerText = model.currentBlog.blogText.content

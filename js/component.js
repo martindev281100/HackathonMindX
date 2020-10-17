@@ -179,22 +179,33 @@ component.quizPage = `
       <button class="optionJs">
         <i class="fab fa-js-square"></i>
         <div class="learn" id="learnJS">Learn</div>
-        <div class="test" id="testJs">Test</div>
+        <div class="test fixed-test" id="testJs">Test</div>
       </button>
       <button class="optionJava">
         <i class="fab fa-java"></i>
         <div class="learn" id="learnJava">Learn</div>
-        <div class="test" id="testJava">Test</div>
+        <div class="test fixed-test" id="testJava">Test</div>
       </button>
       <button class="optionPython">
         <i class="fab fa-python"></i>
         <div class="learn" id="learnPython">Learn</div>
-        <div class="test" id="testPython">Test</div>
+        <div class="test fixed-test" id="testPython">Test</div>
       </button>
       <button class="optionCsharp">
         <i class="fas fa-copyright"></i>
         <div class="learn" id="learnCsharp">Learn</div>
-        <div class="test" id="testCsharp">Test</div>
+        <div class="test fixed-test" id="testCsharp">Test</div>
+      </button>
+  </div>
+
+
+  <h1 class="title-option">Quizzes From Our Users</h1>
+  <div class="list-option">
+      <button>
+        <h1 id="quiz-title">hfdjs</h2>
+        <h2>by <span id="user">HSdi</span></h2>
+        <div class="learn user-learn">Learn</div>
+        <div class="test user-test">Test</div>
       </button>
   </div>
 </div>

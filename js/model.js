@@ -4,6 +4,7 @@ model.currentUser = undefined;
 model.detailUserProfile = undefined;
 model.imageURL = undefined;
 model.currentBlog = undefined;
+model.users = undefined;
 model.register = async (data) => {
     try {
         const response = await firebase.auth().createUserWithEmailAndPassword(data.email, data.password);
