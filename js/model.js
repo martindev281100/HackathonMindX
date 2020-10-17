@@ -261,3 +261,4 @@ model.getQuizzes = async () => {
     model.currentQuestionSet = getManyDocument(response);
     for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
 }
+model.get

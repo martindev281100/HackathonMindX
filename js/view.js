@@ -136,9 +136,14 @@ view.setActiveScreen = async (screenName) => {
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
             displayIconName()
+            await model.getUsers();
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
             })
+            document.getElementById("view-study-sets-button").addEventListener("click", function () {
+                view.setActiveScreen("studySetPage")
+            })
+            console.log(document.getElementById("create-blog-button"))
             document.getElementById("create-blog-button").addEventListener('click', () => {
                 view.setActiveScreen("createBlogPage")
             })
@@ -247,6 +252,67 @@ view.setActiveScreen = async (screenName) => {
         case "learnPage":
             document.getElementById("app").innerHTML = component.learnPage;
             break;
+
+        case "studySetPage":
+            document.getElementById("app").innerHTML = component.studySetPage;
+            view.showStudySets();
+            break;
+        case "editStudySet":
+            document.getElementById("app").innerHTML = component.editQuizPage;
+            break;
+    }
+}
+
+view.showStudySet = (studySet) => {
+    document.getElementById("study-set-title").value = studySet.title
+    document.getElementById("study-set-description").value = studySet.description
+    const elements = document.querySelector('.list-question')
+    elements.innerHTML = ""
+    for (let question of studySet["question_set"]) {
+        const questionContainer = document.createElement('div')
+        questionContainer.classList.add("question")
+        questionContainer.innerHTML = `
+        <div class="title-question">
+            <input class="input-question" type="text" value="${question.question}">
+            <h5>question</h5>
+        </div>
+        <div class="answer">
+            <div class="correct-answer">
+                <input class="input-correct-answer" type="text" value="${question["correct_answer"]}">
+                <h5>correct answer</h5>
+            </div>
+            <div class="other">
+                <input class="input-incorrect-answer-0" type="text" value="${question["incorrect_answers"][0]}">
+                <h5>incorrect answer</h5>
+            </div>
+            <div class="other">
+                <input class="input-incorrect-answer-1" type="text" value="${question["incorrect_answers"][1]}">
+                <h5>incorrect answer</h5>
+            </div>
+            <div class="other">
+                <input class="input-incorrect-answer-2" type="text" value="${question["incorrect_answers"][2]}">
+                <h5>incorrect answer</h5>
+            </div>
+        </div>
+        `
+        elements.appendChild(questionContainer)
+    }
+    
+}
+
+view.showStudySets = () => {
+    for (user of model.users) {
+        if (user.email == model.currentUser.email) {
+            for (let i = 0; i < user["study_sets"].length; i++) {
+                element = document.createElement("button");
+                element.innerHTML = `${user["study_sets"][i].title}`
+                element.addEventListener("click", function () {
+                view.setActiveScreen("editStudySet")
+                view.showStudySet(user["study_sets"][i]);
+                })
+                document.getElementById("study-set-container").appendChild(element);
+            }
+        }
     }
 }
 
@@ -321,6 +387,7 @@ view.showSlides = (n) => {
 }
 
 let count = 0;
+let points = 0;
 view.showQuizzes = () => {
     let rand;
     do {
@@ -341,15 +408,28 @@ view.showQuizzes = () => {
     }
     document.querySelectorAll(".answer").forEach(answer => {
         answer.addEventListener("click", function () {
-            if (answer.innerHTML == model.currentQuestionSet[rand]["correct_answer"]) alert("Correct");
-            else alert("Incorrect");
+            let check = document.getElementById("check-answer");
+            check.style.display = "block";
+            if (answer.innerHTML == model.currentQuestionSet[rand]["correct_answer"]) {
+                check.innerHTML = "Correct";
+                points++;
+            } else {
+                check.innerHTML = "Incorrect";
+            }
             count++;
             if (count == model.currentQuestionSet.length) {
-                view.setActiveScreen("quizPage");
-                for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
-                count = 0;
+                setTimeout(function () {
+                    alert("You get " + points + " out of " + model.currentQuestionSet.length);
+                    view.setActiveScreen("quizPage");
+                    for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
+                    count = 0;
+                    points = 0;
+                }, 1000)
             } else {
-                view.setActiveScreen("playQuizPage");
+                setTimeout(function () {
+                    check.style.display = "none";
+                    view.setActiveScreen("playQuizPage");
+                }, 1000)
             }
         });
     })

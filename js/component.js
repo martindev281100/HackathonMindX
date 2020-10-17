@@ -247,6 +247,7 @@ component.playQuizPage = `
     <button id="answer2" class="answer"></button>
     <button id="answer3" class="answer"></button>
 </div>
+<div id="check-answer" style="display: none">hdfug</div>
 </div>
 `
 
@@ -262,11 +263,11 @@ component.blogPage = `
     <div class="dropdown">
     <button onclick="myFunction()" class="dropbtn">Dropdown</button>
     <div id="myDropdown" class="dropdown-content">
-      <a href="#">Edit Profile</a>
-      <a href="#">Edit List Blog</a>
-      <a href="#">Log out</a>
+    <button id="view-study-sets-button">View study sets</button>
+        <a href="#">Edit Profile</a>
+        <a href="#">Edit List Blog</a>
+        <a href="#">Log out</a>
     </div>
-  </div>
 </div>
 </div>
 <div class="main-blog" id="blogList"></div>
@@ -386,7 +387,64 @@ component.addQuizzPage = `
           <button id="create-button" class="createBtn">Create</button>
       </div>
 `
-
+component.editQuizPage = `
+<div class="navbar">
+        <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+        <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+        <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+        <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+        <div class="account">
+          <img src="./img/logo-icon.png" alt="" id="display_icon">
+          <h4 id="display_username"></h4>
+        </div>
+        <div class="logOut" id="sign-out-button">
+          <i class="fas fa-sign-out-alt">
+          <h4> Log out</h4>
+          </i>
+        </div>
+      </div>
+      <div class="main-add-quizz">
+          <h1 class="add-title">Edit study set</h1>
+          <div class="title">
+            <input id="study-set-title" type="text" placeholder="Enter title">
+            <h5>Title</h5>
+          </div>                   
+          <div class="description">
+            <input id="study-set-description" type="text" placeholder="Enter description">
+            <h5>Description</h5>
+          </div>
+          <hr>
+          <div class="list-question">
+            <div class="question">
+                <div class="title-question">
+                  <input class="input-question" type="text" placeholder="Enter question">
+                  <h5>question</h5>
+                </div>
+                <div class="answer">
+                  <div class="correct-answer">
+                      <input class="input-correct-answer" type="text" placeholder="Enter correct answer">
+                      <h5>correct answer</h5>
+                  </div>
+                  <div class="other">
+                      <input class="input-incorrect-answer-0" type="text" placeholder="Enter answer">
+                      <h5>incorrect answer</h5>
+                  </div>
+                  <div class="other">
+                      <input class="input-incorrect-answer-1" type="text" placeholder="Enter answer">
+                      <h5>incorrect answer</h5>
+                  </div>
+                  <div class="other">
+                      <input class="input-incorrect-answer-2" type="text" placeholder="Enter answer">
+                      <h5>incorrect answer</h5>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="addBtn">
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <button id="create-button" class="createBtn">Create</button>
+      </div>`
 component.createBlogPage = `
 <div class="navbar">
         <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
@@ -474,4 +532,7 @@ component.learnPage = `
             </div>
         </div>
     </label>
+`
+component.studySetPage = `
+<div id="study-set-container"></div>
 `
