@@ -277,3 +277,18 @@ component.blogPage = `
         </div>
     </div>
 `
+component.profilePage = `
+    <div>
+        <label for="">Username: </label>
+        <input type="text" value="" id="profile-username" readonly>
+    </div>
+    <div>
+        <label for="">Email: </label>
+        <input type="text" value="" id="profile-email" readonly>
+    </div>
+    <div id="change-password-container" hidden>
+        <label for="">New password: </label>
+        <input type="text" value="" id="change-password" readonly>
+    </div>
+    <button>Change Password</button>
+    <button>Update profile</button>`

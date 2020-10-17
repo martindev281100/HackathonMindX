@@ -1,7 +1,7 @@
 const model = {}
 
 model.currentUser = undefined;
-
+model.detailUserProfile = undefined;
 model.register = async (data) => {
     try {
         const response = await firebase.auth().createUserWithEmailAndPassword(data.email, data.password);
@@ -15,7 +15,10 @@ model.register = async (data) => {
     }
 };
 
-model.login = async ({email, password}) => {
+model.login = async ({
+    email,
+    password
+}) => {
     firebase.auth().signInWithEmailAndPassword(email, password).catch(error => {
         alert(error.message)
     });
@@ -64,6 +67,14 @@ model.changePassword = (password) => {
     })
 }
 
+model.getDetailProfile = () => {
+    let user = firebase.auth().currentUser;
+    if (user !== null) {
+        user.providerData.forEach(function (profile) {
+            model.detailUserProfile = profile
+        })
+    }
+}
 model.getQuizzes = async () => {
     const response = await firebase.firestore().collection('quizzes').get();
     controller.quizzes = getManyDocument(response);

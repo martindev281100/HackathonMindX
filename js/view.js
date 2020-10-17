@@ -104,6 +104,11 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("blogPage")
             })
+            model.getDetailProfile();
+            document.querySelector(' .navbar .account').addEventListener('click', () => {
+                view.setActiveScreen("profilePage")
+            })
+            model.getDetailProfile();
             break;
 
         case "quizPage":
@@ -126,6 +131,15 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
             })
+
+            break;
+        case "profilePage":
+            document.getElementById("app").innerHTML = component.profilePage;
+            let email = document.getElementById("profile-email")
+            let userName = document.getElementById("profile-username")
+            email.value = model.detailUserProfile.email
+            userName.value = model.detailUserProfile.displayName
+            console.log(model.detailUserProfile)
             break;
     }
 }
@@ -173,7 +187,8 @@ view.showQuizzes = () => {
     }
     document.querySelectorAll(".answer").forEach(answer => {
         answer.addEventListener("click", checkAnswer);
-        function checkAnswer () {
+
+        function checkAnswer() {
             if (answer.innerHTML == controller.quizzes[rand]["correct_answer"]) alert("Correct");
             else alert("Incorrect");
             count++;
