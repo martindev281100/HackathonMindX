@@ -20,7 +20,8 @@
     margin: 30px 0;
 }
 
-.main-info .header .editAccountBtn{
+.main-info .header .editAccountBtn,
+.main-info .header .listBlogBtn{
     padding: 16px 42px;
     border: none;
     padding: none;
@@ -88,4 +89,31 @@
     cursor: pointer;
     color: #fff;
     background-color: #c23616;
+}
+
+.main-info .list-blog-form{
+    display: none;
+}
+
+.main-info .list-blog-form .article{
+    display: flex;
+    margin: 20px 0;
+    width: 100%;
+    background-color: #33d9b2;
+    padding: 15px;
+    justify-content: space-between;
+}
+
+.main-info .list-blog-form .article h1{
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.main-info .list-blog-form .article .deleteBtn{
+    padding: 10px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #218c74;
+    cursor: pointer;
 }
