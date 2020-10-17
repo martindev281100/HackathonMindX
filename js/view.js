@@ -136,9 +136,6 @@ view.setActiveScreen = async (screenName) => {
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
             displayIconName()
-            document.querySelector(".logOut").addEventListener('click', () => {
-                firebase.auth().signOut();
-            })
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
             })
@@ -396,7 +393,7 @@ view.showUserQuizzes = () => {
                 quizOption.innerHTML = `
                 <button>
                     <h1>${user["study_sets"][i].title}</h2>
-                    <h2>by <span>${user.user}</span></h2>
+                    <h2>by <span>${user.user}</span></h2>       
                     <div class="learn" id="learn-${user.id}-${i}">Learn</div>
                     <div class="test" id="test-${user.id}-${i}">Test</div>
                 </button>

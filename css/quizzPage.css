@@ -43,15 +43,15 @@
 
 
 .main-quizz-option{
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 2rem;
+    width: 90%;
+    margin: 2rem auto;
     text-align: center;
 }
 
 .main-quizz-option .list-option{
     display: flex;
     margin-top: 3rem;
+    margin-bottom: 3rem;
     justify-content: space-around;
 }
 
@@ -111,6 +111,41 @@
 .main-quizz-option .list-option .test:hover{
     background-color: #fff;
     color: #333;
+}
+
+.main-quizz-option .main-quizz-option-user{
+    margin-top: 20px;
+}
+.main-quizz-option .main-quizz-option-user .list-option-user button{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.main-quizz-option .main-quizz-option-user .list-option-user button h1{
+    font-size: 1.25rem;
+    padding: 17px;
+}
+
+.main-quizz-option .main-quizz-option-user .list-option-user button h2{
+    font-size: 1rem;
+    padding-top: 20px;
+}
+
+.main-quizz-option .main-quizz-option-user .list-option-user button .btn{
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+}
+.main-quizz-option .main-quizz-option-user .list-option-user button .btn .learn,
+.main-quizz-option .main-quizz-option-user .list-option-user button .btn .test{
+    margin: 5px;
+    padding: 10px 35px;
+    border: 1px solid #333;
 }
 
 
