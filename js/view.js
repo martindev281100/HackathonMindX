@@ -134,11 +134,17 @@ view.setActiveScreen = async (screenName) => {
 
             break;
         case "profilePage":
-            document.getElementById("app").innerHTML = component.profilePage;
+            document.getElementById("app").innerHTML = component.profilePage ;
             let email = document.getElementById("profile-email")
             let userName = document.getElementById("profile-username")
             email.value = model.detailUserProfile.email
             userName.value = model.detailUserProfile.displayName
+            document.getElementById('btn_changePassword').addEventListener('click', () => {
+                document.getElementById("app").innerHTML = component.changePassword;
+                document.getElementById("btn_submitChangePass").addEventListener('click', () => {
+                    model.changePassword(document.getElementById("change-password").value)
+                })
+            })
             console.log(model.detailUserProfile)
             break;
     }
