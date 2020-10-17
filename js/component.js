@@ -155,7 +155,7 @@ component.quizPage = `
 <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
 <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
 <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-<div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+<div id="create-quiz-button" class="create"><a href="#">Create quiz<i class="fas fa-folder-plus"></i></a></div>
 <div class="search">
     <input type="text">
     <i class="fas fa-search"></i>
@@ -383,45 +383,44 @@ component.addQuizzPage = `
 
 component.createBlogPage = `
 <div class="navbar">
-        <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-        <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
-        <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
-        <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-        <div class="search">
-            <input type="text">
-            <i class="fas fa-search"></i>
-        </div>
-        <div class="account">
-            <img src="./img/logo-icon.png" alt="" id="display_icon">
-            <h4 id="display_username" title=""></h4>
-        </div>
-        <div class="logOut" id="sign-out-button">
-            <i class="fas fa-sign-out-alt">
-                <h4> Log out</h4>
-            </i>
-        </div>
+<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+<div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+<div class="search">
+    <input type="text">
+    <i class="fas fa-search"></i>
+</div>
+<div class="account">
+    <img src="./img/logo-icon.png" alt="" id="display_icon">
+    <h4 id="display_username" title=""></h4>
+</div>
+<div class="logOut" id="sign-out-button">
+    <i class="fas fa-sign-out-alt">
+        <h4> Log out</h4>
+    </i>
+</div>
+</div>
+<form id="createBlogForm">
+<div class="info-blog">
+    <div class="title-blog">
+        <label for="">Title: </label>
+        <input type="text" value="" id="blogTitle" placeholder="Enter Title" required>
     </div>
-    <form id="createBlogForm">
-        <div class="info-blog">
-            <div class="title-blog">
-                <label for="">Title: </label>
-                <input type="text" value="" id="blogTitle" placeholder="Enter Title" required>
-            </div>
-            <div class="description-blog">
-                <label for="">Description: </label>
-                <input type="text" value="" id="blogDescription" placeholder="Enter Description" required>
-            </div>
-            <div class="image-blog">
-              <label for="">File: </label>
-              <input type="file" id="inputImage">
-            </div>
-        </div>
-        <div class="content-blog">
-            <label for="">Content: </label>
-            <textarea id="blogContent" name="blogContent" rows="15" cols="50"></textarea>
-        </div>
-    </form>
-    <button id="btnCreateBlog">Publish</button>
+    <div class="description-blog">
+        <label for="">Description: </label>
+        <input type="text" value="" id="blogDescription" placeholder="Enter Description" required>
+    </div>
+    <div class="image-blog">
+      <label for="">File: </label>
+      <input type="file" id="inputImage">
+    </div>
+</div>
+<div class="content-blog">
+    <label for="">Content: </label>
+    <textarea id="blogContent" name="blogContent" rows="15" cols="50"></textarea>
+</div>
+</form>
+<button id="btnCreateBlog">Publish</button>
 `
 
 component.detailBlogPage = `

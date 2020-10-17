@@ -98,9 +98,6 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("sign-out-button").addEventListener("click", function () {
                 firebase.auth().signOut();
             })
-            document.getElementById("quiz-button").addEventListener("click", function () {
-                view.setActiveScreen("quizPage")
-            })
             await model.getUsers();
             await model.getQuizzes();
             view.showUserQuizzes();
@@ -117,10 +114,9 @@ view.setActiveScreen = async (screenName) => {
                     view.setActiveScreen("playQuizPage")
                 })
             })
-            document.querySelector(".create").addEventListener("click", () => {
+            document.getElementById("create-quiz-button").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
-
             break;
 
         case "playQuizPage":
@@ -161,7 +157,6 @@ view.setActiveScreen = async (screenName) => {
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
             displayIconName()
-
             document.getElementById('btnCreateBlog').addEventListener('click', async () => {
                 const title = document.getElementById("blogTitle").value
                 const description = document.getElementById("blogDescription").value
@@ -177,7 +172,6 @@ view.setActiveScreen = async (screenName) => {
                     owner: model.currentUser.email,
                 }
                 const file = document.getElementById("inputImage").files[0]
-                console.log(file)
                 await model.addNewBlog(data, file)
                 view.setActiveScreen('blogPage')
             })
