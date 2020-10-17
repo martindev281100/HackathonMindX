@@ -143,84 +143,84 @@ component.homePage = `
 
 component.quizPage = `
 <div class="navbar">
-        <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-        <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
-        <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-        <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
-        <div class="account">
-            <img src="./img/logo-icon.png" alt="" id="display_icon">
-            <h4 id="display_username"></h4>
-        </div>
-        <div class="logOut" id="sign-out-button">
-            <i class="fas fa-sign-out-alt">
-                <h4> Log out</h4>
-            </i>
-        </div>
-    </div>
+<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+<div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+<div id="create-quiz-button" class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+<div class="account">
+    <img src="./img/logo-icon.png" alt="" id="display_icon">
+    <h4 id="display_username"></h4>
+</div>
+<div class="logOut" id="sign-out-button">
+    <i class="fas fa-sign-out-alt">
+        <h4> Log out</h4>
+    </i>
+</div>
+</div>
 
-    <div class="main-quizz-option">
-        <h1 class="title-option">Type Of Programming Language</h1>
-        <div class="list-option">
-            <button class="optionJs">
-                <i class="fab fa-js-square"></i>
-                <div class="learn" id="learnJS">Learn</div>
-                <div class="test fixed-test" id="testJs">Test</div>
-            </button>
-            <button class="optionJava">
-                <i class="fab fa-java"></i>
-                <div class="learn" id="learnJava">Learn</div>
-                <div class="test fixed-test" id="testJava">Test</div>
-            </button>
-            <button class="optionPython">
-                <i class="fab fa-python"></i>
-                <div class="learn" id="learnPython">Learn</div>
-                <div class="test fixed-test" id="testPython">Test</div>
-            </button>
-            <button class="optionCsharp">
-                <i class="fas fa-copyright"></i>
-                <div class="learn" id="learnCsharp">Learn</div>
-                <div class="test fixed-test" id="testCsharp">Test</div>
-            </button>
-        </div>
+<div class="main-quizz-option">
+<h1 class="title-option">Type Of Programming Language</h1>
+<div class="list-option">
+    <button class="optionJs">
+        <i class="fab fa-js-square"></i>
+        <div class="learn" id="learnJS">Learn</div>
+        <div class="test fixed-test" id="testJs">Test</div>
+    </button>
+    <button class="optionJava">
+        <i class="fab fa-java"></i>
+        <div class="learn" id="learnJava">Learn</div>
+        <div class="test fixed-test" id="testJava">Test</div>
+    </button>
+    <button class="optionPython">
+        <i class="fab fa-python"></i>
+        <div class="learn" id="learnPython">Learn</div>
+        <div class="test fixed-test" id="testPython">Test</div>
+    </button>
+    <button class="optionCsharp">
+        <i class="fas fa-copyright"></i>
+        <div class="learn" id="learnCsharp">Learn</div>
+        <div class="test fixed-test" id="testCsharp">Test</div>
+    </button>
+</div>
 
-        <h1 class="title-option">Quizzes From Our Users</h1>
-        <div id="user-quizzes-container" class="main-quizz-option-user">
-            <div class="list-option-user">
-                <button>
-                    <h1 id="quiz-title">Topic 1</h1>
-                    <h2>Created by<span id="user"> User1</span></h2>
-                    <div class="btn">
-                        <div class="learn user-learn">Learn</div>
-                        <div class="test user-test">Test</div>
-                    </div>
-                </button>
-                <button>
-                    <h1 id="quiz-title">Topic 2</h1>
-                    <h2>Created by<span id="user"> User2</span></h2>
-                    <div class="btn">
-                        <div class="learn user-learn">Learn</div>
-                        <div class="test user-test">Test</div>
-                    </div>
-                </button>
-                <button>
-                    <h1 id="quiz-title">Topic 3</h1>
-                    <h2>Created by<span id="user"> User2</span></h2>
-                    <div class="btn">
-                        <div class="learn user-learn">Learn</div>
-                        <div class="test user-test">Test</div>
-                    </div>
-                </button>
-                <button>
-                    <h1 id="quiz-title">Topic 4</h1>
-                    <h2>Created by<span id="user"> User2</span></h2>
-                    <div class="btn">
-                        <div class="learn user-learn">Learn</div>
-                        <div class="test user-test">Test</div>
-                    </div>
-                </button>
+<h1 class="title-option">Quizzes From Our Users</h1>
+<div class="main-quizz-option-user">
+    <div id="user-quizzes-container" class="list-option-user">
+        <button>
+            <h1>Topic 1</h1>
+            <h2>Created by<span> User1</span></h2>
+            <div class="btn">
+                <div class="learn user-learn">Learn</div>
+                <div class="test user-test">Test</div>
             </div>
-        </div>
+        </button>
+        <button>
+            <h1 id="quiz-title">Topic 2</h1>
+            <h2>Created by<span id="user"> User2</span></h2>
+            <div class="btn">
+                <div class="learn user-learn">Learn</div>
+                <div class="test user-test">Test</div>
+            </div>
+        </button>
+        <button>
+            <h1 id="quiz-title">Topic 3</h1>
+            <h2>Created by<span id="user"> User2</span></h2>
+            <div class="btn">
+                <div class="learn user-learn">Learn</div>
+                <div class="test user-test">Test</div>
+            </div>
+        </button>
+        <button>
+            <h1 id="quiz-title">Topic 4</h1>
+            <h2>Created by<span id="user"> User2</span></h2>
+            <div class="btn">
+                <div class="learn user-learn">Learn</div>
+                <div class="test user-test">Test</div>
+            </div>
+        </button>
     </div>
+</div>
+</div>
 `;
 
 component.playQuizPage = `
