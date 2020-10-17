@@ -191,7 +191,10 @@ view.setActiveScreen = async (screenName) => {
                 document.getElementById("btn_changePassword").hidden = true;
             }
             document.querySelector('.header-info .userName').innerText = model.currentUser.displayName
-            document.querySelector('.main-info .header .avatar').src = model.detailUserProfile.photoURL
+            console.log(model.detailUserProfile.photoURL)
+            if (model.detailUserProfile.photoURL !== null || model.detailUserProfile.photoURL !== '') {
+                document.querySelector('.main-info .header .avatar').src = model.detailUserProfile.photoURL
+            }
             let email = document.getElementById("profile-email")
             let userName = document.getElementById("profile-username")
             email.value = model.detailUserProfile.email
