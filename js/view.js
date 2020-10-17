@@ -1,5 +1,4 @@
 const view = {}
-
 view.setActiveScreen = async (screenName) => {
     switch (screenName) {
         case "registerPage":
@@ -145,6 +144,9 @@ view.setActiveScreen = async (screenName) => {
                 view.setActiveScreen("createBlogPage")
             })
             await model.getBlogs();
+            document.getElementById("editProfile").addEventListener('click', function () {
+                view.setActiveScreen("profilePage")
+            })
             const btnView = document.querySelectorAll('.article .content .view')
             btnView.forEach(btn => {
                 btn.addEventListener('click', async function (e) {
@@ -152,6 +154,7 @@ view.setActiveScreen = async (screenName) => {
                     view.setActiveScreen('detailBlogPage')
                 })
             })
+
             break;
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
@@ -183,7 +186,10 @@ view.setActiveScreen = async (screenName) => {
                 document.getElementById("btn_changePassword").hidden = true;
             }
             document.querySelector('.header-info .userName').innerText = model.currentUser.displayName
-            document.querySelector('.main-info .header .avatar').src = model.detailUserProfile.photoURL
+            console.log(model.detailUserProfile.photoURL)
+            if (model.detailUserProfile.photoURL !== null || model.detailUserProfile.photoURL !== '') {
+                document.querySelector('.main-info .header .avatar').src = model.detailUserProfile.photoURL
+            }
             let email = document.getElementById("profile-email")
             let userName = document.getElementById("profile-username")
             email.value = model.detailUserProfile.email
@@ -357,16 +363,17 @@ view.setErrorMessage = (elementId, content) => {
 let displayIconName = () => {
     // document.querySelector(' .navbar .account').addEventListener('click', () => {
     //     view.setActiveScreen("profilePage")
-    // })
-    document.getElementById("display_username").title = model.currentUser.displayName
-    document.getElementById("display_username").innerText = model.currentUser.displayName
-    if (model.detailUserProfile.photoURL === null) {
-        document.getElementById("display_icon").src = "./img/logo-icon.png"
-    } else {
-        document.getElementById("display_icon").src = model.detailUserProfile.photoURL
-    }
+    // // })
+    // document.getElementById("display_username").title = model.currentUser.displayName
+    // document.getElementById("display_username").innerText = model.currentUser.displayName
+    // if (model.detailUserProfile.photoURL === null) {
+    //     document.getElementById("display_icon").src = "./img/logo-icon.png"
+    // } else {
+    //     document.getElementById("display_icon").src = model.detailUserProfile.photoURL
+    // }
 }
 let slideIndex = 1;
+
 function currentSlide(n) {
     view.showSlides(slideIndex = n);
 }

@@ -253,12 +253,12 @@ component.blogPage = `
             <h4 id="display_username" title=""></h4>
         </div>
         <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+            <button onclick="" class="dropbtn">Dropdown</button>
             <div id="myDropdown" class="dropdown-content">
                 <button id="view-study-sets-button">View study sets</button>
-                <a href="#">Edit Profile</a>
-                <a href="#">Edit List Blog</a>
-                <a href="#">Log out</a>
+                <a href="#" id="editProfile">Edit Profile</a>
+                <a href="#" id="editList">Edit List Blog</a>
+                <a href="#" id="btnLogOut">Log out</a>
             </div>
         </div>
     </div>
@@ -486,19 +486,9 @@ component.learnPage = `
             <h4 id="display_username"></h4>
         </div>
     </div>
-    <label>
-        <input type="checkbox" />
-        <div class="flip-card">
-            <div class="front">
-                <p>Front</p>
-            </div>
-            <div class="back">
-                <p>Back</p>
-                <hr />
-                <p class="click">Click to flip</p>
-            </div>
-        </div>
-    </label>
+    <div id="listStudySet">
+        <div><div id="question"></div><div id="answer"></div></div>
+    </div>
 `
 component.studySetPage = `
 <div id="study-set-container"></div>
