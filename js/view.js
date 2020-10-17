@@ -145,6 +145,12 @@ view.setActiveScreen = async (screenName) => {
                 view.setActiveScreen("createBlogPage")
             })
             await model.getBlogs();
+            const btnView = document.querySelectorAll('.article .content .view')
+            btnView.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    view.setActiveScreen('detailBlogPage')
+                })
+            })
             break;
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
@@ -168,7 +174,6 @@ view.setActiveScreen = async (screenName) => {
                 console.log(file)
                 await model.addNewBlog(data, file)
                 view.setActiveScreen('blogPage')
-                view.addBlog(data.blogText)
             })
             break;
         case "profilePage":
@@ -213,6 +218,10 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".addBtn").addEventListener('click', () => {
                 view.addNewQuizz();
             })
+            document.getElementById("create-button").addEventListener("click", function () {
+                model.addNewStudySet();
+                view.setActiveScreen("blogPage");
+            });
             break;
         case "detailBlogPage":
             document.getElementById("app").innerHTML = component.detailBlogPage;
@@ -226,28 +235,29 @@ view.addNewQuizz = () => {
     const questionContainer = document.createElement('div')
     questionContainer.classList.add("question")
     questionContainer.innerHTML = `
-        <div class="title-question">
-                  <input type="text" placeholder="Enter question">
-                  <h5>question</h5>
-                </div>
-                <div class="answer">
-                  <div class="correct-answer">
-                      <input type="text" placeholder="Enter correct answer">
-                      <h5>correct answer</h5>
-                  </div>
-                  <div class="other">
-                      <input type="text" placeholder="Enter answer">
-                      <h5>incorrect answer</h5>
-                  </div>
-                  <div class="other">
-                      <input type="text" placeholder="Enter answer">
-                      <h5>incorrect answer</h5>
-                  </div>
-                  <div class="other">
-                      <input type="text" placeholder="Enter answer">
-                      <h5>incorrect answer</h5>
-                    </div>
-                    `
+    <div class="title-question">
+        <input class="input-question" type="text" placeholder="Enter question">
+        <h5>question</h5>
+    </div>
+    <div class="answer">
+        <div class="correct-answer">
+            <input class="input-correct-answer" type="text" placeholder="Enter correct answer">
+            <h5>correct answer</h5>
+        </div>
+        <div class="other">
+            <input class="input-incorrect-answer-0" type="text" placeholder="Enter answer">
+            <h5>incorrect answer</h5>
+        </div>
+        <div class="other">
+            <input class="input-incorrect-answer-1" type="text" placeholder="Enter answer">
+            <h5>incorrect answer</h5>
+        </div>
+        <div class="other">
+            <input class="input-incorrect-answer-2" type="text" placeholder="Enter answer">
+            <h5>incorrect answer</h5>
+        </div>
+    </div>
+    `
     elements.appendChild(questionContainer)
 }
 
@@ -327,7 +337,7 @@ view.addBlog = (data, id, imgURL) => {
             <div class="content">
                 <h1 id="blogTitle">${data.title}</h1>
                 <p id="blogDescription">${data.description}</p>
-                <div class="view" id="${id}">view</div>
+                <div class="view" id="${id}">View</div>
             </div>
             <div class="img-article">
                 <img src="${imgURL}" alt=""/>

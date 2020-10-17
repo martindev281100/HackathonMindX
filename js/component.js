@@ -329,35 +329,35 @@ component.addQuizzPage = `
       <div class="main-add-quizz">
           <h1 class="add-title">Create a new study set</h1>
           <div class="title">
-            <input type="text" placeholder="Enter title">
+            <input id="study-set-title" type="text" placeholder="Enter title">
             <h5>Title</h5>
           </div>                   
           <div class="description">
-            <input type="text" placeholder="Enter description">
+            <input id="study-set-description" type="text" placeholder="Enter description">
             <h5>Description</h5>
           </div>
           <hr>
           <div class="list-question">
             <div class="question">
                 <div class="title-question">
-                  <input type="text" placeholder="Enter question">
+                  <input class="input-question" type="text" placeholder="Enter question">
                   <h5>question</h5>
                 </div>
                 <div class="answer">
                   <div class="correct-answer">
-                      <input type="text" placeholder="Enter correct answer">
+                      <input class="input-correct-answer" type="text" placeholder="Enter correct answer">
                       <h5>correct answer</h5>
                   </div>
                   <div class="other">
-                      <input type="text" placeholder="Enter answer">
+                      <input class="input-incorrect-answer-0" type="text" placeholder="Enter answer">
                       <h5>incorrect answer</h5>
                   </div>
                   <div class="other">
-                      <input type="text" placeholder="Enter answer">
+                      <input class="input-incorrect-answer-1" type="text" placeholder="Enter answer">
                       <h5>incorrect answer</h5>
                   </div>
                   <div class="other">
-                      <input type="text" placeholder="Enter answer">
+                      <input class="input-incorrect-answer-2" type="text" placeholder="Enter answer">
                       <h5>incorrect answer</h5>
                   </div>
                 </div>
@@ -366,7 +366,7 @@ component.addQuizzPage = `
           <div class="addBtn">
             <i class="fas fa-plus-circle"></i>
           </div>
-          <button class="createBtn">Create</button>
+          <button id="create-button" class="createBtn">Create</button>
       </div>
 `
 component.newsfeedsPage = `
@@ -443,8 +443,8 @@ component.detailBlogPage = `
 </div>
 </div>
 <div class="main-blog-detail">
-  <h1 class="title-blog-detail">hhhhhhh</h1>
-  <div class="description-blog-detail">sdnsadjkasdkjsabdk</div>
+  <h1 class="title-blog-detail"></h1>
+  <div class="description-blog-detail"></div>
   <div class="time-to-create">10:00:00 am 26/09/2020</div>
   <br><hr>
   <div class="content-blog-detail">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe at dolorum, debitis velit, officia beatae delectus soluta dignissimos temporibus sunt id. Ad, quae aut debitis assumenda dolorum officiis nulla. Sint. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, sequi. Quam, voluptatibus ipsam. Dolores, praesentium corrupti exercitationem aspernatur est alias, explicabo velit veniam impedit necessitatibus, ratione excepturi distinctio cumque deserunt.</div>
