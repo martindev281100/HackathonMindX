@@ -8,7 +8,7 @@
 
  .login-container #login-form,
  .register-container #register-form{
-    width: 450px;
+    width: 30%;
     margin: 0 auto;
     text-align: center;
 }
