@@ -102,7 +102,7 @@ view.setActiveScreen = async (screenName) => {
                 view.setActiveScreen("quizPage")
             })
             await model.getUsers();
-            model.getQuizzes();
+            await model.getQuizzes();
             view.showUserQuizzes();
             model.getDetailProfile();
             document.querySelector(' .navbar .account').addEventListener('click', () => {
@@ -110,6 +110,10 @@ view.setActiveScreen = async (screenName) => {
             })
             document.querySelectorAll(".fixed-test").forEach(test => {
                 test.addEventListener("click", function () {
+                    if (test.id == "testJs") controller.selectQuestion("JavaScript")
+                    else if (test.id == "testJava") controller.selectQuestion("Java")
+                    else if (test.id == "testPython") controller.selectQuestion("Python")
+                    else if (test.id == "testCsharp") controller.selectQuestion("C++")
                     view.setActiveScreen("playQuizPage")
                 })
             })
