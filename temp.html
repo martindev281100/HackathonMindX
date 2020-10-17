@@ -9,20 +9,41 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/homePage.css">
     <link rel="stylesheet" href="./css/blog.css">
+    <link rel="stylesheet" href="./css/quizzPage.css">
     <script src="https://kit.fontawesome.com/d22d9dd2e6.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div>
-        <label for="">Username: </label>
-        <input type="text" value="" id="profile-username" readonly>
-    </div>
-    <div>
-        <label for="">Email: </label>
-        <input type="text" value="" id="profile-email" readonly>
-    </div>
-    <button>Change Password</button>
-    <button>Update profile</button>
+    <div class="navbar">
+        <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+        <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+        <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+        <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+        <div class="search">
+            <input type="text">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="account">
+          <i class="fas fa-user-astronaut"></i>
+          User 00000001
+        </div>
+        <div class="logOut" id="sign-out-button">
+          <i class="fas fa-sign-out-alt">
+          <h4> Log out</h4>
+          </i>
+        </div>
+      </div>
+      <div class="main-quizz">
+        <div id="question">12ssssssssssssssssssssssssssss3</div>
+        <div class="answer-list">
+            <button id="answer0" class="answer">12222</button>
+            <button id="answer1" class="answer">2233</button>
+            <button id="answer2" class="answer">32222</button>
+            <button id="answer3" class="answer">422222</button>
+        </div>
+      </div>
+
+
 </body>
 
 </html>
