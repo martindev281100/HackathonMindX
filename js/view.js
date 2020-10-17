@@ -214,6 +214,9 @@ view.setActiveScreen = async (screenName) => {
                 view.addNewQuizz();
             })
             break;
+        case "detailBlogPage":
+            document.getElementById("app").innerHTML = component.detailBlogPage;
+            displayIconName()
     }
 }
 

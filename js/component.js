@@ -306,20 +306,6 @@ component.profilePage = `
     </div> 
 `
 
-component.changePassword = `
-<div id="change-password-container">
-        <div>
-            <label for="">Current password: </label>
-            <input type="text" value="" id="current-password">
-        </div>
-        <div>
-            <label for="">New password: </label>
-            <input type="text" value="" id="change-password">
-        </div>
-        
-        <button type="submit" id="btn_submitChangePass">Submit</button>
-    </div>`
-
 component.addQuizzPage = `
       <div class="navbar">
         <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
@@ -434,4 +420,33 @@ component.createBlogPage = `
         </div>
     </form>
     <button id="btnCreateBlog">Publish</button>
+`
+
+component.detailBlogPage =`
+<div class="navbar">
+<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+<div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+<div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+<div class="search">
+    <input type="text">
+    <i class="fas fa-search"></i>
+</div>
+<div class="account">
+  <img src="./img/logo-icon.png" alt="" id="display_icon">
+  <h4 id="display_username"></h4>
+</div>
+<div class="logOut" id="sign-out-button">
+  <i class="fas fa-sign-out-alt">
+  <h4> Log out</h4>
+  </i>
+</div>
+</div>
+<div class="main-blog-detail">
+  <h1 class="title-blog-detail">hhhhhhh</h1>
+  <div class="description-blog-detail">sdnsadjkasdkjsabdk</div>
+  <div class="time-to-create">10:00:00 am 26/09/2020</div>
+  <br><hr>
+  <div class="content-blog-detail">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe at dolorum, debitis velit, officia beatae delectus soluta dignissimos temporibus sunt id. Ad, quae aut debitis assumenda dolorum officiis nulla. Sint. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, sequi. Quam, voluptatibus ipsam. Dolores, praesentium corrupti exercitationem aspernatur est alias, explicabo velit veniam impedit necessitatibus, ratione excepturi distinctio cumque deserunt.</div>
+</div>
 `
