@@ -104,6 +104,8 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("blogPage")
             })
+            model.getDetailProfile();
+            console.log(model.currentUser)
             break;
 
         case "quizPage":
