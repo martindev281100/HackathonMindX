@@ -129,3 +129,9 @@ model.getBlogs = async () => {
         view.addBlog(item.blogText)
     }
 }
+
+model.getImage = async () => {
+    await firebase.storage().storage.ref().child('pexels-pixabay-164186.jpg').getDownloadURL().then(function (url) {
+        
+    })
+}
