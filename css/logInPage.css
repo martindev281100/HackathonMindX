@@ -32,6 +32,7 @@
 .login-container .input-wrapper,
 .register-container .input-wrapper{
     margin: 13px;
+    margin-bottom: 20px;
 }
 
 .login-container .input-wrapper:first-child,
@@ -58,6 +59,7 @@
 
 .login-container .forgetPassword{
     color: #fff;
+    margin-top: 35px;
     margin-left: 13px;
     text-align: left;
     cursor: pointer;
@@ -88,7 +90,7 @@
 
 .login-container .input-wrapper .text{
     color: #fff;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .login-container .input-wrapper .btn-social-acc button{
@@ -101,6 +103,7 @@
     font-size: 18px;
     transition: 0.8s;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .login-container .input-wrapper .btn-social-acc #btn_google:hover{
