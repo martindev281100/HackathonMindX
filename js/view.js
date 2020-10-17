@@ -144,7 +144,8 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".blog").addEventListener('click', () => {
                 view.setActiveScreen("createBlogPage")
             })
-            model.getBlogs();
+            await model.getBlogs();
+            await model.getImage();
             break;
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
@@ -323,7 +324,7 @@ view.addBlog = (data) => {
                 <div class="view">view</div>
             </div>
             <div class="img-article">
-                <img src="./img/maxresdefault.jpg" alt="">
+                <img src="./img/maxresdefault.jpg" alt=""/>
             </div>`
     document.getElementById('blogList').appendChild(article)
 }

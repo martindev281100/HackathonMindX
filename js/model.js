@@ -40,6 +40,7 @@ model.login = async ({
 
 model.logInWithGoogle = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
+
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     const response = firebase.auth().signInWithPopup(provider).then(function (result) {
         firebase.firestore().collection("users").doc(result.user.uid).get().then(function (doc) {
@@ -145,7 +146,12 @@ model.getBlogs = async () => {
 }
 
 model.getImage = async () => {
-    await firebase.storage().storage.ref().child('pexels-pixabay-164186.jpg').getDownloadURL().then(function (url) {
-
+    const storage = firebase.storage();
+    const storageRef = storage.ref();
+    const imagesRef = storageRef.child('images')
+    const spaceRef = storageRef.child('images/pexels-lumn-406014.jpg')
+    console.log(document.querySelectorAll('.main-blog .article .img-article img'))
+    await storageRef.child('images/pexels-lumn-406014.jpg').getDownloadURL().then(function (url) {
+        document.querySelector('.main-blog .article .img-article img').src = url
     })
 }
