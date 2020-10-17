@@ -110,6 +110,13 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(' .navbar .account').addEventListener('click', () => {
                 view.setActiveScreen("profilePage")
             })
+
+            document.getElementById("testJs").addEventListener("click", () => {
+                view.setActiveScreen("quizPage")
+            })
+            document.querySelector(".create").addEventListener("click", () => {
+                view.setActiveScreen("addQuizzPage")
+            })
             break;
 
         case "quizPage":
@@ -124,6 +131,9 @@ view.setActiveScreen = async (screenName) => {
             })
             await model.getQuizzes();
             view.showQuizzes();
+            document.querySelector(".create").addEventListener("click", () => {
+                view.setActiveScreen("addQuizzPage")
+            })
             break;
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
@@ -135,7 +145,9 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("userHomePage")
             })
-
+            document.querySelector(".create").addEventListener("click", () => {
+                view.setActiveScreen("addQuizzPage")
+            })
             break;
         case "profilePage":
             document.getElementById("app").innerHTML = component.profilePage;
@@ -151,7 +163,18 @@ view.setActiveScreen = async (screenName) => {
             })
             console.log(model.detailUserProfile)
             break;
+        case "addQuizzPage":
+            document.getElementById("app").innerHTML = component.addQuizzPage;
+            document.querySelector(".addBtn").addEventListener('click', () => {
+
+            })
+            break;
     }
+}
+
+
+view.addNewQuizz = () => {
+
 }
 
 view.setErrorMessage = (elementId, content) => {

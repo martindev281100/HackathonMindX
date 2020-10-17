@@ -43,7 +43,7 @@
 
 
 .main-quizz-option{
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     margin-top: 2rem;
     text-align: center;
@@ -55,52 +55,169 @@
     justify-content: space-around;
 }
 
-.main-quizz-option .list-option .option{
+.main-quizz-option .list-option button{
+    padding: 5rem 3.5rem;
+    outline: 0;
+    border: 0;
+    transition: 0.8s;
     cursor: pointer;
 }
 
-.main-quizz-option .list-option .option.js{
+.main-quizz-option .list-option .optionJs{
     background-color: #f6b93b;
-    padding: 10rem 4.5rem;
-}
-.main-quizz-option .list-option .option.js i:hover{
-    font-size: 10rem;
-    transition: 0.8s;
-    color: #e58e26;
+
 }
 
-.main-quizz-option .list-option .option.java{
+.main-quizz-option .list-option .optionJava{
     background-color: #b71540;
-    padding: 10rem 4.5rem;
-}
-.main-quizz-option .list-option .option.java i:hover{
-    font-size: 10rem;
-    transition: 0.8s;
-    color: #eb2f06;
-}
 
-.main-quizz-option .list-option .option.python{
+}
+.main-quizz-option .list-option .optionPython{
     background-color: #079992;
-    padding: 10rem 4.5rem;
-}
-.main-quizz-option .list-option .option.python i:hover{
-    font-size: 10rem;
-    transition: 0.8s;
-    color: #38ada9;
 }
 
-.main-quizz-option .list-option .option.csharp{
+.main-quizz-option .list-option .optionCsharp{
     background-color: #0c2461;
-    padding: 10rem 4.5rem;
-}
-.main-quizz-option .list-option .option.csharp i:hover{
-    font-size: 10rem;
-    transition: 0.8s;
-    color: #1e3799;
 }
 
-.main-quizz-option .list-option .option i{
+
+.main-quizz-option .list-option button:hover{
+    transition: 0.8s;
+    padding: 5rem 5rem;
+}
+.main-quizz-option .list-option i{
     color: #fff;
     font-size: 7rem;
     transition: 0.8s;
+    margin-bottom: 3rem;
+}
+.main-quizz-option .list-option .learn{
+    margin-bottom: 20px;
+}
+
+.main-quizz-option .list-option .learn,
+.main-quizz-option .list-option .test{
+    padding: 20px;
+    width: 150px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    color: #fff;
+    background-color: transparent;
+}
+
+.main-quizz-option .list-option .learn:hover,
+.main-quizz-option .list-option .test:hover{
+    background-color: #fff;
+    color: #333;
+}
+
+
+.main-add-quizz{
+    width: 90%;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.main-add-quizz h1{
+    padding: 20px 0;
+    color: #10ac84;
+}
+
+.main-add-quizz .title,
+.main-add-quizz .description{
+    margin-bottom: 20px;
+}
+
+.main-add-quizz .title input,
+.main-add-quizz .description input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+    border-bottom: 5px solid #079992;
+    width: 50%;
+    transition: 0.6s;
+    padding: 7px 0;
+}
+
+.main-add-quizz .title input:focus,
+.main-add-quizz .description input:focus{
+    border-bottom: 5px solid #fff200;
+    transition: 0.6s;
+}
+
+.main-add-quizz .title h5,
+.main-add-quizz .description h5,
+.main-add-quizz .question .title-question h5{
+    color: #079992;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+.main-add-quizz .question .title-question {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.main-add-quizz .question .title-question input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+    border-bottom: 5px solid #079992;
+    width: 100%;
+    transition: 0.6s;
+    padding: 7px 0;
+}
+.main-add-quizz .question .title-question input:focus{
+    border-bottom: 5px solid #2f3640;
+    transition: 0.6s;
+}
+
+.main-add-quizz .question .answer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.main-add-quizz .question .answer input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    border-bottom: 5px solid #079992;
+    width: 300px;
+    transition: 0.6s;
+    padding: 7px 0;
+}
+
+.main-add-quizz .question .answer h5{
+    color: #079992;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.main-add-quizz .question .answer .correct-answer input:focus{
+    border-bottom: 5px solid #4cd137;
+    transition: 0.6s;
+}
+
+.main-add-quizz .question .answer .other input:focus{
+    border-bottom: 5px solid #c23616;
+    transition: 0.6s;
+}
+
+.main-add-quizz .addBtn{
+    padding: 10px;
+    font-size: 2rem;
+    color: #079992;
+    cursor: pointer;
 }

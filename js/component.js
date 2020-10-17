@@ -176,10 +176,26 @@ component.userHomePage = `
 <div class="main-quizz-option">
   <h1 class="title-option">Type Of Programming Language</h1>
   <div class="list-option">
-      <div class="option js"><i class="fab fa-js-square"></i></div>
-      <div class="option java"><i class="fab fa-java"></i></div>
-      <div class="option python"><i class="fab fa-python"></i></div>
-      <div class="option csharp"><i class="fas fa-copyright"></i></div>
+      <button class="optionJs">
+        <i class="fab fa-js-square"></i>
+        <div class="learn" id="learnJS">Learn</div>
+        <div class="test" id="testJs">Test</div>
+      </button>
+      <button class="optionJava">
+        <i class="fab fa-java"></i>
+        <div class="learn" id="learnJava">Learn</div>
+        <div class="test" id="testJava">Test</div>
+      </button>
+      <button class="optionPython">
+        <i class="fab fa-python"></i>
+        <div class="learn" id="learnPython">Learn</div>
+        <div class="test" id="testPython">Test</div>
+      </button>
+      <button class="optionCsharp">
+        <i class="fas fa-copyright"></i>
+        <div class="learn" id="learnCsharp">Learn</div>
+        <div class="test" id="testCsharp">Test</div>
+      </button>
   </div>
 </div>
 `;
@@ -305,3 +321,68 @@ component.changePassword = `
         <input type="text" value="" id="change-password">
         <button type="submit" id="btn_submitChangePass">Submit</button>
     </div>`
+
+component.addQuizzPage = `
+      <div class="navbar">
+        <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+        <div class="create"><a href="#">Create<i class="fas fa-folder-plus"></i></a></div>
+        <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+        <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+        <div class="search">
+            <input type="text">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="account">
+          <img src="./img/logo-icon.png" alt="" id="display_icon">
+          <h4 id="display_username"></h4>
+        </div>
+        <div class="logOut" id="sign-out-button">
+          <i class="fas fa-sign-out-alt">
+          <h4> Log out</h4>
+          </i>
+        </div>
+      </div>
+      <div class="main-add-quizz">
+          <h1 class="add-title">Create a new study set</h1>
+          <div class="title">
+            <input type="text" placeholder="Enter title">
+            <h5>Title</h5>
+          </div>                   
+          <div class="description">
+            <input type="text" placeholder="Enter description">
+            <h5>Description</h5>
+          </div>
+          <hr>
+          <div class="list-question">
+            <div class="question">
+                <div class="title-question">
+                  <input type="text" placeholder="Enter question">
+                  <h5>question</h5>
+                </div>
+                <div class="answer">
+                  <div class="correct-answer">
+                      <input type="text" placeholder="Enter correct answer">
+                      <h5>correct answer</h5>
+                  </div>
+                  <div class="other">
+                      <input type="text" placeholder="Enter answer">
+                      <h5>incorrect answer</h5>
+                  </div>
+                  <div class="other">
+                      <input type="text" placeholder="Enter answer">
+                      <h5>incorrect answer</h5>
+                  </div>
+                  <div class="other">
+                      <input type="text" placeholder="Enter answer">
+                      <h5>incorrect answer</h5>
+                  </div>
+                </div>
+            </div>
+            <hr>
+          </div>
+          <div class="addBtn">
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <button>Create</button>
+      </div>
+`
