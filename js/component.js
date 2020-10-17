@@ -197,9 +197,9 @@ component.quizPage = `
         <div class="test fixed-test" id="testCsharp">Test</div>
       </button>
   </div>
-
-
-  <h1 class="title-option">Quizzes From Our Users</h1>
+</div>
+<h1 class="title-option">Quizzes From Our Users</h1>
+<div id="user-quizzes-container" class="main-quizz-option">
   <div class="list-option">
       <button>
         <h1 id="quiz-title">hfdjs</h2>

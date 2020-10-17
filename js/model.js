@@ -1,5 +1,5 @@
 const model = {}
-debugger;
+
 model.currentUser = undefined;
 model.detailUserProfile = undefined;
 model.imageURL = undefined
@@ -204,4 +204,7 @@ model.addNewStudySet = () => {
     firebase.firestore().collection('users').doc(model.currentUser.uid).update(dataToUpdate)
   };
   
-  
+  model.getUsers = async () => {
+    const response = await firebase.firestore().collection('users').get()
+    model.users = getManyDocument(response)
+  }
