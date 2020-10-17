@@ -197,9 +197,9 @@ component.quizPage = `
         <div class="test fixed-test" id="testCsharp">Test</div>
       </button>
   </div>
-
-
-  <h1 class="title-option">Quizzes From Our Users</h1>
+</div>
+<h1 class="title-option">Quizzes From Our Users</h1>
+<div id="user-quizzes-container" class="main-quizz-option">
   <div class="list-option">
       <button>
         <h1 id="quiz-title">hfdjs</h2>
@@ -282,6 +282,7 @@ component.profilePage = `
             <div class="header-info">
                 <h1 class="userName"></h1>
                 <button class="editAccountBtn">Edit profile <i class="fas fa-user-edit"></i></button>
+                <button class="listBlogBtn">Edit list blog <i class="fas fa-clipboard-list"></i></button>
             </div>
         </div> 
         <div class="edit-form">
@@ -313,6 +314,10 @@ component.profilePage = `
             </div>
 
             <button type="submit" id="btn_submitChangePass">Submit</button>
+        </div>
+
+        <div class="list-blog-form">
+          
         </div>
     </div> 
 `

@@ -8,7 +8,7 @@
     height: 350px;
     display: flex;
     margin: 1rem auto;
-    background-color: #dfe6e9;
+    background-color: #f7f1e3;
     padding: 15px;
 } 
 
@@ -87,6 +87,7 @@
     border: 5px solid #1dd1a1;
     border-radius: 6px;  
     font-size: 1rem;   
+    outline: none;
 }
 
 #btnCreateBlog{

@@ -100,8 +100,9 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("quiz-button").addEventListener("click", function () {
                 view.setActiveScreen("quizPage")
             })
+            await model.getUsers();
             model.getQuizzes();
-
+            view.showUserQuizzes();
             model.getDetailProfile();
             document.querySelector(' .navbar .account').addEventListener('click', () => {
                 view.setActiveScreen("profilePage")
@@ -114,7 +115,7 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector(".create").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
-            
+
             break;
 
         case "playQuizPage":
@@ -210,13 +211,28 @@ view.setActiveScreen = async (screenName) => {
 
             document.querySelector(".editAccountBtn").addEventListener('click', () => {
                 document.querySelector(".edit-form").style.display = "block"
+                document.querySelector(".list-blog-form").style.display = "none"
             })
             document.getElementById("btn-close").addEventListener('click', () => {
                 document.querySelector(".edit-form").style.display = "none"
                 document.querySelector("#change-password-container").style.display = "none"
             })
+
+            document.querySelector(".listBlogBtn").addEventListener('click', () => {
+                document.querySelector(".list-blog-form").style.display = "block"
+                document.querySelector(".edit-form").style.display = "none"
+                document.querySelector("#change-password-container").style.display = "none"
+            })
             document.querySelector(".logOut").addEventListener('click', () => {
                 firebase.auth().signOut();
+            })
+            await model.getBlogsTitle();
+            document.querySelectorAll(".article .deleteBtn").forEach(btn => {
+                btn.addEventListener('click', async function (e) {
+                    console.log(e.target.parentNode)
+                    await model.deleteBlog(e.target.id)
+                    e.target.parentNode.remove();
+                })
             })
             break;
         case "addQuizzPage":
@@ -347,7 +363,6 @@ view.showQuizzes = () => {
 }
 
 view.addBlog = (data, id, imgURL) => {
-    let blogList = document.querySelector('.main-blog')
     const article = document.createElement('div')
     article.classList.add("article")
     article.innerHTML = `
@@ -360,4 +375,33 @@ view.addBlog = (data, id, imgURL) => {
                 <img src="${imgURL}" alt=""/>
             </div>`
     document.getElementById('blogList').appendChild(article)
+}
+view.addToList = (data, id) => {
+    const article = document.createElement('div')
+    article.classList.add("article")
+    article.innerHTML = `
+            <h1 class="title-blog">${data.title}</h1>
+            <button class="deleteBtn" id="${id}">Delete</button>`
+    document.querySelector('.list-blog-form').appendChild(article)
+}
+view.showUserQuizzes = () => {
+    const userQuizzesContainer = document.getElementById("user-quizzes-container")
+    userQuizzesContainer.innerHTML = "";
+    model.users.forEach(user => {
+        if (user["study_sets"].length) {
+            user["study_sets"].forEach(studySet => {
+                let quizOption = document.createElement('div');
+                quizOption.classList.add("list-option");
+                quizOption.innerHTML = `
+                <button>
+                    <h1>${studySet.title}</h2>
+                    <h2>by <span>${user.user}</span></h2>
+                    <div class="learn">Learn</div>
+                    <div class="test">Test</div>
+                </button>
+                `
+                userQuizzesContainer.appendChild(quizOption);
+            })
+        }
+    })
 }
