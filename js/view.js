@@ -1,5 +1,4 @@
 const view = {}
-
 view.setActiveScreen = async (screenName) => {
     switch (screenName) {
         case "registerPage":
@@ -150,6 +149,7 @@ view.setActiveScreen = async (screenName) => {
                     view.setActiveScreen('detailBlogPage')
                 })
             })
+
             break;
         case "createBlogPage":
             document.getElementById("app").innerHTML = component.createBlogPage;
@@ -297,16 +297,17 @@ view.setErrorMessage = (elementId, content) => {
 let displayIconName = () => {
     // document.querySelector(' .navbar .account').addEventListener('click', () => {
     //     view.setActiveScreen("profilePage")
-    // })
-    document.getElementById("display_username").title = model.currentUser.displayName
-    document.getElementById("display_username").innerText = model.currentUser.displayName
-    if (model.detailUserProfile.photoURL === null) {
-        document.getElementById("display_icon").src = "./img/logo-icon.png"
-    } else {
-        document.getElementById("display_icon").src = model.detailUserProfile.photoURL
-    }
+    // // })
+    // document.getElementById("display_username").title = model.currentUser.displayName
+    // document.getElementById("display_username").innerText = model.currentUser.displayName
+    // if (model.detailUserProfile.photoURL === null) {
+    //     document.getElementById("display_icon").src = "./img/logo-icon.png"
+    // } else {
+    //     document.getElementById("display_icon").src = model.detailUserProfile.photoURL
+    // }
 }
 let slideIndex = 1;
+
 function currentSlide(n) {
     view.showSlides(slideIndex = n);
 }

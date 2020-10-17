@@ -18,11 +18,7 @@ window.onload = async () => {
                     email: user.email,
                     uid: user.uid,
                 };
-<<<<<<< HEAD
-                view.setActiveScreen('blogPage');
-=======
                 view.setActiveScreen("blogPage");
->>>>>>> 7a913da465f413e74716997f205ec7e0dbfff721
             } else {
                 alert("Please verify your email");
                 firebase.auth().signOut();
@@ -47,23 +43,3 @@ const getOneDocument = (response) => {
     data.id = response.id
     return data
 }
-
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
