@@ -5,6 +5,7 @@ model.detailUserProfile = undefined;
 model.imageURL = undefined;
 model.currentBlog = undefined;
 model.users = undefined;
+
 model.register = async (data) => {
     try {
         const response = await firebase.auth().createUserWithEmailAndPassword(data.email, data.password);
@@ -20,11 +21,7 @@ model.register = async (data) => {
                 question_set: []
             }]
         }
-        await firebase.firestore().collection("users").doc(response.user.uid).set(dataToAdd).then(function () {
-            console.log('ran')
-        }).catch(function (error) {
-            console.log(error.message)
-        })
+        await firebase.firestore().collection("users").doc(response.user.uid).set(dataToAdd)
         firebase.auth().signOut()
     } catch (err) {
         alert(err.message);
@@ -48,7 +45,17 @@ model.logInWithGoogle = () => {
         firebase.firestore().collection("users").doc(result.user.uid).get().then(function (doc) {
             if (doc.exists) {
                 return
-            } else {}
+            } else {
+                const dataToAdd = {
+                    user: data.userName,
+                    email: data.email,
+                    study_set: [{
+                        category: "",
+                        question_set: []
+                    }]
+                }
+                firebase.firestore().collection('users').doc(result.user.uid).set(dataToAdd)
+            }
         })
     }).catch(function (error) {
         alert(error.message)
@@ -65,7 +72,17 @@ model.logInWithFacebook = () => {
         firebase.firestore().collection("users").doc(result.user.uid).get().then(function (doc) {
             if (doc.exists) {
                 return
-            } else {}
+            } else {
+                const dataToAdd = {
+                    user: data.userName,
+                    email: data.email,
+                    study_set: [{
+                        category: "",
+                        question_set: []
+                    }]
+                }
+                firebase.firestore().collection('users').doc(result.user.uid).set(dataToAdd)
+            }
         })
     }).catch(function (error) {
         alert(error.message)
@@ -79,6 +96,7 @@ model.sendPasswordResetEmail = (email) => {
         alert(error)
     })
 }
+
 model.changeProfile = async (userName, email, currentPassword) => {
     let user = firebase.auth().currentUser
     if (model.detailUserProfile.providerId !== "password") {
@@ -103,6 +121,7 @@ model.changeProfile = async (userName, email, currentPassword) => {
         alert(error)
     });
 }
+
 model.changePassword = async (newPassword, currentPassword) => {
     let user = firebase.auth().currentUser
     await model.reauthenticate(currentPassword);
@@ -112,6 +131,7 @@ model.changePassword = async (newPassword, currentPassword) => {
         alert(error)
     })
 }
+
 model.reauthenticate = async (currentPassword) => {
     let user = firebase.auth().currentUser
     const credential = firebase.auth.EmailAuthProvider.credential(
@@ -120,6 +140,7 @@ model.reauthenticate = async (currentPassword) => {
     );
     await user.reauthenticateWithCredential(credential);
 }
+
 model.getDetailProfile = async () => {
     let user = await firebase.auth().currentUser;
     if (user !== null) {
@@ -127,12 +148,6 @@ model.getDetailProfile = async () => {
             model.detailUserProfile = profile
         })
     }
-}
-
-model.getQuizzes = async () => {
-    const response = await firebase.firestore().collection('quizzes').get();
-    controller.quizzes = getManyDocument(response);
-    for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
 }
 
 model.addNewBlog = async (data, file) => {
@@ -143,7 +158,7 @@ model.addNewBlog = async (data, file) => {
 
 model.getBlogs = async () => {
     const response = await firebase.firestore().collection('blogs').get();
-    const data = await getManyDocument(response)
+    const data = getManyDocument(response)
     for (item of data) {
         await model.getImage(item.id)
         view.addBlog(item.blogText, item.id, model.imageURL)
@@ -172,6 +187,10 @@ model.uploadImage = async (file, id) => {
         console.log('Uploaded a blob or file!');
     })
 }
+
+
+
+
 
 model.addNewStudySet = () => {
     const title = document.getElementById("study-set-title").value;
@@ -215,3 +234,12 @@ model.addNewStudySet = () => {
     const response = await firebase.firestore().collection('users').get()
     model.users = getManyDocument(response)
   }
+
+
+
+
+model.getQuizzes = async () => {
+    const response = await firebase.firestore().collection('quizzes').get();
+    controller.quizzes = getManyDocument(response);
+    for (let i = 0; i < controller.quizzes.length; i++) controller.quizzes[i].shown = false;
+}
