@@ -242,6 +242,8 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector('.main-blog-detail .description-blog-detail').innerText = model.currentBlog.blogText.description
             document.querySelector('.main-blog-detail .content-blog-detail').innerText = model.currentBlog.blogText.content
             convertISOString(model.currentBlog.createdAt)
+        case "learnPage":
+            document.getElementById("app").innerHTML = component.learnPage;
     }
 }
 
