@@ -35,3 +35,69 @@
 .main-blog .img-article img{
     width: 100%
 } 
+
+#createBlogForm{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 30px;
+}
+
+#createBlogForm .info-blog{
+    width: 40%;
+}
+#createBlogForm .info-blog .title-blog input,
+#createBlogForm .info-blog .description-blog input{
+    width: 95%;
+    margin: 20px 0;
+    outline: none;
+    padding: 20px;
+    border: 5px solid #1dd1a1;
+    border-radius: 6px;
+    transition: 0.8s;
+}
+
+#createBlogForm .info-blog .title-blog input:focus,
+#createBlogForm .info-blog .description-blog input:focus{
+    border: 5px solid #ee5253;
+    transition: 0.8s;
+}
+
+#createBlogForm .info-blog .title-blog label,
+#createBlogForm .info-blog .description-blog label,
+#createBlogForm .content-blog label{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+}
+
+#createBlogForm .content-blog{
+    width: 60%;
+}
+
+
+#createBlogForm .content-blog textarea{
+    width: 100%;
+    margin: 20px 0;
+    border: 5px solid #1dd1a1;
+    border-radius: 6px;  
+    font-size: 1.25rem;   
+}
+
+#btnCreateBlog{
+    margin-left: 5rem;
+    padding: 20px 50px;
+    border: none;
+    outline: none;
+    background-color: #1dd1a1;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+#btnCreateBlog:hover{
+    background-color: #10ac84;
+    transition: 0.5s;
+}

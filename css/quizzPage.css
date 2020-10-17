@@ -121,6 +121,7 @@
 }
 
 .main-add-quizz h1{
+    font-size: 1.25rem;
     padding: 20px 0;
     color: #10ac84;
 }
@@ -135,7 +136,7 @@
     border: none;
     outline: none;
     background-color: transparent;
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin-bottom: 5px;
     border-bottom: 5px solid #079992;
     width: 50%;
@@ -153,12 +154,17 @@
 .main-add-quizz .description h5,
 .main-add-quizz .question .title-question h5{
     color: #079992;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 10px;
     text-transform: uppercase;
 }
 
+.main-add-quizz .question{
+    background-color: #dfe6e9;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 .main-add-quizz .question .title-question {
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -167,7 +173,7 @@
     border: none;
     outline: none;
     background-color: transparent;
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin-bottom: 5px;
     border-bottom: 5px solid #079992;
     width: 100%;
