@@ -285,11 +285,11 @@ component.profilePage = `
         </div> 
         <div class="edit-form">
             <div id="profile-current-password">
-                <input type="text" value="" id="current-password">
+                <input type="password" value="" id="current-password">
                 <label for="">Current password</label>
             </div>
             <div class="username">
-                <input type="text" value="" id="profile-username">
+                <input type="password" value="" id="profile-username">
                 <label for="">Username</label>
             </div>
             <div class="email">
@@ -303,15 +303,15 @@ component.profilePage = `
         </div>
         <div id="change-password-container">
             <div class="current-password">
-                <input type="text" value="" id="current-password">
+                <input type="password" value="" id="cur-password">
                 <label for="">Current password: </label>
             </div>
             <div class="new-password">
-                <input type="text" value="" id="change-password">
+                <input type="password" value="" id="change-password">
                 <label for="">New password: </label>
             </div>
 
-            <button type="submit" id="btn_submitChangePass">Submit</button>
+            <button type="click" id="btn_submitChangePass">Submit</button>
         </div>
 
         <div class="list-blog-form">
