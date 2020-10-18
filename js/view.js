@@ -102,6 +102,8 @@ view.setActiveScreen = async (screenName) => {
             logOut()
             redirectBlogPage()
             redirectQuizzPage()
+            redirectProfilePage()
+            redirectSetStudyPage()
             break;
 
         case "playQuizPage":
@@ -115,6 +117,8 @@ view.setActiveScreen = async (screenName) => {
             logOut()
             redirectBlogPage()
             redirectQuizzPage()
+            redirectProfilePage()
+            redirectSetStudyPage()
             break;
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
@@ -144,6 +148,8 @@ view.setActiveScreen = async (screenName) => {
             logOut()
             redirectBlogPage()
             redirectQuizzPage()
+            redirectProfilePage()
+            redirectSetStudyPage()
             document.querySelector(".dropbtn").innerText = model.currentUser.displayName
             break;
         case "createBlogPage":
@@ -171,6 +177,8 @@ view.setActiveScreen = async (screenName) => {
             logOut()
             redirectBlogPage()
             redirectQuizzPage()
+            redirectProfilePage()
+            redirectSetStudyPage()
             break;
         case "profilePage":
             document.getElementById("app").innerHTML = component.profilePage;
@@ -240,6 +248,8 @@ view.setActiveScreen = async (screenName) => {
             logOut()
             redirectBlogPage()
             redirectQuizzPage()
+            redirectProfilePage()
+            redirectSetStudyPage()
             break;
         case "detailBlogPage":
             document.getElementById("app").innerHTML = component.detailBlogPage;
@@ -252,6 +262,8 @@ view.setActiveScreen = async (screenName) => {
             logOut()
             redirectBlogPage()
             redirectQuizzPage()
+            redirectProfilePage()
+            redirectSetStudyPage()
             break;
         case "learnPage":
             document.getElementById("app").innerHTML = component.learnPage;
@@ -304,16 +316,22 @@ view.setActiveScreen = async (screenName) => {
             logOut()
             redirectBlogPage()
             redirectQuizzPage()
+            redirectProfilePage()
+            redirectSetStudyPage()
             break;
 
         case "studySetPage":
             document.getElementById("app").innerHTML = component.studySetPage;
             view.showStudySets();
-
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName;
+            logOut()
+            redirectBlogPage()
+            redirectQuizzPage()
+            redirectProfilePage()
+            redirectSetStudyPage()
             break;
         case "editStudySet":
             document.getElementById("app").innerHTML = component.editQuizPage;
-            c
             break;
     }
 }
@@ -565,3 +583,16 @@ let redirectQuizzPage = () => {
         view.setActiveScreen('quizPage')
     })
 }
+
+let redirectProfilePage = () => {
+    document.querySelector('#editProfile').addEventListener('click', () => {
+        view.setActiveScreen('profilePage')
+    })
+}
+
+let redirectSetStudyPage = () => {
+    document.querySelector('#view-study-sets-button').addEventListener('click', () => {
+        view.setActiveScreen('studySetPage')
+    })
+}
+
