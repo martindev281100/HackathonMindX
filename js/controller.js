@@ -47,4 +47,5 @@ controller.selectQuestion = (category) => {
             i--;
         }
     }
+    console.log(model.currentQuestionSet)
 }

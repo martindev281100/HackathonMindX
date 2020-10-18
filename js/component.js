@@ -61,7 +61,7 @@ component.loginPage = `
                 <input type="password" class="form-control" placeholder="Password" name="password" />
                 <div class="error" id="password-error"></div>
             </div>
-            <div class="forgetPassword" id="myBtn">Forget Password ?</div>
+            <div class="forgetPassword" id="myBtn">Forget Password?</div>
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <div class="modal-header">
