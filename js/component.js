@@ -537,5 +537,7 @@ component.studySetPage = `
             </div>
         </div>
     </div>
-<div id="study-set-container"></div>
+<div id="study-set-container">
+    <h1>Select Quizz</h1>
+</div>
 `
