@@ -163,22 +163,22 @@ component.quizPage = `
 <div class="list-option">
     <button class="optionJs">
         <i class="fab fa-js-square"></i>
-        <div class="learn" id="learnJS">Learn</div>
+        <div class="learn fixed-learn" id="learnJS">Learn</div>
         <div class="test fixed-test" id="testJs">Test</div>
     </button>
     <button class="optionJava">
         <i class="fab fa-java"></i>
-        <div class="learn" id="learnJava">Learn</div>
+        <div class="learn fixed-learn" id="learnJava">Learn</div>
         <div class="test fixed-test" id="testJava">Test</div>
     </button>
     <button class="optionPython">
         <i class="fab fa-python"></i>
-        <div class="learn" id="learnPython">Learn</div>
+        <div class="learn fixed-learn" id="learnPython">Learn</div>
         <div class="test fixed-test" id="testPython">Test</div>
     </button>
     <button class="optionCsharp">
         <i class="fas fa-copyright"></i>
-        <div class="learn" id="learnCsharp">Learn</div>
+        <div class="learn fixed-learn" id="learnCsharp">Learn</div>
         <div class="test fixed-test" id="testCsharp">Test</div>
     </button>
 </div>
