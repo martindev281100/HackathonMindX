@@ -513,7 +513,12 @@ component.learnPage = `
         </div>
     </div>
     <div id="listStudySet">
-        <div><div id="question"></div><div id="answer"></div></div>
+        <div class="" id="flashCard">
+            <div id="question"></div>
+            <div id="answer" hidden></div>
+            <button type="button" id="btnPrev">prev</button>
+            <button type="button" id="btnNext">next</button>
+        </div>
     </div>
 `
 component.studySetPage = `
