@@ -267,6 +267,10 @@ view.setActiveScreen = async (screenName) => {
                 if (i === length - 1) {
                     alert('Out of questions')
                 } else {
+                    if (question.hidden == true) {
+                        question.hidden = false;
+                        answer.hidden = true
+                    }
                     i++;
                     question.innerText = model.currentQuestionSet[i].question
                     answer.innerText = model.currentQuestionSet[i].correct_answer
@@ -276,6 +280,10 @@ view.setActiveScreen = async (screenName) => {
                 if (i === 0) {
                     alert('Out of questions')
                 } else {
+                    if (question.hidden == true) {
+                        question.hidden = false;
+                        answer.hidden = true
+                    }
                     i--;
                     question.innerText = model.currentQuestionSet[i].question
                     answer.innerText = model.currentQuestionSet[i].correct_answer

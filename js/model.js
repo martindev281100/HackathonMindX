@@ -141,7 +141,7 @@ model.reauthenticate = async (currentPassword) => {
         user.email,
         currentPassword
     );
-    await user.reauthenticateWithCredential(credential);
+    await user.reauthenticateWithCredential(credential).catch(function(error){alert(error.message)});
 }
 
 model.getDetailProfile = async () => {
