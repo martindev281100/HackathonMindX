@@ -112,7 +112,9 @@ model.changeProfile = async (userName, email, currentPassword) => {
         });
         return
     }
-    await model.reauthenticate(currentPassword)
+    if (email !== firebase.auth().currentUser.email) {
+        await model.reauthenticate(currentPassword)
+    }
     await user.updateEmail(email).then(function () {}).catch(function (error) {
         alert(error)
     });
@@ -141,7 +143,9 @@ model.reauthenticate = async (currentPassword) => {
         user.email,
         currentPassword
     );
-    await user.reauthenticateWithCredential(credential).catch(function(error){alert(error.message)});
+    await user.reauthenticateWithCredential(credential).catch(function (error) {
+        alert(error.message)
+    });
 }
 
 model.getDetailProfile = async () => {
@@ -198,7 +202,6 @@ model.uploadImage = async (file, id) => {
     const storageRef = storage.ref();
     const imagesRef = storageRef.child(id)
     await imagesRef.put(file).then(function (snapshot) {
-        console.log('Uploaded a blob or file!');
     })
 }
 
@@ -266,7 +269,6 @@ model.getQuizzes = async () => {
     for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
 }
 model.updateStudySet = async (studySet) => {
-    console.log(studySet)
     await firebase.firestore().collection('users').doc(model.currentUser.uid).update({
         study_sets: firebase.firestore.FieldValue.arrayRemove(studySet)
     });

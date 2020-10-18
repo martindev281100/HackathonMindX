@@ -289,7 +289,7 @@ component.profilePage = `
                 <label for="">Current password</label>
             </div>
             <div class="username">
-                <input type="password" value="" id="profile-username">
+                <input type="text" value="" id="profile-username">
                 <label for="">Username</label>
             </div>
             <div class="email">
