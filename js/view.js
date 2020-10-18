@@ -249,6 +249,51 @@ view.setActiveScreen = async (screenName) => {
             break;
         case "learnPage":
             document.getElementById("app").innerHTML = component.learnPage;
+            let question = document.getElementById("question")
+            let answer = document.getElementById("answer")
+            let length = model.currentQuestionSet.length
+            let i = 0;
+            let btnPrev = document.getElementById("btnPrev")
+            let btnNext = document.getElementById("btnNext")
+            question.innerText = model.currentQuestionSet[i].question
+            answer.innerText = model.currentQuestionSet[i].correct_answer
+            btnNext.addEventListener('click', function () {
+                if (i === length - 1) {
+                    alert('Out of questions')
+                } else {
+                    i++;
+                    question.innerText = model.currentQuestionSet[i].question
+                    answer.innerText = model.currentQuestionSet[i].correct_answer
+                }
+            })
+            btnPrev.addEventListener('click', function () {
+                if (i === 0) {
+                    alert('Out of questions')
+                } else {
+                    i--;
+                    question.innerText = model.currentQuestionSet[i].question
+                    answer.innerText = model.currentQuestionSet[i].correct_answer
+                }
+            })
+
+            question.addEventListener('click', function () {
+                if (question.hidden == true) {
+                    question.hidden = false;
+                    answer.hidden = true;
+                } else {
+                    question.hidden = true;
+                    answer.hidden = false;
+                }
+            })
+            answer.addEventListener('click', function () {
+                if (question.hidden == true) {
+                    question.hidden = false;
+                    answer.hidden = true;
+                } else {
+                    question.hidden = true;
+                    answer.hidden = false;
+                }
+            })
             break;
 
         case "studySetPage":
@@ -478,6 +523,8 @@ view.showUserQuizzes = () => {
                 `
                 userQuizzesContainer.appendChild(element);
                 document.getElementById(`learn-${user.id}-${i}`).addEventListener("click", function () {
+                    model.currentQuestionSet = user["study_sets"][i]["question_set"]
+                    console.log(model.currentQuestionSet)
                     view.setActiveScreen("learnPage");
                 });
                 document.getElementById(`test-${user.id}-${i}`).addEventListener("click", function () {
