@@ -97,7 +97,7 @@ view.setActiveScreen = async (screenName) => {
             })
             document.querySelectorAll(".fixed-learn").forEach(test => {
                 test.addEventListener("click", function () {
-                    if (test.id == "learnJs") controller.selectQuestion("JavaScript")
+                    if (test.id == "learnJS") controller.selectQuestion("JavaScript")
                     else if (test.id == "learnJava") controller.selectQuestion("Java")
                     else if (test.id == "learnPython") controller.selectQuestion("Python")
                     else if (test.id == "learnCsharp") controller.selectQuestion("C++")
