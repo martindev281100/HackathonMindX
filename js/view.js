@@ -310,6 +310,10 @@ view.setActiveScreen = async (screenName) => {
                     answer.hidden = false;
                 }
             })
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName;
+            logOut()
+            redirectBlogPage()
+            redirectQuizzPage()
             break;
 
         case "studySetPage":
