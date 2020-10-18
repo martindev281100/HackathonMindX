@@ -356,6 +356,7 @@ view.setActiveScreen = async (screenName) => {
 }
 
 view.showStudySet = (studySet) => {
+    console.log(studySet)
     document.getElementById("study-set-title").value = studySet.title
     document.getElementById("study-set-description").value = studySet.description
     const elements = document.querySelector('.list-question')
@@ -398,12 +399,17 @@ view.showStudySet = (studySet) => {
 view.showStudySets = () => {
     for (user of model.users) {
         if (user.email == model.currentUser.email) {
+            //console.log(user["study_sets"])
             for (let i = 0; i < user["study_sets"].length; i++) {
+                let set = user["study_sets"][i]
                 element = document.createElement("button");
                 element.innerHTML = `${user["study_sets"][i].title}`
                 element.addEventListener("click", function () {
+                    console.log(set)
                     view.setActiveScreen("editStudySet")
-                    view.showStudySet(user["study_sets"][i]);
+                    console.log(user["study_sets"][i])
+                    view.showStudySet(set);
+                    //view.showStudySet(user["study_sets"][i]);
                 })
                 document.getElementById("study-set-container").appendChild(element);
             }

@@ -103,8 +103,12 @@ model.changeProfile = async (userName, email, currentPassword) => {
     if (model.detailUserProfile.providerId !== "password") {
         await user.updateProfile({
             displayName: userName
-        }).then(function () {
+        }).then(async function () {
             alert('Profile has been changed!')
+            console.log(model.currentUser.uid)
+            await firebase.firestore().collection('users').doc(model.currentUser.uid).update({
+                user: userName
+            })
             model.currentUser.displayName = userName
             view.setActiveScreen('profilePage')
         }).catch(function (error) {
@@ -120,8 +124,12 @@ model.changeProfile = async (userName, email, currentPassword) => {
     });
     await user.updateProfile({
         displayName: userName
-    }).then(function () {
+    }).then(async function () {
         alert('Profile has been changed!')
+        console.log(model.currentUser.uid)
+        await firebase.firestore().collection('users').doc(model.currentUser.uid).update({
+            user: userName
+        })
     }).catch(function (error) {
         alert(error)
     });
