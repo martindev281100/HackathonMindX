@@ -272,15 +272,6 @@ component.blogPage = `
 component.profilePage = `
 <div class="navbar">
         <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-        <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#" id="view-study-sets-button">View study sets</a>
-                <a href="#" id="editProfile">Edit Profile</a>
-                <a href="#" id="editList">Edit List Blog</a>
-                <a href="#" id="btnLogOut">Log out</a>
-            </div>
-        </div>
     </div>
 
     <div class="main-info">
