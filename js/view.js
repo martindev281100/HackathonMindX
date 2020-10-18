@@ -95,6 +95,15 @@ view.setActiveScreen = async (screenName) => {
                     view.setActiveScreen("playQuizPage")
                 })
             })
+            document.querySelectorAll(".fixed-learn").forEach(test => {
+                test.addEventListener("click", function () {
+                    if (test.id == "learnJs") controller.selectQuestion("JavaScript")
+                    else if (test.id == "learnJava") controller.selectQuestion("Java")
+                    else if (test.id == "learnPython") controller.selectQuestion("Python")
+                    else if (test.id == "learnCsharp") controller.selectQuestion("C++")
+                    view.setActiveScreen("learnPage")
+                })
+            })
             document.getElementById("create-quiz-button").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
@@ -130,7 +139,6 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("view-study-sets-button").addEventListener("click", function () {
                 view.setActiveScreen("studySetPage")
             })
-            console.log(document.getElementById("create-blog-button"))
             document.getElementById("create-blog-button").addEventListener('click', () => {
                 view.setActiveScreen("createBlogPage")
             })
@@ -279,6 +287,10 @@ view.setActiveScreen = async (screenName) => {
                 if (i === length - 1) {
                     alert('Out of questions')
                 } else {
+                    if (question.hidden == true) {
+                        question.hidden = false;
+                        answer.hidden = true
+                    }
                     i++;
                     question.innerText = model.currentQuestionSet[i].question
                     answer.innerText = model.currentQuestionSet[i].correct_answer
@@ -288,6 +300,10 @@ view.setActiveScreen = async (screenName) => {
                 if (i === 0) {
                     alert('Out of questions')
                 } else {
+                    if (question.hidden == true) {
+                        question.hidden = false;
+                        answer.hidden = true
+                    }
                     i--;
                     question.innerText = model.currentQuestionSet[i].question
                     answer.innerText = model.currentQuestionSet[i].correct_answer
@@ -553,7 +569,6 @@ view.showUserQuizzes = () => {
                 userQuizzesContainer.appendChild(element);
                 document.getElementById(`learn-${user.id}-${i}`).addEventListener("click", function () {
                     model.currentQuestionSet = user["study_sets"][i]["question_set"]
-                    console.log(model.currentQuestionSet)
                     view.setActiveScreen("learnPage");
                 });
                 document.getElementById(`test-${user.id}-${i}`).addEventListener("click", function () {
