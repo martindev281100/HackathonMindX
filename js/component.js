@@ -258,7 +258,7 @@ component.blogPage = `
         <div class="createBlog" id="create-blog-button"><a href="#">Create Blog <i class="far fa-plus-square"></i></a>
         </div>
         <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
+            <button onclick="" class="dropbtn"></button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
@@ -447,18 +447,18 @@ component.editQuizPage = `
 
 component.createBlogPage = `
 <div class="navbar">
-        <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-        <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
-        <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-        <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#" id="view-study-sets-button">View study sets</a>
-                <a href="#" id="editProfile">Edit Profile</a>
-                <a href="#" id="editList">Edit List Blog</a>
-                <a href="#" id="btnLogOut">Log out</a>
-            </div>
-        </div>
+<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+<div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+<div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+<div class="dropdown">
+    <button onclick="" class="dropbtn">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="#" id="view-study-sets-button">View study sets</a>
+        <a href="#" id="editProfile">Edit Profile</a>
+        <a href="#" id="editList">Edit List Blog</a>
+        <a href="#" id="btnLogOut">Log out</a>
+    </div>
+</div>
     </div>
     <form id="createBlogForm">
         <div class="info-blog">
