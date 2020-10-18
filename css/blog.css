@@ -101,6 +101,7 @@
     cursor: pointer;
     border-radius: 6px;
     transition: 0.5s;
+    display: block;
 }
 
 #btnCreateBlog:hover{

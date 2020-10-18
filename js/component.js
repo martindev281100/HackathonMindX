@@ -462,15 +462,15 @@ component.createBlogPage = `
             </div>
             <div class="image-blog">
                 <label for="">File: </label>
-                <input type="file" id="inputImage">
+                <input type="file" id="inputImage" required>
             </div>
         </div>
         <div class="content-blog">
             <label for="">Content: </label>
             <textarea id="blogContent" name="blogContent" rows="15" cols="50"></textarea>
         </div>
+            <button id="btnCreateBlog" >Publish</button>
     </form>
-    <button id="btnCreateBlog">Publish</button>
 `
 
 component.detailBlogPage = `

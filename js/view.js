@@ -168,6 +168,9 @@ view.setActiveScreen = async (screenName) => {
                 const description = document.getElementById("blogDescription").value
                 const content = document.getElementById("blogContent").value
                 const createdAt = new Date().toISOString()
+                // if (title === null || title === '') {
+                //     view.setErrorMessage
+                // }
                 const data = {
                     blogText: {
                         title: title,
@@ -510,14 +513,14 @@ view.showQuizzes = () => {
                 check.innerHTML = "Incorrect";
             }
             count++;
-            if (count == model.currentQuestionSet.length) {
+            if (count === model.currentQuestionSet.length) {
                 setTimeout(function () {
                     alert("You get " + points + " out of " + model.currentQuestionSet.length);
                     view.setActiveScreen("quizPage");
                     for (let i = 0; i < model.currentQuestionSet.length; i++) model.currentQuestionSet[i].shown = false;
                     count = 0;
                     points = 0;
-                }, 1000)
+                }, 000)
             } else {
                 setTimeout(function () {
                     check.style.display = "none";
@@ -555,7 +558,8 @@ view.showUserQuizzes = () => {
     const userQuizzesContainer = document.getElementById("user-quizzes-container")
     userQuizzesContainer.innerHTML = "";
     model.users.forEach(user => {
-        if (user["study_sets"].length) {
+        console.log(user["study_sets"])
+        if (user["study_sets"]) {
             for (let i = 0; i < user["study_sets"].length; i++) {
                 let element = document.createElement('button');
                 element.innerHTML = `
@@ -578,6 +582,7 @@ view.showUserQuizzes = () => {
                 });
             }
         }
+
     })
 }
 
@@ -610,4 +615,3 @@ let redirectSetStudyPage = () => {
         view.setActiveScreen('studySetPage')
     })
 }
-

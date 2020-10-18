@@ -166,6 +166,7 @@ model.addNewBlog = async (data, file) => {
 model.getBlogs = async () => {
     const response = await firebase.firestore().collection('blogs').get();
     const data = getManyDocument(response)
+    console.log(data)
     for (item of data) {
         await model.getImage(item.id)
         view.addBlog(item.blogText, item.id, model.imageURL)
@@ -193,6 +194,8 @@ model.getImage = async (id) => {
         const storageRef = storage.ref();
         await storageRef.child(id).getDownloadURL().then(function (url) {
             model.imageURL = url
+        }).catch(function (error) {
+            console.log(error.message)
         })
     }
 }
@@ -201,8 +204,7 @@ model.uploadImage = async (file, id) => {
     const storage = firebase.storage();
     const storageRef = storage.ref();
     const imagesRef = storageRef.child(id)
-    await imagesRef.put(file).then(function (snapshot) {
-    })
+    await imagesRef.put(file).then(function (snapshot) {})
 }
 
 
