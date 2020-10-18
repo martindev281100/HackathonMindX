@@ -148,7 +148,7 @@ component.quizPage = `
 <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
 <div id="create-quiz-button" class="create"><a href="#">Create Quizz<i class="fas fa-folder-plus"></i></a></div>
 <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
+            <button onclick="" class="dropbtn"></button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
@@ -229,7 +229,7 @@ component.playQuizPage = `
   <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
   <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
   <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
+            <button onclick="" class="dropbtn"></button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
@@ -326,7 +326,7 @@ component.addQuizzPage = `
         <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
         <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
         <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
+            <button onclick="" class="dropbtn"></button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
@@ -384,7 +384,7 @@ component.editQuizPage = `
         <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
         <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
         <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
+            <button onclick="" class="dropbtn"></button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
@@ -479,7 +479,7 @@ component.detailBlogPage = `
 <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
 <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
 <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
+            <button onclick="" class="dropbtn"></button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
@@ -502,7 +502,7 @@ component.learnPage = `
         <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
         <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
         <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
+            <button onclick="" class="dropbtn"></button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
