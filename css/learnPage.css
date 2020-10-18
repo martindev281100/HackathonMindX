@@ -53,3 +53,21 @@
 	background-color: #00d2d3;
 	transition: 0.5s;
 }
+
+#study-set-container{
+	width: 80%;
+	margin: 20px auto;
+
+}
+
+#study-set-container button{
+	width: 100%;
+	margin-top: 1rem;
+	display: block;
+	font-size: 1.1rem;
+	padding: 15px;
+	border: none;
+	outline: none;
+	background-color: #10ac84;
+	color: #fff;
+}
