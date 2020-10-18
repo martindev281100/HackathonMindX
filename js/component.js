@@ -163,22 +163,22 @@ component.quizPage = `
 <div class="list-option">
     <button class="optionJs">
         <i class="fab fa-js-square"></i>
-        <div class="learn" id="learnJS">Learn</div>
+        <div class="learn fixed-learn" id="learnJS">Learn</div>
         <div class="test fixed-test" id="testJs">Test</div>
     </button>
     <button class="optionJava">
         <i class="fab fa-java"></i>
-        <div class="learn" id="learnJava">Learn</div>
+        <div class="learn fixed-learn" id="learnJava">Learn</div>
         <div class="test fixed-test" id="testJava">Test</div>
     </button>
     <button class="optionPython">
         <i class="fab fa-python"></i>
-        <div class="learn" id="learnPython">Learn</div>
+        <div class="learn fixed-learn" id="learnPython">Learn</div>
         <div class="test fixed-test" id="testPython">Test</div>
     </button>
     <button class="optionCsharp">
         <i class="fas fa-copyright"></i>
-        <div class="learn" id="learnCsharp">Learn</div>
+        <div class="learn fixed-learn" id="learnCsharp">Learn</div>
         <div class="test fixed-test" id="testCsharp">Test</div>
     </button>
 </div>
@@ -258,7 +258,7 @@ component.blogPage = `
         <div class="createBlog" id="create-blog-button"><a href="#">Create Blog <i class="far fa-plus-square"></i></a>
         </div>
         <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
+            <button onclick="" class="dropbtn"></button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
@@ -442,11 +442,10 @@ component.createBlogPage = `
         <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
         <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
         <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
+            <button onclick="" class="dropbtn"></button>
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
-                
                 <a href="#" id="btnLogOut">Log out</a>
             </div>
         </div>

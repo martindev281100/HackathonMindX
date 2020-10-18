@@ -95,6 +95,15 @@ view.setActiveScreen = async (screenName) => {
                     view.setActiveScreen("playQuizPage")
                 })
             })
+            document.querySelectorAll(".fixed-learn").forEach(test => {
+                test.addEventListener("click", function () {
+                    if (test.id == "learnJs") controller.selectQuestion("JavaScript")
+                    else if (test.id == "learnJava") controller.selectQuestion("Java")
+                    else if (test.id == "learnPython") controller.selectQuestion("Python")
+                    else if (test.id == "learnCsharp") controller.selectQuestion("C++")
+                    view.setActiveScreen("learnPage")
+                })
+            })
             document.getElementById("create-quiz-button").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
@@ -321,7 +330,6 @@ view.setActiveScreen = async (screenName) => {
             break;
         case "editStudySet":
             document.getElementById("app").innerHTML = component.editQuizPage;
-            c
             break;
     }
 }
