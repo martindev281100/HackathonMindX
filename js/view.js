@@ -440,14 +440,14 @@ view.showQuizzes = () => {
     ];
     for (let i = 0; i < 4; i++) {
         let rand = Math.floor(Math.random() * answers.length);
-        document.getElementById("answer" + i).innerHTML = answers[rand];
+        document.getElementById("answer" + i).innerText = answers[rand];
         answers.splice(rand, 1);
     }
     document.querySelectorAll(".answer").forEach(answer => {
         answer.addEventListener("click", function () {
             let check = document.getElementById("check-answer");
             check.style.display = "block";
-            if (answer.innerHTML == model.currentQuestionSet[rand]["correct_answer"]) {
+            if (answer.innerText === model.currentQuestionSet[rand]["correct_answer"]) {
                 check.innerHTML = "Correct";
                 points++;
             } else {
