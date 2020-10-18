@@ -182,7 +182,6 @@ view.setActiveScreen = async (screenName) => {
                 document.getElementById("btn_changePassword").hidden = true;
             }
             document.querySelector('.header-info .userName').innerText = model.currentUser.displayName
-            console.log(model.detailUserProfile.photoURL)
             if (model.detailUserProfile.photoURL !== null || model.detailUserProfile.photoURL !== '') {
                 document.querySelector('.main-info .header .avatar').src = model.detailUserProfile.photoURL
             }
@@ -202,6 +201,9 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById('btn_changePassword').addEventListener('click', () => {
                 document.querySelector(".edit-form").style.display = "none"
                 document.querySelector("#change-password-container").style.display = "block"
+                document.getElementById("btn_submitChangePass").addEventListener('click', async function () {
+                    await model.changePassword(document.getElementById('change-password').value, document.getElementById('cur-password').value)
+                })
             })
 
             document.querySelector(".editAccountBtn").addEventListener('click', () => {

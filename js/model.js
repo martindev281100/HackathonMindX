@@ -182,11 +182,15 @@ model.getCurrentBlog = async (id) => {
 }
 
 model.getImage = async (id) => {
-    const storage = firebase.storage();
-    const storageRef = storage.ref();
-    await storageRef.child(id).getDownloadURL().then(function (url) {
-        model.imageURL = url
-    })
+    if (id === null || id === '') {
+        return
+    } else {
+        const storage = firebase.storage();
+        const storageRef = storage.ref();
+        await storageRef.child(id).getDownloadURL().then(function (url) {
+            model.imageURL = url
+        })
+    }
 }
 
 model.uploadImage = async (file, id) => {
@@ -202,7 +206,7 @@ model.uploadImage = async (file, id) => {
 
 
 
-model.addNewStudySet = async() => {
+model.addNewStudySet = async () => {
     const title = document.getElementById("study-set-title").value;
     const description = document.getElementById("study-set-description").value;
     const questions = Array.from(document.querySelectorAll(".input-question"));
