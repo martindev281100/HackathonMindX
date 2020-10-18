@@ -152,7 +152,7 @@ component.quizPage = `
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
-                <a href="#" id="editList">Edit List Blog</a>
+                
                 <a href="#" id="btnLogOut">Log out</a>
             </div>
         </div>
@@ -233,7 +233,7 @@ component.playQuizPage = `
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
-                <a href="#" id="editList">Edit List Blog</a>
+                
                 <a href="#" id="btnLogOut">Log out</a>
             </div>
         </div>
@@ -262,7 +262,7 @@ component.blogPage = `
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
-                <a href="#" id="editList">Edit List Blog</a>
+                
                 <a href="#" id="btnLogOut">Log out</a>
             </div>
         </div>
@@ -272,15 +272,6 @@ component.blogPage = `
 component.profilePage = `
 <div class="navbar">
         <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-        <div class="dropdown">
-            <button onclick="" class="dropbtn">Dropdown</button>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#" id="view-study-sets-button">View study sets</a>
-                <a href="#" id="editProfile">Edit Profile</a>
-                <a href="#" id="editList">Edit List Blog</a>
-                <a href="#" id="btnLogOut">Log out</a>
-            </div>
-        </div>
     </div>
 
     <div class="main-info">
@@ -339,7 +330,7 @@ component.addQuizzPage = `
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
-                <a href="#" id="editList">Edit List Blog</a>
+                
                 <a href="#" id="btnLogOut">Log out</a>
             </div>
         </div>
@@ -397,7 +388,7 @@ component.editQuizPage = `
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
-                <a href="#" id="editList">Edit List Blog</a>
+                
                 <a href="#" id="btnLogOut">Log out</a>
             </div>
         </div>
@@ -447,18 +438,17 @@ component.editQuizPage = `
 
 component.createBlogPage = `
 <div class="navbar">
-<div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
-<div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
-<div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
-<div class="dropdown">
-    <button onclick="" class="dropbtn">Dropdown</button>
-    <div id="myDropdown" class="dropdown-content">
-        <a href="#" id="view-study-sets-button">View study sets</a>
-        <a href="#" id="editProfile">Edit Profile</a>
-        <a href="#" id="editList">Edit List Blog</a>
-        <a href="#" id="btnLogOut">Log out</a>
-    </div>
-</div>
+        <div class="logo"><a href="index.html">Coding Language For Beginner</a></div>
+        <div class="blog"><a href="#">Blog<i class="far fa-newspaper"></i></a></div>
+        <div class="quizz" id="quiz-button"><a href="#">Quizzes<i class="fas fa-file-alt"></i></a></div>
+        <div class="dropdown">
+            <button onclick="" class="dropbtn"></button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#" id="view-study-sets-button">View study sets</a>
+                <a href="#" id="editProfile">Edit Profile</a>
+                <a href="#" id="btnLogOut">Log out</a>
+            </div>
+        </div>
     </div>
     <form id="createBlogForm">
         <div class="info-blog">
@@ -493,7 +483,7 @@ component.detailBlogPage = `
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
-                <a href="#" id="editList">Edit List Blog</a>
+                
                 <a href="#" id="btnLogOut">Log out</a>
             </div>
         </div>
@@ -516,7 +506,7 @@ component.learnPage = `
             <div id="myDropdown" class="dropdown-content">
                 <a href="#" id="view-study-sets-button">View study sets</a>
                 <a href="#" id="editProfile">Edit Profile</a>
-                <a href="#" id="editList">Edit List Blog</a>
+                
                 <a href="#" id="btnLogOut">Log out</a>
             </div>
         </div>
@@ -525,9 +515,11 @@ component.learnPage = `
         <div class="" id="flashCard">
             <div id="question"></div>
             <div id="answer" hidden></div>
-            <button type="button" id="btnPrev">prev</button>
-            <button type="button" id="btnNext">next</button>
         </div>
+    </div>
+    <div class="listBtn">
+        <button type="button" id="btnPrev"><i class="fas fa-arrow-left"></i> prev</button>
+        <button type="button" id="btnNext">next <i class="fas fa-arrow-right"></i> </button>
     </div>
 `
 component.studySetPage = `

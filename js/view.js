@@ -98,7 +98,10 @@ view.setActiveScreen = async (screenName) => {
             document.getElementById("create-quiz-button").addEventListener("click", () => {
                 view.setActiveScreen("addQuizzPage")
             })
-            document.querySelector(".dropbtn").innerText = model.currentUser.displayName
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName;
+            logOut()
+            redirectBlogPage()
+            redirectQuizzPage()
             break;
 
         case "playQuizPage":
@@ -108,7 +111,10 @@ view.setActiveScreen = async (screenName) => {
                 view.setActiveScreen("blogPage")
             })
             view.showQuizzes();
-            document.querySelector(".dropbtn").innerText = model.currentUser.displayName
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName;
+            logOut()
+            redirectBlogPage()
+            redirectQuizzPage()
             break;
         case "blogPage":
             document.getElementById("app").innerHTML = component.blogPage;
@@ -136,6 +142,8 @@ view.setActiveScreen = async (screenName) => {
                 })
             })
             logOut()
+            redirectBlogPage()
+            redirectQuizzPage()
             document.querySelector(".dropbtn").innerText = model.currentUser.displayName
             break;
         case "createBlogPage":
@@ -159,10 +167,12 @@ view.setActiveScreen = async (screenName) => {
                 await model.addNewBlog(data, file)
                 view.setActiveScreen('blogPage')
             })
-            document.querySelector(".dropbtn").innerText = model.currentUser.displayName
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName;
+            logOut()
+            redirectBlogPage()
+            redirectQuizzPage()
             break;
         case "profilePage":
-            document.querySelector(".dropbtn").innerText = model.currentUser.displayName
             document.getElementById("app").innerHTML = component.profilePage;
             if (model.detailUserProfile.providerId !== "password") {
                 document.getElementById("profile-current-password").hidden = true;
@@ -213,7 +223,6 @@ view.setActiveScreen = async (screenName) => {
                     e.target.parentNode.remove();
                 })
             })
-
             break;
         case "addQuizzPage":
             document.getElementById("app").innerHTML = component.addQuizzPage;
@@ -225,7 +234,10 @@ view.setActiveScreen = async (screenName) => {
                 model.addNewStudySet();
                 view.setActiveScreen("blogPage");
             });
-            document.querySelector(".dropbtn").innerText = model.currentUser.displayName
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName;
+            logOut()
+            redirectBlogPage()
+            redirectQuizzPage()
             break;
         case "detailBlogPage":
             document.getElementById("app").innerHTML = component.detailBlogPage;
@@ -234,6 +246,10 @@ view.setActiveScreen = async (screenName) => {
             document.querySelector('.main-blog-detail .description-blog-detail').innerText = model.currentBlog.blogText.description
             document.querySelector('.main-blog-detail .content-blog-detail').innerText = model.currentBlog.blogText.content
             convertISOString(model.currentBlog.createdAt)
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName;
+            logOut()
+            redirectBlogPage()
+            redirectQuizzPage()
             break;
         case "learnPage":
             document.getElementById("app").innerHTML = component.learnPage;
@@ -282,6 +298,10 @@ view.setActiveScreen = async (screenName) => {
                     answer.hidden = false;
                 }
             })
+            document.querySelector(".dropbtn").innerText = model.currentUser.displayName;
+            logOut()
+            redirectBlogPage()
+            redirectQuizzPage()
             break;
 
         case "studySetPage":
@@ -529,5 +549,17 @@ view.showUserQuizzes = () => {
 let logOut = () => {
     document.getElementById('btnLogOut').addEventListener('click', function () {
         firebase.auth().signOut()
+    })
+}
+
+let redirectBlogPage = () => {
+    document.querySelector('.blog').addEventListener('click', () => {
+        view.setActiveScreen('blogPage')
+    })
+}
+
+let redirectQuizzPage = () => {
+    document.querySelector('.quizz').addEventListener('click', () => {
+        view.setActiveScreen('quizPage')
     })
 }
