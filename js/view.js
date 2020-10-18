@@ -460,6 +460,7 @@ view.addToList = (data, id) => {
             <button class="deleteBtn" id="${id}">Delete</button>`
     document.querySelector('.list-blog-form').appendChild(article)
 }
+
 view.showUserQuizzes = () => {
     const userQuizzesContainer = document.getElementById("user-quizzes-container")
     userQuizzesContainer.innerHTML = "";
